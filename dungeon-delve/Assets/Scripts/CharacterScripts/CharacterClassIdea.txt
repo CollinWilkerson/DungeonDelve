@@ -1,0 +1,20 @@
+Required fields:
+Health
+Damage
+Speed
+Ability, Implemented as a separate component to attack
+IAttack interface, Get component
+
+Required for hero:
+Classes
+
+Attacks come from other characters(damage), after a certain time (speed), characters take damage (health)
+
+Attacks have specific behaviors based on abilities, Like 40% of the enemies
+
+Reciving damage can have a specific behavior based on abilities, damage reduction, thorns
+
+Battle manager fires a tick event after a set amount of time (this can be changed with the ui buttons), 
+all characters advance towards their attack based on their speed stat (1000/speed),
+When a character exceeds their speed, they attack the first member of the oppositions party using an attack interface
+the attacked character calls a damage function
