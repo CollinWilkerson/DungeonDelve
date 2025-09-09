@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class MercenaryController : MonoBehaviour
 {
-    private int health;
-    private int damage;
-    private int speed;
-    private IAttack attackControl;
     public IDefend defenceControl;
+    public bool isHero = true;
+    public int partyOrder = 0;
+
+    private int health = 10;
+    private int damage = 1;
+    private int speed = 1;
+    private int time = 0;
+    private IAttack attackControl;
+
 
     private void Start()
     {
@@ -35,6 +40,22 @@ public class MercenaryController : MonoBehaviour
         //sets up the defence so that it can give damage to the player
         defenceControl.Initialize(this);
     }
+    public void Tick()
+    {
+        time++;
+        if (time > 1000 / speed)
+        {
+            Debug.Log(gameObject.name + " Attacks for " + damage);
+            if (isHero)
+            {
+                attackControl.Attack(MonsterEncounter.GetEnemyTarget(), damage);
+            }
+            else
+            {
+                attackControl.Attack(MonsterEncounter.GetHeroTarget(), damage);
+            }
+        }
+    }
 
     /// <summary>
     /// Damages the player and handles their death, only to be called by defenceControl
@@ -42,6 +63,7 @@ public class MercenaryController : MonoBehaviour
     /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
+        Debug.Log(gameObject.name + " takes " +  damage + " damage");
         health -= damage;
         if (health <= 0)
         {
