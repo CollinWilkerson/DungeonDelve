@@ -817,6 +817,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHero: 0
   partyOrder: 0
+  health: 10
+  damage: 1
+  speed: 1
 --- !u!4 &570106517
 Transform:
   m_ObjectHideFlags: 0
@@ -1334,6 +1337,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHero: 1
   partyOrder: 0
+  health: 10
+  damage: 1
+  speed: 2
 --- !u!4 &726864342
 Transform:
   m_ObjectHideFlags: 0
@@ -2432,7 +2438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c52a04d7e9b6941b3da8206cfb0da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TickSpeed: 0.1
+  TickSpeed: 0.01
 --- !u!4 &1889398607
 Transform:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MonsterEncounter : MonoBehaviour
@@ -69,5 +69,29 @@ public class MonsterEncounter : MonoBehaviour
                 return controller;
         }
         return null;
+    }
+
+    public static void QuereyWin(MercenaryController deadMonster)
+    {
+        EnemyMercs[deadMonster.partyOrder] = null;
+        foreach (MercenaryController mercenary in EnemyMercs)
+        {
+            if (mercenary)
+                return;
+        }
+        Debug.Log("Hero Win");
+        SceneManager.LoadScene("EncounterWin");
+    }
+
+    public static void QuereyLoss(MercenaryController deadHero)
+    {
+        HeroMercs[deadHero.partyOrder] = null;
+        foreach (MercenaryController mercenary in HeroMercs)
+        {
+            if (mercenary)
+                return;
+        }
+        Debug.Log("Monster Win");
+        SceneManager.LoadScene("EncounterLoss");
     }
 }

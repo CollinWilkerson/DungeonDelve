@@ -72,6 +72,14 @@ public class MercenaryController : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log(gameObject.name + " has died");
+            if (isHero)
+            {
+                MonsterEncounter.QuereyLoss(this);
+            }
+            else
+            {
+                MonsterEncounter.QuereyWin(this);
+            }
         }
     }
 }
