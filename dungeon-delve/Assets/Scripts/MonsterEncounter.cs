@@ -19,10 +19,12 @@ public class MonsterEncounter : MonoBehaviour
         {
             if (mercenary.isHero)
             {
+                Debug.Log("FoundHero");
                 HeroMercs[mercenary.partyOrder] = mercenary;
             }
             else
             {
+                Debug.Log("FoundEnemy");
                 EnemyMercs[mercenary.partyOrder] = mercenary;
             }
         }
@@ -32,15 +34,21 @@ public class MonsterEncounter : MonoBehaviour
 
     private IEnumerator Tick()
     {
-        foreach (MercenaryController controller in HeroMercs)
+        while (true)
         {
-            controller.Tick();
+            Debug.Log("Tick");
+            foreach (MercenaryController controller in HeroMercs)
+            {
+                if (controller)
+                    controller.Tick();
+            }
+            foreach (MercenaryController controller in EnemyMercs)
+            {
+                if (controller)
+                    controller.Tick();
+            }
+            yield return new WaitForSeconds(TickSpeed);
         }
-        foreach (MercenaryController controller in EnemyMercs)
-        {
-            controller.Tick();
-        }
-        yield return new WaitForSeconds(TickSpeed);
     }
 
     public static MercenaryController GetEnemyTarget()

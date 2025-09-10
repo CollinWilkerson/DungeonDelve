@@ -6,9 +6,9 @@ public class MercenaryController : MonoBehaviour
     public bool isHero = true;
     public int partyOrder = 0;
 
-    private int health = 10;
-    private int damage = 1;
-    private int speed = 1;
+    [SerializeField] private int health = 10;
+    [SerializeField] private int damage = 1;
+    [SerializeField] private int speed = 1;
     private int time = 0;
     private IAttack attackControl;
 
@@ -43,17 +43,21 @@ public class MercenaryController : MonoBehaviour
     public void Tick()
     {
         time++;
-        if (time > 1000 / speed)
+        if (time > 100 / speed)
         {
+            MercenaryController target;
             Debug.Log(gameObject.name + " Attacks for " + damage);
             if (isHero)
             {
-                attackControl.Attack(MonsterEncounter.GetEnemyTarget(), damage);
+                target = MonsterEncounter.GetEnemyTarget();
+
             }
             else
             {
-                attackControl.Attack(MonsterEncounter.GetHeroTarget(), damage);
+                target = MonsterEncounter.GetHeroTarget();
             }
+            attackControl.Attack(target, damage);
+            time = 0;
         }
     }
 
