@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 
 public class MercenaryController : MonoBehaviour
 {
@@ -8,25 +7,26 @@ public class MercenaryController : MonoBehaviour
     public int partyOrder = 0;
 
     [SerializeField] private int maxHealth = 10;
-    private int health;
+    public int health;
     [SerializeField] private int damage = 1;
     [SerializeField] private int speed = 1;
-    [SerializeField] private TextMeshProUGUI healthBar;
     private int time = 0;
+    private StatDisplay statDisplay;
     private IAttack attackControl;
 
+    private void Awake()
+    {
+        //set up healthbar
+        statDisplay = GetComponentInChildren<StatDisplay>();
+        if (!isHero)
+        {
+            health = maxHealth;
+        }
+        statDisplay.SetHealthbar(maxHealth);
+    }
 
     private void Start()
     {
-        //RANDOMS FOR SHOWCASE PURPOUSES
-        maxHealth = Random.Range(10, 20);
-        speed = Random.Range(1, 3);
-        damage = Random.Range(1, 3);
-
-        //THIS WILL CAUSE PROBLEMS WITH PERSISTANT HEALTH LATER
-        health = maxHealth;
-        UpdateHealthbar();
-
         //ensures the character is using the propper attackControl, creates a default if there is none
         if (gameObject.GetComponent<IAttack>() == null)
         {
@@ -54,8 +54,10 @@ public class MercenaryController : MonoBehaviour
     }
     public void Tick()
     {
-        time++;
-        if (time > 100 / speed)
+        time += speed;
+        if(statDisplay)
+            statDisplay.UpdateSpeedBar(time);
+        if (time > 100)
         {
             MercenaryController target;
             Debug.Log(gameObject.name + " Attacks for " + damage);
@@ -80,8 +82,8 @@ public class MercenaryController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Debug.Log(gameObject.name + " takes " +  damage + " damage");
-        health -= damage;
-        UpdateHealthbar();
+        health = Mathf.Clamp(health-damage, 0, maxHealth);
+        statDisplay.UpdateHealthbar(health);
         if (health <= 0)
         {
             Debug.Log(gameObject.name + " has died");
@@ -96,8 +98,20 @@ public class MercenaryController : MonoBehaviour
         }
     }
 
-    private void UpdateHealthbar()
+    public void InitailizeHero()
     {
-        healthBar.text = health + "/" + maxHealth;
+        health = MercObject.Party[0].GetHealth();
+        if (health == -99)
+        {
+            Heal(int.MaxValue);
+            return;
+        }
+        statDisplay.UpdateHealthbar(health);
+    }
+
+    public void Heal(int amount)
+    {
+        health = Mathf.Clamp(health + amount, 0, maxHealth);
+        statDisplay.UpdateHealthbar(health);
     }
 }

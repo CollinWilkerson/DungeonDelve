@@ -13,6 +13,7 @@ public class TransitionMenu : MonoBehaviour
 
     public void Retreat()
     {
+        MercObject.ClearParty();
         //REPLACE WITH TAVERN SCENE
         SceneManager.LoadScene("MonsterEncounter");
     }
