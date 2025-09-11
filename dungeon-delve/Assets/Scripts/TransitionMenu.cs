@@ -10,4 +10,10 @@ public class TransitionMenu : MonoBehaviour
         //selects a random valid encounter scene and loads it, this may need to be adjusted for balance
         SceneManager.LoadScene(EncounterScenes[Random.Range(0, EncounterScenes.Length)]);
     }
+
+    public void Retreat()
+    {
+        //REPLACE WITH TAVERN SCENE
+        SceneManager.LoadScene("MonsterEncounter");
+    }
 }

@@ -94,4 +94,14 @@ public class MonsterEncounter : MonoBehaviour
         Debug.Log("Monster Win");
         SceneManager.LoadScene("EncounterLoss");
     }
+
+    public void fastForward()
+    {
+        TickSpeed = TickSpeed / 2;
+    }
+
+    public void skipFight()
+    {
+        TickSpeed = 0f;
+    }
 }

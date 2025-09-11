@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class MercenaryController : MonoBehaviour
 {
@@ -6,15 +7,26 @@ public class MercenaryController : MonoBehaviour
     public bool isHero = true;
     public int partyOrder = 0;
 
-    [SerializeField] private int health = 10;
+    [SerializeField] private int maxHealth = 10;
+    private int health;
     [SerializeField] private int damage = 1;
     [SerializeField] private int speed = 1;
+    [SerializeField] private TextMeshProUGUI healthBar;
     private int time = 0;
     private IAttack attackControl;
 
 
     private void Start()
     {
+        //RANDOMS FOR SHOWCASE PURPOUSES
+        maxHealth = Random.Range(10, 20);
+        speed = Random.Range(1, 3);
+        damage = Random.Range(1, 3);
+
+        //THIS WILL CAUSE PROBLEMS WITH PERSISTANT HEALTH LATER
+        health = maxHealth;
+        UpdateHealthbar();
+
         //ensures the character is using the propper attackControl, creates a default if there is none
         if (gameObject.GetComponent<IAttack>() == null)
         {
@@ -69,6 +81,7 @@ public class MercenaryController : MonoBehaviour
     {
         Debug.Log(gameObject.name + " takes " +  damage + " damage");
         health -= damage;
+        UpdateHealthbar();
         if (health <= 0)
         {
             Debug.Log(gameObject.name + " has died");
@@ -81,5 +94,10 @@ public class MercenaryController : MonoBehaviour
                 MonsterEncounter.QuereyWin(this);
             }
         }
+    }
+
+    private void UpdateHealthbar()
+    {
+        healthBar.text = health + "/" + maxHealth;
     }
 }
