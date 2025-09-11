@@ -1,2 +1,2 @@
 # Dungeon Delve
-**PLAY AT: ** https://collinwilkerson.github.io/DungeonDelve/
+**PLAY AT:** https://collinwilkerson.github.io/DungeonDelve/
