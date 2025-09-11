@@ -49,8 +49,16 @@ PrefabInstance:
       value: Hero
       objectReference: {fileID: 0}
     - target: {fileID: 5384674904413141920, guid: 672b144b9b856344ebe91d013174b5a5, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384674904413141920, guid: 672b144b9b856344ebe91d013174b5a5, type: 3}
+      propertyPath: goldValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384674904413141920, guid: 672b144b9b856344ebe91d013174b5a5, type: 3}
       propertyPath: maxHealth
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6791419240440664022, guid: 672b144b9b856344ebe91d013174b5a5, type: 3}
       propertyPath: m_Pivot.x
