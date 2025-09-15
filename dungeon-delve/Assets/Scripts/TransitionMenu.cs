@@ -10,8 +10,10 @@ public class TransitionMenu : MonoBehaviour
 
     private void Start()
     {
-        if(goldText)
+        if (goldText)
+        {
             StartCoroutine(MoveGold());
+        }
     }
 
     public void Advance()
