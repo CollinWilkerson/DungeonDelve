@@ -10,6 +10,8 @@ public class MercenaryController : MonoBehaviour
     public int health;
     [SerializeField] private int damage = 1;
     [SerializeField] private int speed = 1;
+    [SerializeField] private int goldValue = 1;
+
     private int time = 0;
     private StatDisplay statDisplay;
     private IAttack attackControl;
@@ -93,6 +95,7 @@ public class MercenaryController : MonoBehaviour
             }
             else
             {
+                PlayerData.AddTempGold(goldValue);
                 MonsterEncounter.QuereyWin(this);
             }
         }

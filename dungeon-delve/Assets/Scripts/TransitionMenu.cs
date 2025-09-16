@@ -1,9 +1,20 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class TransitionMenu : MonoBehaviour
 {
     [SerializeField] private string[] EncounterScenes = { "MonsterEncounter" };
+    [SerializeField] private TextMeshProUGUI goldText;
+
+    private void Start()
+    {
+        if (goldText)
+        {
+            StartCoroutine(MoveGold());
+        }
+    }
 
     public void Advance()
     {
@@ -16,5 +27,23 @@ public class TransitionMenu : MonoBehaviour
         MercObject.ClearParty();
         //REPLACE WITH TAVERN SCENE
         SceneManager.LoadScene("MonsterEncounter");
+    }
+
+    private IEnumerator MoveGold()
+    {
+        
+        int oldGold = PlayerData.GetGold();
+        PlayerData.AddGold();
+        int newGold = PlayerData.GetGold();
+        goldText.text = oldGold + " + " + (newGold - oldGold) + " G";
+        yield return new WaitForSeconds(1f);
+        while (oldGold < newGold)
+        {
+            oldGold += 1;
+            goldText.text = oldGold + " + " + (newGold - oldGold) + " G";
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        goldText.text = oldGold + " G";
     }
 }
