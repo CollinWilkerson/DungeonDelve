@@ -18,6 +18,7 @@ public class MonsterEncounter : MonoBehaviour
         HeroMercs = new MercenaryController[4];
         EnemyMercs = new MercenaryController[4];
 
+        //for debuging, spawns a hero in an empty party
         if(MercObject.Party[0] == null)
         {
             Debug.Log("no hero in party, Drafting human");
@@ -49,8 +50,10 @@ public class MonsterEncounter : MonoBehaviour
         }
     }
 
+    //for one hero for now, NEEDS UPDATED
     private void SpawnHero()
     {
+        //instantiates a ahero from a resorces location, has a set filepath
         MercenaryController tempHero = Instantiate(Resources.Load<GameObject>(
             MercObject.Party[0].filePath),heroFrontline).GetComponentInChildren<MercenaryController>();
         HeroMercs[0] = tempHero;
