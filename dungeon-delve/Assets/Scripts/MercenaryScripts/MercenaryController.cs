@@ -101,6 +101,9 @@ public class MercenaryController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// copies the heroes health from the object and sets up healthbars
+    /// </summary>
     public void InitailizeHero()
     {
         health = MercObject.Party[0].GetHealth();
