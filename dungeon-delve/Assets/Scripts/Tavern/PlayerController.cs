@@ -1,8 +1,8 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//A LARGE PORTION OF THIS CONTROLLER ORIGINALLY COMES FROM SPENCER GALLOLN, I TAKE NO CREDIT FOR HIS WORK: https://github.com/CollinWilkerson/SciFiFarming/blob/Multiplayer/SciFiFarming/Assets/Scripts/PlayerController.cs
+//A LARGE PORTION OF THIS CONTROLLER ORIGINALLY COMES FROM SPENCER GALLON, I TAKE NO CREDIT FOR HIS WORK: https://github.com/CollinWilkerson/SciFiFarming/blob/Multiplayer/SciFiFarming/Assets/Scripts/PlayerController.cs
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
@@ -43,12 +43,18 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("NO CAMERA ON PLAYER!");
         }
 
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     private void Update()
     {
-        HandleMovement();
-        HandleLook();
+
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            HandleMovement();
+            HandleLook();
+        }
 
         if (Physics.Raycast(transform.position, Vector3.down, groundedCheckDistance) && jumpAction.IsPressed())
         {

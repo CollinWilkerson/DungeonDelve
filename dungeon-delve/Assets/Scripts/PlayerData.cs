@@ -26,4 +26,9 @@ public class PlayerData
     {
         return gold;
     }
+
+    public static void SpendGold(int goldToSpend)
+    {
+        gold -= goldToSpend;
+    }
 }

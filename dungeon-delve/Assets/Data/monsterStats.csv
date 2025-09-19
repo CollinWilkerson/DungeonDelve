@@ -1,0 +1,32 @@
+Name,Health,Damage,Speed,Gold,Treasure
+Goblin,8,2,2,2,1
+Slime,12,1,1,2,1
+Skeleton,4,1,3,2,1
+Cultist,10,2,1,4,1
+Kobald,6,2,3,4,1
+Giant enemy spider,10,1,2,4,1
+Camazotz,4,1,4,4,1
+Tulikettu,4,1,5,5,3
+Draugr,12,2,1,2,2
+Kishi,24,4,4,12,1
+Vetala,30,4,2,12,1
+Adarna,20,2,6,10,1
+Amarok,27,3,5,14,1
+Worg,24,5,3,12,1
+Kelpie,20,5,4,16,1
+Mothman,25,2,6,14,1
+Tengu,20,1,10,10,2
+Ogre,30,8,2,10,2
+Basilisk,30,8,6,20,1
+Saratan,60,5,2,30,1
+Sigbin,40,6,4,30,1
+Dungavenhooter,50,15,2,25,1
+Cu sìth,30,5,8,27,1
+Minotaur,50,5,2,25,1
+Jorogumo,40,5,3,25,1
+Vucub Caquix,30,8,6,25,1
+Butcher hound,30,10,5,25,1
+Raum,50,8,40,,
+Bakunawa,200,20,8,,
+Orochi,160,5,4,,
+Behemoth,400,20,2,,
