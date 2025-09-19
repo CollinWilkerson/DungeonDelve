@@ -1,16 +1,35 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
+using TMPro;
 
 public class InteractionCheck : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI toolTip;
 
+    [Header("Check Variables")]
     [SerializeField] private float angle;
     [SerializeField] private float radius;
     [SerializeField] private LayerMask targetMask;
 
+    private Transform activeInteractible;
+    private InputAction interactAction;
+
     private void Start()
     {
+        interactAction = InputSystem.actions.FindAction("Interact");
+
+        toolTip.gameObject.SetActive(false);
+
         StartCoroutine(FOVRoutine());
+    }
+
+    private void Update()
+    {
+        if (interactAction.triggered && activeInteractible)
+        {
+            activeInteractible.GetComponent<IInteractable>().Interact();
+        }
     }
 
     private IEnumerator FOVRoutine()
@@ -55,8 +74,21 @@ public class InteractionCheck : MonoBehaviour
             //the angle is halved because half of the angle is to the left and half is to the right
             if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
             {
+                toolTip.gameObject.SetActive(true);
                 //some thing that allows the player to interact with this closest object
+                activeInteractible = target;
+            }
+            else
+            {
+                toolTip.gameObject.SetActive(false);
+                activeInteractible = null;
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

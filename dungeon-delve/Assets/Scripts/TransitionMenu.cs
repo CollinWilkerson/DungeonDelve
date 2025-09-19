@@ -26,7 +26,7 @@ public class TransitionMenu : MonoBehaviour
     {
         MercObject.ClearParty();
         //REPLACE WITH TAVERN SCENE
-        SceneManager.LoadScene("MonsterEncounter");
+        SceneManager.LoadScene("Tavern");
     }
 
     private IEnumerator MoveGold()

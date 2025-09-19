@@ -43,12 +43,18 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("NO CAMERA ON PLAYER!");
         }
 
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     private void Update()
     {
-        HandleMovement();
-        HandleLook();
+
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            HandleMovement();
+            HandleLook();
+        }
 
         if (Physics.Raycast(transform.position, Vector3.down, groundedCheckDistance) && jumpAction.IsPressed())
         {
