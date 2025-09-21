@@ -1,16 +1,19 @@
 using UnityEngine;
+using System;
+using System.IO;
 
 public class MercenaryController : MonoBehaviour
 {
     public IDefend defenceControl;
     public bool isHero = true;
-    public int partyOrder = 0;
+    [HideInInspector] public int partyOrder = 0;
 
-    [SerializeField] private int maxHealth = 10;
-    public int health;
-    [SerializeField] private int damage = 1;
-    [SerializeField] private int speed = 1;
-    [SerializeField] private int goldValue = 1;
+    [SerializeField] private int index = 1;
+    private int maxHealth = 10;
+    [HideInInspector] public int health;
+    private int damage = 1;
+    private int speed = 1;
+    private int goldValue = 1;
 
     private int time = 0;
     private StatDisplay statDisplay;
@@ -20,9 +23,23 @@ public class MercenaryController : MonoBehaviour
     {
         //set up healthbar
         statDisplay = GetComponentInChildren<StatDisplay>();
-        if (!isHero)
+        if (!isHero) //setup monster from different csv
         {
+            string[] values = File.ReadAllLines(
+                "Assets/Data/monsterStats.csv")[index].Split(',');
+            maxHealth = Int32.Parse(values[1]);
+            damage = Int32.Parse(values[2]);
+            speed = Int32.Parse(values[3]);
+            goldValue = Int32.Parse(values[4]);
             health = maxHealth;
+        }
+        else //setup hero from csv
+        {
+            string[] values = File.ReadAllLines(
+                "Assets/Data/heroStats.csv")[index].Split(',');
+            maxHealth = Int32.Parse(values[1]);
+            damage = Int32.Parse(values[2]);
+            speed = Int32.Parse(values[3]);
         }
         statDisplay.SetHealthbar(maxHealth);
     }
