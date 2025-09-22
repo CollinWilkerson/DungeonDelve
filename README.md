@@ -1,3 +1,3 @@
 # Dungeon Delve
 
-Download the ZIP to play!
+right now the game can only be played in the editor.
