@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Tavern.unity
+    guid: de9fa612cf8685a4197e20b14e1dfbe1
+  - enabled: 1
     path: Assets/Scenes/MonsterEncounter.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
@@ -14,8 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EncounterLoss.unity
     guid: 5d274af1574d0b04087f9b198845a236
-  - enabled: 1
-    path: Assets/Scenes/Tavern.unity
+  - enabled: 0
+    path: Assets/Scenes/Tavern-old.unity
     guid: 76c1d524e2ccbde45924a29dc2dde3d8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0f4e43bbbb8ab404bafee5c47940fa41, type: 2}
