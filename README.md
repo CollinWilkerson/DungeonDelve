@@ -1,2 +1,3 @@
 # Dungeon Delve
-**PLAY AT:** https://collinwilkerson.github.io/DungeonDelve/
+
+right now the game can only be played in the editor.
