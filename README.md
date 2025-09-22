@@ -1,2 +1,3 @@
 # Dungeon Delve
-**PLAY AT:** https://collinwilkerson.github.io/DungeonDelve/
+
+Download the ZIP to play!
