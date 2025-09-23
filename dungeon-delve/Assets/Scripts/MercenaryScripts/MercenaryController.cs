@@ -26,7 +26,7 @@ public class MercenaryController : MonoBehaviour
         if (!isHero) //setup monster from different csv
         {
             string[] values = File.ReadAllLines(
-                "Assets/Data/monsterStats.csv")[index].Split(',');
+                "Assets/Resources/Data/monsterStats.csv")[index].Split(',');
             maxHealth = Int32.Parse(values[1]);
             damage = Int32.Parse(values[2]);
             speed = Int32.Parse(values[3]);
@@ -36,7 +36,7 @@ public class MercenaryController : MonoBehaviour
         else //setup hero from csv
         {
             string[] values = File.ReadAllLines(
-                "Assets/Data/heroStats.csv")[index].Split(',');
+                "Assets/Resources/Data/heroStats.csv")[index].Split(',');
             maxHealth = Int32.Parse(values[1]);
             damage = Int32.Parse(values[2]);
             speed = Int32.Parse(values[3]);

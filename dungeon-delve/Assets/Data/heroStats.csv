@@ -1,4 +1,0 @@
-Class,Health,Damage,Speed,AbilityText,FlavorText,Cost,Filepath
-Warrior,6,1,2,,Anyone With a sword can do something,5,HumanHeroes/HumanWarrior
-Ranger,4,2,3,,Just be glad he can hit things,5,HumanHeroes/HumanRanger
-Mage,4,4,1,,Incredible that your guild attracts people who can read,5,HumanHeroes/HumanMage
