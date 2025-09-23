@@ -121,15 +121,16 @@ public class MercenaryController : MonoBehaviour
     /// <summary>
     /// copies the heroes health from the object and sets up healthbars
     /// </summary>
-    public void InitailizeHero()
+    public void InitailizeHero(int _partyOrder)
     {
-        health = MercObject.Party[0].GetHealth();
+        health = MercObject.Party[_partyOrder].GetHealth();
         if (health == -99)
         {
             Heal(int.MaxValue);
             return;
         }
         statDisplay.UpdateHealthbar(health);
+        partyOrder = _partyOrder;
     }
 
     public void Heal(int amount)

@@ -7,6 +7,7 @@ public class MonsterEncounter : MonoBehaviour
     [SerializeField] private float TickSpeed;
     [SerializeField] private Transform monsterFrontline;
     [SerializeField] private Transform heroFrontline;
+    [SerializeField] private Transform heroBackline;
 
     private static MercenaryController[] HeroMercs;
     private static MercenaryController[] EnemyMercs;
@@ -57,8 +58,19 @@ public class MonsterEncounter : MonoBehaviour
         MercenaryController tempHero = Instantiate(Resources.Load<GameObject>(
             MercObject.Party[0].filePath),heroFrontline).GetComponentInChildren<MercenaryController>();
         HeroMercs[0] = tempHero;
-        tempHero.InitailizeHero();
+        tempHero.InitailizeHero(0);
 
+        
+        for(int i = 1; i < MercObject.Party.Length; i++)
+        {
+            if (MercObject.Party[i] != null)
+            {
+                tempHero = Instantiate(Resources.Load<GameObject>(
+                    MercObject.Party[i].filePath), heroBackline).GetComponentInChildren<MercenaryController>();
+                HeroMercs[i] = tempHero;
+                tempHero.InitailizeHero(i);
+            }
+        }
     }
 
     //spawns one level 1 monster
@@ -104,7 +116,33 @@ public class MonsterEncounter : MonoBehaviour
                 return;
         }
         Debug.Log("Hero Win");
-        MercObject.Party[0].UpdateHealth(HeroMercs[0].health);
+        
+        //updates the health for every existing merc
+        for (int i = 0; i < MercObject.Party.Length; i++)
+        {
+            if (HeroMercs[i])
+            {
+                MercObject.Party[i].UpdateHealth(HeroMercs[i].health);
+            }
+            else
+            {
+                MercObject.DeletePartyMemeber(i);
+            }
+        }
+
+        //guarentees a hero in the first slot to prevent nullreference (this is gross and I hate it)
+        if (!HeroMercs[0])
+        {
+            for (int i = 1; i < HeroMercs.Length; i++)
+            {
+                if (HeroMercs[i])
+                {
+                    HeroMercs[0] = HeroMercs[i];
+                    HeroMercs[i] = null;
+                    MercObject.SwapPartyMembers(0, i);
+                }
+            }
+        }
         SceneManager.LoadScene("EncounterWin");
     }
 
@@ -114,7 +152,10 @@ public class MonsterEncounter : MonoBehaviour
         foreach (MercenaryController mercenary in HeroMercs)
         {
             if (mercenary)
+            {
+                Debug.Log(mercenary.name + " is still alive");
                 return;
+            }
         }
         Debug.Log("Monster Win");
         SceneManager.LoadScene("EncounterLoss");

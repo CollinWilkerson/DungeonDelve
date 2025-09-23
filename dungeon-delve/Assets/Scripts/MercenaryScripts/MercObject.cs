@@ -24,8 +24,16 @@ public class MercObject
             if(Party[i] == null)
             {
                 Party[i] = merc;
+                return;
             }
         }
+    }
+
+    public static void SwapPartyMembers(int index1, int index2)
+    {
+        MercObject temp = Party[index2];
+        Party[index2] = Party[index1];
+        Party[index1] = temp;
     }
 
     public static void ClearParty()
@@ -34,6 +42,11 @@ public class MercObject
         {
             Party[i] = null;
         }
+    }
+
+    public static void DeletePartyMemeber(int index)
+    {
+        Party[index] = null;
     }
 
     public void UpdateHealth(int Health)

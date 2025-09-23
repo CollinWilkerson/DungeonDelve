@@ -46,7 +46,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3541933975382050839, guid: 672b144b9b856344ebe91d013174b5a5, type: 3}
       propertyPath: m_Name
-      value: Hero
+      value: Mage
       objectReference: {fileID: 0}
     - target: {fileID: 5384674904413141920, guid: 672b144b9b856344ebe91d013174b5a5, type: 3}
       propertyPath: index
