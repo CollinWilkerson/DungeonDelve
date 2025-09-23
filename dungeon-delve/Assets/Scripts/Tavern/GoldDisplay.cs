@@ -15,7 +15,7 @@ public class GoldDisplay : MonoBehaviour
         }
 
         //i know this seems stupid but it works better with the encounters
-        PlayerData.AddTempGold(5);
+        PlayerData.AddTempGold(10);
         PlayerData.AddGold();
         //update display
         goldText.text = PlayerData.GetGold() + "G";
