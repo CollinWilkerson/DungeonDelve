@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IItem
+public interface IItem
 {
-    
+    public void UseItem();
 }
