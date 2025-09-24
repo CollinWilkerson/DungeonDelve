@@ -316,8 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025a67b9cc6593046a0831771181ea96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemButtonPrefabFilepath: 
-  moveSpeed: 0.2
+  itemButtonPrefabFilepath: ItemButton
+  itemList: {fileID: 1471941017}
   itemMenu: {fileID: 41440270}
   openOffset: 250
 --- !u!1 &44346176
