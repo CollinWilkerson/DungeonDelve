@@ -1,0 +1,4 @@
+Class,Health,Damage,Speed,AbilityText,FlavorText,Cost,Filepath,TavernFilepath
+Warrior,8,1,2,,Anyone With a sword can do something,5,HumanHeroes/HumanWarrior,HumanHeroes/Tavern/HumanWarrior
+Ranger,4,2,3,,Just be glad he can hit things,5,HumanHeroes/HumanRanger,HumanHeroes/Tavern/HumanRanger
+Mage,4,8,1,,Incredible that your guild attracts people who can read,5,HumanHeroes/HumanMage,HumanHeroes/Tavern/HumanMage

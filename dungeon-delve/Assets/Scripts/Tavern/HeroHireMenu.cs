@@ -12,11 +12,12 @@ public class HeroHireMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI flavorText;
     [SerializeField] private TextMeshProUGUI costText;
     private int cost;
+    private int index;
     private string filePath;
     private GameObject sceneObject;
 
     public void OpenMenu(string heroName, string heroClass, int damage,
-        int health, int speed, string ability, string flavor, int _cost, string _filePath, GameObject _sceneObject)
+        int health, int speed, string ability, string flavor, int _cost, string _filePath, GameObject _sceneObject, int _index)
     {
 
         heroNameText.text = heroName;
@@ -38,6 +39,7 @@ public class HeroHireMenu : MonoBehaviour
         cost = _cost;
         filePath = _filePath;
         sceneObject = _sceneObject;
+        index = _index;
     }
 
     public void TryHire()
@@ -46,7 +48,7 @@ public class HeroHireMenu : MonoBehaviour
         {
             Debug.Log("hired");
             PlayerData.SpendGold(cost);
-            MercObject.AddHeroToParty(new MercObject(filePath));
+            MercObject.AddHeroToParty(new MercObject(filePath, index));
             FindAnyObjectByType<GoldDisplay>().UpdateGoldText();
             Cursor.lockState = CursorLockMode.Locked;
             Destroy(sceneObject);

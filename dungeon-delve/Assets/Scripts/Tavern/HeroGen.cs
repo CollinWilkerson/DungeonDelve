@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.IO;
 
 public class HeroGen : MonoBehaviour
 {
@@ -8,17 +9,38 @@ public class HeroGen : MonoBehaviour
 
     private void Start()
     {
-       GameObject[] hiringPool = GenerateHero("HumanHeroes/Tavern", humansToGenerate);
-
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
-
         int spawned = 0;
-        
+
+        //spawns all surving party members
+        foreach (MercObject merc in MercObject.Party)
+        {
+            if (merc != null)
+            {
+                GameObject hero = Instantiate(GenerateHeroByIndex(merc.index), spawnPoints[spawned % spawnPoints.Length].transform);
+                hero.GetComponent<HeroInteraction>().DiscountSurvivingHero();//this feels exceptionally dumb but i have deadlines
+                spawned++;
+            }
+        }
+
+        MercObject.ClearParty();
+
+        //spawns new party members to fill the gap
+        GameObject[] hiringPool = GenerateHero("HumanHeroes/Tavern", humansToGenerate - spawned);
+                        
         foreach (GameObject go in hiringPool)
         {
             Instantiate(go, spawnPoints[spawned%spawnPoints.Length].transform);
             spawned++;
         }
+    }
+
+    private GameObject GenerateHeroByIndex(int index)
+    {
+        string filepath = File.ReadAllLines(
+                "Assets/Resources/Data/heroStats.csv")[index].Split(',')[8];
+
+        return Resources.Load<GameObject>(filepath);
     }
 
     /// <summary>
