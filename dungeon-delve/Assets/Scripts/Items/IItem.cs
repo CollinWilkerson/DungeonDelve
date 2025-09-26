@@ -1,6 +1,7 @@
-using UnityEngine;
 
 public interface IItem
 {
-    public void UseItem();
+    public string ReturnName();
+    public bool HasTarget();
+    public void UseItem(MercenaryController merc);
 }

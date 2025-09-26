@@ -83,7 +83,7 @@ public class MonsterEncounter : MonoBehaviour
             Random.Range(0, monsters.Length)], monsterFrontline);
         if(EnemyMercs[0] = monster.GetComponentInChildren<MercenaryController>())
         {
-            Debug.Log(monster.name + " spawned properly");
+            //Debug.Log(monster.name + " spawned properly");
         }
     }
 
@@ -115,7 +115,7 @@ public class MonsterEncounter : MonoBehaviour
             if (mercenary)
                 return;
         }
-        Debug.Log("Hero Win");
+        //Debug.Log("Hero Win");
         
         //updates the health for every existing merc
         for (int i = 0; i < MercObject.Party.Length; i++)
@@ -153,7 +153,7 @@ public class MonsterEncounter : MonoBehaviour
         {
             if (mercenary)
             {
-                Debug.Log(mercenary.name + " is still alive");
+                //Debug.Log(mercenary.name + " is still alive");
                 return;
             }
         }
@@ -169,5 +169,10 @@ public class MonsterEncounter : MonoBehaviour
     public void skipFight()
     {
         TickSpeed = 0f;
+    }
+
+    public MercenaryController[] GetHeroes()
+    {
+        return HeroMercs;
     }
 }

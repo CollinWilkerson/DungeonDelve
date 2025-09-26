@@ -79,7 +79,7 @@ public class MercenaryController : MonoBehaviour
         if (time > 100)
         {
             MercenaryController target;
-            Debug.Log(gameObject.name + " Attacks for " + damage);
+            //Debug.Log(gameObject.name + " Attacks for " + damage);
             if (isHero)
             {
                 target = MonsterEncounter.GetEnemyTarget();
@@ -100,12 +100,12 @@ public class MercenaryController : MonoBehaviour
     /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
-        Debug.Log(gameObject.name + " takes " +  damage + " damage");
+        //Debug.Log(gameObject.name + " takes " +  damage + " damage");
         health = Mathf.Clamp(health-damage, 0, maxHealth);
         statDisplay.UpdateHealthbar(health);
         if (health <= 0)
         {
-            Debug.Log(gameObject.name + " has died");
+            //Debug.Log(gameObject.name + " has died");
             if (isHero)
             {
                 MonsterEncounter.QuereyLoss(this);
@@ -137,5 +137,10 @@ public class MercenaryController : MonoBehaviour
     {
         health = Mathf.Clamp(health + amount, 0, maxHealth);
         statDisplay.UpdateHealthbar(health);
+    }
+
+    public void DamageBoost(int amount)
+    {
+        damage += amount;
     }
 }

@@ -2,7 +2,7 @@ public class PlayerData
 {
     private static int gold = 0;
     private static int tempGold = 0;
-    public static IItem[] itemInventory { get; private set; } = new IItem[5];
+    public static int[] itemInventory { get; private set; } = { -1, -1, -1, -1, -1 };
 
     /// <summary>
     /// adds temporary gold to be merged in the results screen
@@ -33,13 +33,13 @@ public class PlayerData
         gold -= goldToSpend;
     }
 
-    public static void AddItem(IItem item)
+    public static void AddItem(int index)
     {
         for (int i = 0; i < itemInventory.Length; i++)
         {
-            if (itemInventory[i] == null)
+            if (itemInventory[i] == -1)
             {
-                itemInventory[i] = item;
+                itemInventory[i] = index;
                 return;
             }
         }

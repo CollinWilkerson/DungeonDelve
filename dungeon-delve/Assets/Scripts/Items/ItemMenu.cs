@@ -14,11 +14,15 @@ public class ItemMenu : MonoBehaviour
 
     private void Start()
     {
-        foreach(IItem item in PlayerData.itemInventory)
+        GameObject itemButton;
+
+        foreach(int index in PlayerData.itemInventory)
         {
-            if (item != null)
+            if (index != -1)
             {
-                Instantiate(Resources.Load<GameObject>(itemButtonPrefabFilepath), itemList);
+                itemButton = Instantiate(Resources.Load<GameObject>
+                    (itemButtonPrefabFilepath), itemList);
+                itemButton.GetComponent<ItemButtonActions>().Initialize(index);
             }
         }
     }
@@ -27,7 +31,7 @@ public class ItemMenu : MonoBehaviour
     {
         if (itemMenu)
         {
-            Debug.Log("Move");
+            //Debug.Log("Move");
             if (open) 
             {
                 itemMenu.transform.position = new Vector2 (itemMenu.transform.position.x, itemMenu.transform.position.y - openOffset);
