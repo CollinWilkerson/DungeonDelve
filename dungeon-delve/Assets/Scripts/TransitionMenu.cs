@@ -10,6 +10,7 @@ public class TransitionMenu : MonoBehaviour
 
     private void Start()
     {
+        PlayerData.AddItem(Random.Range(1, 3));
         if (goldText)
         {
             StartCoroutine(MoveGold());
