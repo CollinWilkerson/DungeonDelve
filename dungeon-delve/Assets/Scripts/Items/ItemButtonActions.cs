@@ -6,6 +6,7 @@ using TMPro;
 public class ItemButtonActions : MonoBehaviour
 {
     private int itemIndex;
+    private static ItemButtonActions activeItem;
     private IItem item;
     [SerializeField] TextMeshProUGUI nameText;
 
@@ -23,7 +24,7 @@ public class ItemButtonActions : MonoBehaviour
     {
         if (item.HasTarget())
         {
-            //put buttons on targets or smthn
+            activeItem = this;
         }
         else
         {
@@ -31,5 +32,18 @@ public class ItemButtonActions : MonoBehaviour
             PlayerData.RemoveItem(itemIndex);
             Destroy(gameObject);
         }
+    }
+
+    public static void UseActiveItem(MercenaryController target)
+    {
+        if (!activeItem)
+        {
+            return;
+        }
+
+        activeItem.item.UseItem(target);
+        PlayerData.RemoveItem(activeItem.itemIndex);
+        Destroy(activeItem.gameObject);
+        activeItem = null;
     }
 }
