@@ -314,7 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6791419240440664022}
-  - component: {fileID: 5384674904413141920}
+  - component: {fileID: 7588241252296437773}
   - component: {fileID: 4408142187591843865}
   - component: {fileID: 3818767081904415933}
   m_Layer: 5
@@ -344,7 +344,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5384674904413141920
+--- !u!114 &7588241252296437773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,14 +353,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3541933975382050839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2fff872b3320a94788dde0264383c60, type: 3}
+  m_Script: {fileID: 11500000, guid: 944349b61732ec440b5f3de8f5827af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHero: 0
   partyOrder: 0
-  maxHealth: 3
-  damage: 1
-  speed: 1
+  index: 1
+  health: 0
 --- !u!114 &4408142187591843865
 MonoBehaviour:
   m_ObjectHideFlags: 0

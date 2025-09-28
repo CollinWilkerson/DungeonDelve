@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+
+[DefaultExecutionOrder(-9999)]
 public class MonsterEncounter : MonoBehaviour
 {
     [SerializeField] private float TickSpeed;
@@ -9,18 +11,21 @@ public class MonsterEncounter : MonoBehaviour
     [SerializeField] private Transform heroFrontline;
     [SerializeField] private Transform heroBackline;
 
-    private static MercenaryController[] HeroMercs;
-    private static MercenaryController[] EnemyMercs;
+    private static HeroController[] HeroMercs;
+    private static MonsterController[] EnemyMercs;
+
+    public delegate void mercTick();
+    public static event mercTick OnMercTick;
 
 
-    private void Start()
+    private void Awake()
     {
         //THESE **MUST** BE AT THE TOP OF START
-        HeroMercs = new MercenaryController[4];
-        EnemyMercs = new MercenaryController[4];
+        HeroMercs = new HeroController[4];
+        EnemyMercs = new MonsterController[4];
 
         //for debuging, spawns a hero in an empty party
-        if(MercObject.Party[0] == null)
+        if (MercObject.Party[0] == null)
         {
             Debug.Log("no hero in party, Drafting human");
             MercObject.AddHeroToParty(new MercObject("HumanHeroes/HumanWarrior", 0));
@@ -28,7 +33,10 @@ public class MonsterEncounter : MonoBehaviour
 
         SpawnHero();
         SpawnMonster();
+    }
 
+    private void Start()
+    {
         StartCoroutine(Tick());
     }
 
@@ -36,27 +44,18 @@ public class MonsterEncounter : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Tick");
-            foreach (MercenaryController controller in HeroMercs)
-            {
-                if (controller)
-                    controller.Tick();
-            }
-            foreach (MercenaryController controller in EnemyMercs)
-            {
-                if (controller)
-                    controller.Tick();
-            }
+            //Debug.Log("Tick");
+            OnMercTick();
             yield return new WaitForSeconds(TickSpeed);
         }
     }
 
-    //for one hero for now, NEEDS UPDATED
+
     private void SpawnHero()
     {
         //instantiates a ahero from a resorces location, has a set filepath
-        MercenaryController tempHero = Instantiate(Resources.Load<GameObject>(
-            MercObject.Party[0].filePath),heroFrontline).GetComponentInChildren<MercenaryController>();
+        HeroController tempHero = Instantiate(Resources.Load<GameObject>(
+            MercObject.Party[0].filePath),heroFrontline).GetComponentInChildren<HeroController>();
         HeroMercs[0] = tempHero;
         tempHero.InitailizeHero(0);
 
@@ -66,7 +65,7 @@ public class MonsterEncounter : MonoBehaviour
             if (MercObject.Party[i] != null)
             {
                 tempHero = Instantiate(Resources.Load<GameObject>(
-                    MercObject.Party[i].filePath), heroBackline).GetComponentInChildren<MercenaryController>();
+                    MercObject.Party[i].filePath), heroBackline).GetComponentInChildren<HeroController>();
                 HeroMercs[i] = tempHero;
                 tempHero.InitailizeHero(i);
             }
@@ -81,7 +80,7 @@ public class MonsterEncounter : MonoBehaviour
         //Debug.Log(monsters.Length);
         GameObject monster = Instantiate(monsters[
             Random.Range(0, monsters.Length)], monsterFrontline);
-        if(EnemyMercs[0] = monster.GetComponentInChildren<MercenaryController>())
+        if(EnemyMercs[0] = monster.GetComponentInChildren<MonsterController>())
         {
             //Debug.Log(monster.name + " spawned properly");
         }

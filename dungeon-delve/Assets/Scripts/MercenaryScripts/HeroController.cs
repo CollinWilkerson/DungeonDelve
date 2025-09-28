@@ -1,0 +1,69 @@
+using UnityEngine;
+using System;
+using System.IO;
+
+public class HeroController : MercenaryController
+{
+    private void Awake()
+    {
+        //set up healthbar
+        statDisplay = GetComponentInChildren<StatDisplay>();
+        //value setup
+        string[] values = File.ReadAllLines(
+                "Assets/Resources/Data/heroStats.csv")[index].Split(',');
+        maxHealth = Int32.Parse(values[1]);
+        damage = Int32.Parse(values[2]);
+        speed = Int32.Parse(values[3]);
+
+        statDisplay.SetHealthbar(maxHealth);
+
+        MonsterEncounter.OnMercTick += Tick;
+    }
+
+    private void OnDisable()
+    {
+        MonsterEncounter.OnMercTick -= Tick;
+    }
+
+    /// <summary>
+    /// copies the heroes health from the object and sets up healthbars
+    /// </summary>
+    public void InitailizeHero(int _partyOrder)
+    {
+        health = MercObject.Party[_partyOrder].GetHealth();
+        if (health == -99)
+        {
+            Heal(int.MaxValue);
+            return;
+        }
+        statDisplay.UpdateHealthbar(health);
+        partyOrder = _partyOrder;
+    }
+
+    public override void Tick()
+    {
+        time += speed;
+        if (statDisplay)
+            statDisplay.UpdateSpeedBar(time);
+        if (time > 100) //if the hero has hit their attack time, find a target and hit them
+        {
+            attackControl.Attack(MonsterEncounter.GetEnemyTarget(), damage);
+            time = 0;
+        }
+    }
+
+    /// <summary>
+    /// Damages the player and handles their death, only to be called by defenceControl
+    /// </summary>
+    /// <param name="damage"></param>
+    public override void TakeDamage(int damage)
+    {
+        //Debug.Log(gameObject.name + " takes " +  damage + " damage");
+        health = Mathf.Clamp(health - damage, 0, maxHealth);
+        statDisplay.UpdateHealthbar(health);
+        if (health <= 0)
+        {
+                MonsterEncounter.QuereyLoss(this);
+        }
+    }
+}
