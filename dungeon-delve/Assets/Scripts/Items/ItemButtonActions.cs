@@ -5,11 +5,13 @@ using TMPro;
 
 public class ItemButtonActions : MonoBehaviour
 {
+    private int itemIndex;
     private IItem item;
     [SerializeField] TextMeshProUGUI nameText;
 
     public void Initialize(int index)
     {
+        itemIndex = index;
         //this creates the item from the set index
         string scriptName = File.ReadAllLines(
                 "Assets/Resources/Data/items.csv")[index].Split(',')[1];
@@ -26,6 +28,8 @@ public class ItemButtonActions : MonoBehaviour
         else
         {
             item.UseItem(null);
+            PlayerData.RemoveItem(itemIndex);
+            Destroy(gameObject);
         }
     }
 }
