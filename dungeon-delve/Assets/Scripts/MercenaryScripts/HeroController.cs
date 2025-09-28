@@ -25,6 +25,37 @@ public class HeroController : MercenaryController
         MonsterEncounter.OnMercTick -= Tick;
     }
 
+    private void Start()
+    {
+        //ensures the character is using the propper attackControl, creates a default if there is none
+        if (gameObject.GetComponent<IAttack>() == null)
+        {
+            attackControl = gameObject.AddComponent<DefaultAttack>();
+            Debug.LogWarning("No attack component on " + gameObject.name + ", Using default");
+        }
+        else
+        {
+            attackControl = gameObject.GetComponent<IAttack>();
+        }
+
+        //ensures the chatacter is using the propper defenceControl, creates a default if there is none
+        if (gameObject.GetComponent<IDefend>() == null)
+        {
+            defenceControl = gameObject.AddComponent<DefaultDefend>();
+            Debug.LogWarning("No defence component on " + gameObject.name + ", Using default");
+        }
+        else
+        {
+            defenceControl = gameObject.GetComponent<IDefend>();
+        }
+
+
+        //sets up the defence so that it can give damage to the player
+        defenceControl.Initialize(this);
+
+        FindAnyObjectByType<HeroButtonContainer>().RegisterHero(this);
+    }
+
     /// <summary>
     /// copies the heroes health from the object and sets up healthbars
     /// </summary>
