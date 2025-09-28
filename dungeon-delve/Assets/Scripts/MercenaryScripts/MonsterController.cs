@@ -5,6 +5,7 @@ using System.IO;
 public class MonsterController : MercenaryController
 {
     private int goldValue;
+    private int itemsToGive;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class MonsterController : MercenaryController
         damage = Int32.Parse(values[2]);
         speed = Int32.Parse(values[3]);
         goldValue = Int32.Parse(values[4]);
+        itemsToGive = Int32.Parse(values[5]);
         health = maxHealth;
 
         statDisplay.SetHealthbar(maxHealth);
@@ -48,8 +50,13 @@ public class MonsterController : MercenaryController
         statDisplay.UpdateHealthbar(health);
         if (health <= 0)
         {
-                PlayerData.AddTempGold(goldValue);
-                MonsterEncounter.QuereyWin(this);
+            for (int i = 0; i < itemsToGive; i++)
+            {
+                PlayerData.AddItem(UnityEngine.Random.Range(1, 4));
+            }
+
+            PlayerData.AddTempGold(goldValue);
+            MonsterEncounter.QuereyWin(this);
         }
     }
 }
