@@ -20,5 +20,6 @@ public class HeroBtnController : MonoBehaviour
     public void OnClick()
     {
         ItemButtonActions.UseActiveItem(heroTarget);
+        FindAnyObjectByType<HeroButtonContainer>().gameObject.SetActive(false);
     }
 }

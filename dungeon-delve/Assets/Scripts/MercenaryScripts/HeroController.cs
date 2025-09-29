@@ -53,7 +53,7 @@ public class HeroController : MercenaryController
         //sets up the defence so that it can give damage to the player
         defenceControl.Initialize(this);
 
-        FindAnyObjectByType<HeroButtonContainer>().RegisterHero(this);
+        FindAnyObjectByType<HeroButtonContainer>(FindObjectsInactive.Include).RegisterHero(this);
     }
 
     /// <summary>
