@@ -61,6 +61,7 @@ public class HeroController : MercenaryController
     /// </summary>
     public void InitailizeHero(int _partyOrder)
     {
+        //i could probably just do the stat adjustments here
         health = MercObject.Party[_partyOrder].GetHealth();
         if (health == -99)
         {

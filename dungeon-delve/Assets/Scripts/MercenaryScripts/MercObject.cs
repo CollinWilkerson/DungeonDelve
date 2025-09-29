@@ -1,3 +1,10 @@
+public enum Job 
+{
+    warrior,
+    ranger,
+    mage
+}
+
 public class MercObject
 {
     public static MercObject[] Party = new MercObject[4];
