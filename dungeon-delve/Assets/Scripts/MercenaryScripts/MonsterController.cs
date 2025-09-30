@@ -12,8 +12,7 @@ public class MonsterController : MercenaryController
         //set up healthbar
         statDisplay = GetComponentInChildren<StatDisplay>();
         //value setup
-        string[] values = File.ReadAllLines(
-            "Assets/Resources/Data/monsterStats.csv")[index].Split(',');
+        string[] values = DataFiles.Monsters[index].Split(',');
         maxHealth = Int32.Parse(values[1]);
         damage = Int32.Parse(values[2]);
         speed = Int32.Parse(values[3]);
@@ -50,9 +49,12 @@ public class MonsterController : MercenaryController
         statDisplay.UpdateHealthbar(health);
         if (health <= 0)
         {
+            // i need to refactor this so it gives the player a random treasure from the length of the two lists put together
+            //for now you get both
             for (int i = 0; i < itemsToGive; i++)
             {
                 PlayerData.AddItem(UnityEngine.Random.Range(1, 4));
+                Equipment.AddEq(new Equipment(UnityEngine.Random.Range(1, 44)));
             }
 
             PlayerData.AddTempGold(goldValue);

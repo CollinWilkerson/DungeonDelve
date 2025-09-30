@@ -9,13 +9,10 @@ public class HeroController : MercenaryController
         //set up healthbar
         statDisplay = GetComponentInChildren<StatDisplay>();
         //value setup
-        string[] values = File.ReadAllLines(
-                "Assets/Resources/Data/heroStats.csv")[index].Split(',');
+        string[] values = DataFiles.Heroes[index].Split(',');
         maxHealth = Int32.Parse(values[1]);
         damage = Int32.Parse(values[2]);
         speed = Int32.Parse(values[3]);
-
-        statDisplay.SetHealthbar(maxHealth);
 
         MonsterEncounter.OnMercTick += Tick;
     }
@@ -59,8 +56,28 @@ public class HeroController : MercenaryController
     /// <summary>
     /// copies the heroes health from the object and sets up healthbars
     /// </summary>
-    public void InitailizeHero(int _partyOrder)
+    public void InitailizeHero(int _partyOrder, Equipment armor, Equipment weapon )
     {
+        if(armor != null)
+        {
+            maxHealth += armor.GetHealth();
+            damage += armor.GetDamage();
+            speed += armor.GetSpeed();
+        }
+        if (weapon != null)
+        {
+            maxHealth += weapon.GetHealth();
+            damage += weapon.GetDamage();
+            speed += weapon.GetSpeed();
+        }
+
+        if(maxHealth < 1)
+        {
+            maxHealth = 1;
+        }
+
+        statDisplay.SetHealthbar(maxHealth);
+
         //i could probably just do the stat adjustments here
         health = MercObject.Party[_partyOrder].GetHealth();
         if (health == -99)

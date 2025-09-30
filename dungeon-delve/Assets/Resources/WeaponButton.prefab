@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 5210545638453097040}
   - component: {fileID: 785464838551539982}
   m_Layer: 5
-  m_Name: Armor Name
+  m_Name: Weapon Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -967,7 +967,7 @@ GameObject:
   - component: {fileID: 4978918267621494012}
   - component: {fileID: 4491155213663792864}
   - component: {fileID: 2689853428452741259}
-  - component: {fileID: 7922245466624847213}
+  - component: {fileID: 6314049395251076004}
   m_Layer: 5
   m_Name: WeaponButton
   m_TagString: Untagged
@@ -1081,8 +1081,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7922245466624847213}
-        m_TargetAssemblyTypeName: ArmorButton, Assembly-CSharp
+      - m_Target: {fileID: 6314049395251076004}
+        m_TargetAssemblyTypeName: WeaponButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1093,7 +1093,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7922245466624847213
+--- !u!114 &6314049395251076004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8447601673100786078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b7d3ae5e23eba4ba9a641ea725d9e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 04b13c1da8fc34a48a928c9caf593528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EqName: {fileID: 785464838551539982}

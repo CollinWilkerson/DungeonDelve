@@ -53,21 +53,23 @@ public class MonsterEncounter : MonoBehaviour
 
     private void SpawnHero()
     {
+        MercObject hero = MercObject.Party[0];
         //instantiates a ahero from a resorces location, has a set filepath
         HeroController tempHero = Instantiate(Resources.Load<GameObject>(
-            MercObject.Party[0].filePath),heroFrontline).GetComponentInChildren<HeroController>();
+            hero.filePath),heroFrontline).GetComponentInChildren<HeroController>();
         HeroMercs[0] = tempHero;
-        tempHero.InitailizeHero(0);
+        tempHero.InitailizeHero(0, hero.armor, hero.weapon);
 
         
         for(int i = 1; i < MercObject.Party.Length; i++)
         {
             if (MercObject.Party[i] != null)
             {
+                hero = MercObject.Party[i];
                 tempHero = Instantiate(Resources.Load<GameObject>(
-                    MercObject.Party[i].filePath), heroBackline).GetComponentInChildren<HeroController>();
+                    hero.filePath), heroBackline).GetComponentInChildren<HeroController>();
                 HeroMercs[i] = tempHero;
-                tempHero.InitailizeHero(i);
+                tempHero.InitailizeHero(i, hero.armor, hero.weapon);
             }
         }
     }
@@ -170,7 +172,7 @@ public class MonsterEncounter : MonoBehaviour
         TickSpeed = 0f;
     }
 
-    public MercenaryController[] GetHeroes()
+    public HeroController[] GetHeroes()
     {
         return HeroMercs;
     }
