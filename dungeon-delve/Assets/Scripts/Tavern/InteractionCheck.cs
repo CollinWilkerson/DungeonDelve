@@ -7,6 +7,8 @@ public class InteractionCheck : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI toolTip;
 
+    [SerializeField] private GameObject PartyMenu;
+
     [Header("Check Variables")]
     [SerializeField] private float angle;
     [SerializeField] private float radius;
@@ -29,6 +31,19 @@ public class InteractionCheck : MonoBehaviour
         if (interactAction.triggered && activeInteractible)
         {
             activeInteractible.GetComponent<IInteractable>().Interact();
+        }
+        else if (interactAction.triggered)
+        {
+            if (PartyMenu.activeSelf)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                PartyMenu.SetActive(false);
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                PartyMenu.SetActive(true);
+            }
         }
     }
 

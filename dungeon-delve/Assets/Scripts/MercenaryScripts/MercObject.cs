@@ -12,8 +12,8 @@ public class MercObject
     private int health;
     public string filePath { get; private set;}
     public int index;
-    //add armor here
-    //add weapon here
+    public Equipment armor;
+    public Equipment weapon;
     
     /// <summary>
     /// creates an object for storing mercenaries
