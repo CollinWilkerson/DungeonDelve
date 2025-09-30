@@ -13,6 +13,10 @@ public class StartDelve : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if(MercObject.Party[0] == null)
+        {
+            return;
+        }
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(EncounterScenes[Random.Range(0, EncounterScenes.Length)]);
     }

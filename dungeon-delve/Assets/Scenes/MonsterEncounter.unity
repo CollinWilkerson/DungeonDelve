@@ -1367,8 +1367,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Items
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9423d91ad82149b42bf22b25f0bf09c5, type: 2}
+  m_sharedMaterial: {fileID: -2512653714974856988, guid: 9423d91ad82149b42bf22b25f0bf09c5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1398,7 +1398,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1736,6 +1736,22 @@ PrefabInstance:
       propertyPath: m_text
       value: Hero 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a1ddbb32e1246fc4a9ac822d7e67c6dd, type: 2}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3010730387614246538, guid: a1ddbb32e1246fc4a9ac822d7e67c6dd, type: 2}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3205335728614350878, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1914,6 +1930,22 @@ PrefabInstance:
     - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
       propertyPath: m_text
       value: Hero 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a1ddbb32e1246fc4a9ac822d7e67c6dd, type: 2}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3010730387614246538, guid: a1ddbb32e1246fc4a9ac822d7e67c6dd, type: 2}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3205335728614350878, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
       propertyPath: m_Pivot.x
@@ -2645,6 +2677,22 @@ PrefabInstance:
     - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
       propertyPath: m_text
       value: Hero 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a1ddbb32e1246fc4a9ac822d7e67c6dd, type: 2}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3010730387614246538, guid: a1ddbb32e1246fc4a9ac822d7e67c6dd, type: 2}
+    - target: {fileID: 1622671685201691576, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3205335728614350878, guid: 82254d7cde9023e428aa3c8266aac103, type: 3}
       propertyPath: m_Pivot.x

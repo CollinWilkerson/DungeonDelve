@@ -5,6 +5,11 @@ public class HeroButtonContainer : MonoBehaviour
     [SerializeField] private HeroBtnController[] buttons;
     private int tail = 0;
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void RegisterHero(HeroController hero)
     {
         Debug.Log("call");

@@ -25,6 +25,7 @@ public class ItemButtonActions : MonoBehaviour
         if (item.HasTarget())
         {
             activeItem = this;
+            FindAnyObjectByType<HeroButtonContainer>(FindObjectsInactive.Include).gameObject.SetActive(true);
         }
         else
         {
