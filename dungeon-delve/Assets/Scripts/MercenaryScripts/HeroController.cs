@@ -9,8 +9,7 @@ public class HeroController : MercenaryController
         //set up healthbar
         statDisplay = GetComponentInChildren<StatDisplay>();
         //value setup
-        string[] values = File.ReadAllLines(
-                "Assets/Resources/Data/heroStats.csv")[index].Split(',');
+        string[] values = DataFiles.Heroes[index].Split(',');
         maxHealth = Int32.Parse(values[1]);
         damage = Int32.Parse(values[2]);
         speed = Int32.Parse(values[3]);

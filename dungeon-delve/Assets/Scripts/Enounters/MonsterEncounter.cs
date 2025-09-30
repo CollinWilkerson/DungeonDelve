@@ -172,7 +172,7 @@ public class MonsterEncounter : MonoBehaviour
         TickSpeed = 0f;
     }
 
-    public MercenaryController[] GetHeroes()
+    public HeroController[] GetHeroes()
     {
         return HeroMercs;
     }

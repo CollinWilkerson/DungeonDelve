@@ -14,8 +14,7 @@ public class HeroContainerBehavior : MonoBehaviour
     public void Initialize(MercObject _merc)
     {
         merc = _merc;
-        string[] values = File.ReadAllLines(
-                "Assets/Resources/Data/heroStats.csv")[merc.index].Split(',');
+        string[] values = DataFiles.Heroes[merc.index].Split(',');
         healthText.text = values[1];
         damageText.text = values[2];
         speedText.text =  values[3];

@@ -15,7 +15,7 @@ public class MeadHorn : MonoBehaviour, IItem
         MonsterEncounter encounter;
         if (encounter = FindAnyObjectByType<MonsterEncounter>())
         {
-            foreach(MercenaryController hero in encounter.GetHeroes())
+            foreach(HeroController hero in encounter.GetHeroes())
             {
                 hero.DamageBoost(1);
             }

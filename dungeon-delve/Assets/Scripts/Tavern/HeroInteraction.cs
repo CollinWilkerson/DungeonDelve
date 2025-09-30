@@ -26,7 +26,7 @@ public class HeroInteraction : MonoBehaviour, IInteractable
             Cursor.lockState = CursorLockMode.None;
 
             hireMenu.gameObject.SetActive(true);
-            string line = File.ReadAllLines("Assets/Resources/Data/heroStats.csv")[index]; //read heroStats at the important line
+            string line = DataFiles.Heroes[index]; //read heroStats at the important line
             string[] values = line.Split(','); //split csv values by comma (crazy i know)
                                                //pass values from csv to game
             hireMenu.OpenMenu("Undef", values[0], Int32.Parse(values[1]), Int32.Parse(values[2]),

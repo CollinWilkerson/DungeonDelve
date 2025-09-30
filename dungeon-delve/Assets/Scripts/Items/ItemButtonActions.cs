@@ -14,8 +14,7 @@ public class ItemButtonActions : MonoBehaviour
     {
         itemIndex = index;
         //this creates the item from the set index
-        string scriptName = File.ReadAllLines(
-                "Assets/Resources/Data/items.csv")[index].Split(',')[1];
+        string scriptName = DataFiles.Items[index].Split(',')[1];
         //Debug.Log("Trying to add: " + scriptName);
         item = gameObject.AddComponent(Type.GetType(scriptName)) as IItem;
         nameText.text = item.ReturnName();

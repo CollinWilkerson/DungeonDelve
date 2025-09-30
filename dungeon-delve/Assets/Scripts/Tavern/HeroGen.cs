@@ -37,8 +37,7 @@ public class HeroGen : MonoBehaviour
 
     private GameObject GenerateHeroByIndex(int index)
     {
-        string filepath = File.ReadAllLines(
-                "Assets/Resources/Data/heroStats.csv")[index].Split(',')[8];
+        string filepath = DataFiles.Heroes[index].Split(',')[8];
 
         return Resources.Load<GameObject>(filepath);
     }
