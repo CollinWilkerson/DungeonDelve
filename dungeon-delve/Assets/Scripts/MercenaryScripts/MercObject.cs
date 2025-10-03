@@ -1,3 +1,5 @@
+using System;
+
 public enum Job 
 {
     warrior,
@@ -66,5 +68,18 @@ public class MercObject
     public int GetHealth()
     {
         return health;
+    }
+
+    public int GetWarrior()
+    {
+        return Int32.Parse(DataFiles.Heroes[index].Split(",")[9]);
+    }
+    public int GetRanger()
+    {
+        return Int32.Parse(DataFiles.Heroes[index].Split(",")[10]);
+    }
+    public int GetMage()
+    {
+        return Int32.Parse(DataFiles.Heroes[index].Split(",")[11]);
     }
 }

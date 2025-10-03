@@ -4009,7 +4009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EncounterScenes:
-  - MonsterEncounter
+  - Portcullus
 --- !u!65 &1619872317
 BoxCollider:
   m_ObjectHideFlags: 0
