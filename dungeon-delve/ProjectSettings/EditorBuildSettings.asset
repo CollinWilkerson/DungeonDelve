@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Tavern-old.unity
     guid: 76c1d524e2ccbde45924a29dc2dde3d8
+  - enabled: 1
+    path: Assets/Scenes/Traps/Portcullus.unity
+    guid: d9307ad8def16c24a8b6e7fde982d297
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0f4e43bbbb8ab404bafee5c47940fa41, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
