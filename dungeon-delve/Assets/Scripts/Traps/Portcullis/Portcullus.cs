@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class Portcullus : MonoBehaviour
@@ -8,9 +9,16 @@ public class Portcullus : MonoBehaviour
     [SerializeField] private float decendRate = 30f;
     [SerializeField] private float timeToWin = 5f;
 
+    [Header("UI")]
+    [SerializeField] private RectTransform canvas;
+    [SerializeField] private RectTransform warrior;
+    [SerializeField] private RectTransform portcullis;
+
     private float position = 100f;
     //one is our default, it will be the hardest difficulty
     private int warriors = 1;
+    private Vector3 p_initialPosition;
+    private Vector3 w_initialScale;
 
     private InputAction jumpAction;
 
@@ -26,19 +34,33 @@ public class Portcullus : MonoBehaviour
             }
         }
 
+        p_initialPosition = portcullis.position;
+        w_initialScale = warrior.localScale;
+
         StartCoroutine(Timer());
     }
 
     private void Update()
     {
+        //game logic
         position -= decendRate * Time.deltaTime;
         if (jumpAction.triggered)
         {
             position += warriors;
         }
-        if(position < 0)
+        if (position < 0)
         {
             Fail();
+        }
+        else
+        {
+            //ui update
+            portcullis.position = p_initialPosition - (Vector3.up * canvas.rect.height * (1f - position / 100f)) / 1.5f;
+            //start 1,1,1
+            //end 2,0,1
+            // position/ 100f starts at one and decreases to 0
+            // 1 - position/100f starts at 0 and increases to 1
+            warrior.localScale = w_initialScale + new Vector3(1 - (position / 100f), -(1 - (position / 100f)), 0);
         }
     }
 
