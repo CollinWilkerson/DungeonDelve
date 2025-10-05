@@ -22,7 +22,7 @@ public class TrapResult : MonoBehaviour
         PlayerData.AddTempGold(trap.goldValue);
         //give treasure
         int treasure = Random.Range(1, DataFiles.Items.Length + DataFiles.Eq.Length - 1);
-        if(treasure > DataFiles.Items.Length)
+        if(treasure < DataFiles.Items.Length)
         {
             PlayerData.AddItem(treasure);
             return;
