@@ -5,7 +5,6 @@ using TMPro;
 
 public class TransitionMenu : MonoBehaviour
 {
-    [SerializeField] private string[] EncounterScenes = { "MonsterEncounter" };
     [SerializeField] private TextMeshProUGUI goldText;
 
     private void Start()
@@ -19,7 +18,7 @@ public class TransitionMenu : MonoBehaviour
     public void Advance()
     {
         //selects a random valid encounter scene and loads it, this may need to be adjusted for balance
-        SceneManager.LoadScene(EncounterScenes[Random.Range(0, EncounterScenes.Length)]);
+        SceneManager.LoadScene(DataFiles.SelectEncounter());
     }
 
     public void Retreat()
