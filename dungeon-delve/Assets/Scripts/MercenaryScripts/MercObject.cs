@@ -70,6 +70,24 @@ public class MercObject
         return health;
     }
 
+    public int GetMaxHealth()
+    {
+        int maxHealth = Int32.Parse(DataFiles.Heroes[index].Split(',')[1]);
+        if(armor != null)
+        {
+            maxHealth += armor.GetHealth();
+        }
+        if(weapon != null)
+        {
+            maxHealth += weapon.GetHealth();
+        }
+        if(maxHealth < 1)
+        {
+            return 1;
+        }
+        return maxHealth;
+    }
+
     public int GetWarrior()
     {
         return Int32.Parse(DataFiles.Heroes[index].Split(",")[9]);

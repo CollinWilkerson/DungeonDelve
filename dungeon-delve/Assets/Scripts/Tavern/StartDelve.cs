@@ -18,6 +18,14 @@ public class StartDelve : MonoBehaviour, IInteractable
             return;
         }
         Cursor.lockState = CursorLockMode.None;
+        foreach(MercObject merc in MercObject.Party)
+        {
+            if(merc == null)
+            {
+                continue;
+            }
+            merc.UpdateHealth(merc.GetMaxHealth());
+        }
         SceneManager.LoadScene(EncounterScenes[Random.Range(0, EncounterScenes.Length)]);
     }
 
