@@ -1,13 +1,10 @@
 # Dungeon Delve
 
-right now the game can only be played in the editor.
+**PLAY AT:** 
 
-**New in version 0.3**
+**New in version 0.4**
 
-You can now recive items for defeating enemies! they will appear in the items menu in monster encounters
+Trap has been added!
 
-smoke bombs let you retreat in an encounter
+mash space for the portcullis to pass the trap for now
 
-mead horns give all heroes +1 strength
-
-Health potions give one hero +5 health
