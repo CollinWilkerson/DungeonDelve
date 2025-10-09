@@ -45,6 +45,9 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
+        #if UNITY_EDITOR
+            mouseSensitivity *= 100;
+        #endif
     }
 
     private void Update()

@@ -7,6 +7,8 @@ using UnityEngine;
 public class MonsterEncounter : MonoBehaviour
 {
     [SerializeField] private float TickSpeed;
+    private float StartTickSpeed;
+    private bool run = true;
     [SerializeField] private Transform monsterFrontline;
     [SerializeField] private Transform heroFrontline;
     [SerializeField] private Transform heroBackline;
@@ -23,6 +25,7 @@ public class MonsterEncounter : MonoBehaviour
         //THESE **MUST** BE AT THE TOP OF START
         HeroMercs = new HeroController[4];
         EnemyMercs = new MonsterController[4];
+        StartTickSpeed = TickSpeed;
 
         //for debuging, spawns a hero in an empty party
         if (MercObject.Party[0] == null)
@@ -42,7 +45,7 @@ public class MonsterEncounter : MonoBehaviour
 
     private IEnumerator Tick()
     {
-        while (true)
+        while (run)
         {
             //Debug.Log("Tick");
             OnMercTick();
@@ -164,12 +167,44 @@ public class MonsterEncounter : MonoBehaviour
 
     public void fastForward()
     {
-        TickSpeed = TickSpeed / 2;
+        if (TickSpeed == StartTickSpeed)
+        {
+            TickSpeed = StartTickSpeed / 2;
+            return;
+        }
+        TickSpeed = StartTickSpeed;
+
     }
 
     public void skipFight()
     {
         TickSpeed = 0f;
+        /*foreach(MonsterController monster in EnemyMercs)
+        {
+            if(monster == null)
+            {
+                continue;
+            }
+            monster.skip = true;
+        }
+        foreach(HeroController hero in HeroMercs)
+        {
+            if(hero == null)
+            {
+                continue;
+            }
+            hero.skip = true;
+        }
+        */
+    }
+
+    public void stop()
+    {
+        run = !run;
+        if (run)
+        {
+            StartCoroutine(Tick());
+        }
     }
 
     public HeroController[] GetHeroes()
