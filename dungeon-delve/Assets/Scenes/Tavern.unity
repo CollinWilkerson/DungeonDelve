@@ -4008,8 +4008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994a156171a502b4298fa8d53f575c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EncounterScenes:
-  - Portcullus
 --- !u!65 &1619872317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5649,7 +5647,7 @@ MonoBehaviour:
   moveLerpRate: 7
   groundedCheckDistance: 4
   jumpForce: 100
-  mouseSensitivity: 100
+  mouseSensitivity: 1
   fieldOfView: 60
 --- !u!114 &2030550120
 MonoBehaviour:

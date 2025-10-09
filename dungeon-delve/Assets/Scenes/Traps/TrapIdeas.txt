@@ -1,0 +1,40 @@
+consequences apply to all heroes on minigame fail, minigames become easier the more of the proper class you have.
+
+Tripwire	Ranger	2	5	2	0	speed -1 next encounter, flooring at 1
+Player has to balance the character with left and right
+
+Boulder	Warrior	4	5	2	0	
+player mashes left and right
+
+Hex	Mage	2	5	2	0	dmg -1 next encounter, flooring at 1
+player has an input sequence
+
+Uneven bars	Ranger	6	4	3	0	
+player has to do the sonic bar thing TM
+
+Portcullus	Warrior	4	5	2	0	
+player mashes jump
+
+Sleep	Mage	0	5	2	0	dmg -2 next encounter
+kirby's adventure pull out the face and release
+
+Bannana Peel	Ranger	4	5	2	0
+player presses jump on land
+	
+Crushing walls	Warrior	6	4	3	0	
+player must advance with forward without getting hit (think skyrim swinging blades)
+
+terror	Mage	0	5	2	0	your party is forced to retreat
+player must select a thought bubble that has someting nice in it
+
+Medium						
+Infernal flame	Mage	10	10	15	0	
+Pitfall	Ranger	5	10	15	0	Speed -2 next encounter, flooring at 1
+Swinging blades	Ranger	10	10	15	0	
+Living chains	Mage	3	10	15	0	Speed -2 next encounter, attack -1 both floor at 1
+Snakes jaws	Warrior	5	10	15	0	each hero takes 1 damage at the end of each encounter after this one
+Grappling hook	Warrior	0	10	15	0	Go back 3 encounters, replace the cards
+Hard						
+Explosives	Ranger	20	15	15	1	
+Illusion	Mage	0	15	15	1	roll a d4 that hero takes damage equal to the attack values of your party members excepting that one.
+Skyhold	Warrior	5	15	15	1	lose the hero with the highest health
