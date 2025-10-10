@@ -147,6 +147,7 @@ public class MonsterEncounter : MonoBehaviour
                 }
             }
         }
+        PlayerData.levelsCleared += 1;
         SceneManager.LoadScene("EncounterWin");
     }
 
