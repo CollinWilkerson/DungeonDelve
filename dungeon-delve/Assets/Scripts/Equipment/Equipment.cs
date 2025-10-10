@@ -1,4 +1,3 @@
-using System.IO;
 using System;
 
 public enum Eq_Type
@@ -10,7 +9,6 @@ public enum Eq_Type
 public class Equipment
 {
     private const int inventorySize = 30;
-
 
     public static Equipment[] eq_inventory = new Equipment[inventorySize];
 

@@ -2,6 +2,7 @@ public class PlayerData
 {
     private static int gold = 0;
     private static int tempGold = 0;
+    public static int levelsCleared = 0;
     public static int[] itemInventory { get; private set; } = { -1, -1, -1, -1, -1 };
 
     /// <summary>

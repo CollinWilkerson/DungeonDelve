@@ -24,6 +24,7 @@ public class StartDelve : MonoBehaviour, IInteractable
             }
             merc.UpdateHealth(merc.GetMaxHealth());
         }
+        PlayerData.levelsCleared = 0;
         SceneManager.LoadScene(DataFiles.SelectEncounter());
     }
 

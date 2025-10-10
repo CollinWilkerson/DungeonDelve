@@ -13,6 +13,7 @@ public class TransitionMenu : MonoBehaviour
         {
             StartCoroutine(MoveGold());
         }
+        //Debug.Log("levels cleared: " + PlayerData.levelsCleared);
     }
 
     public void Advance()
