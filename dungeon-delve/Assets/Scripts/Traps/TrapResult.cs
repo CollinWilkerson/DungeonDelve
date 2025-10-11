@@ -72,6 +72,7 @@ public class TrapResult : MonoBehaviour
         //since we always guarentee that the first slot is filled, if it is not then everyone is dead
         if (MercObject.Party[0] != null)
         {
+            PlayerData.levelsCleared += 1;
             SceneManager.LoadScene("EncounterWin");
             return;
         }
