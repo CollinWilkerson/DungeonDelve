@@ -21,12 +21,38 @@ public class Equipment
 
     public static void AddEq(Equipment eq)
     {
+        if(eq == null)
+        {
+            return;
+        }
+
         for(int i = 0; i < eq_inventory.Length; i++)
         {
             if(eq_inventory[i] == null)
             {
                 eq_inventory[i] = eq;
                 return;
+            }
+        }
+    }
+    public static void AddEq(Equipment[] eqArray)
+    {
+        if(eqArray == null)
+        {
+            return;
+        }
+
+        int i = 0;
+        foreach (Equipment eq in eqArray)
+        {
+            while(i < eq_inventory.Length)
+            {
+                if (eq_inventory[i] == null)
+                {
+                    eq_inventory[i] = eq;
+                    break;
+                }
+                i++;
             }
         }
     }

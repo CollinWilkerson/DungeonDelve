@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -18,6 +19,8 @@ public class MonsterEncounter : MonoBehaviour
 
     public delegate void mercTick();
     public static event mercTick OnMercTick;
+
+    private static List<Equipment> deadEq = new List<Equipment>();
 
 
     private void Awake()
@@ -128,10 +131,6 @@ public class MonsterEncounter : MonoBehaviour
             {
                 MercObject.Party[i].UpdateHealth(HeroMercs[i].health);
             }
-            else
-            {
-                MercObject.DeletePartyMemeber(i);
-            }
         }
 
         //guarentees a hero in the first slot to prevent nullreference (this is gross and I hate it)
@@ -147,12 +146,30 @@ public class MonsterEncounter : MonoBehaviour
                 }
             }
         }
+        Equipment.AddEq(deadEq.ToArray());
+        Equipment[] e = LostEquipment.GetLostEquipment(PlayerData.levelsCleared);
+        if (e != null)
+        {
+            Debug.Log("regained eq");
+        }
+        Equipment.AddEq(e);
+        //Equipment.AddEq(LostEquipment.GetLostEquipment(PlayerData.levelsCleared));
         PlayerData.levelsCleared += 1;
         SceneManager.LoadScene("EncounterWin");
     }
 
     public static void QuereyLoss(MercenaryController deadHero)
     {
+        MercObject merc = MercObject.Party[deadHero.partyOrder];
+        if (merc.armor != null)
+        {
+            deadEq.Add(merc.armor);
+        }
+        if (merc.weapon != null)
+        {
+            deadEq.Add(merc.weapon);
+        }
+        MercObject.DeletePartyMemeber(deadHero.partyOrder);
         HeroMercs[deadHero.partyOrder] = null;
         foreach (MercenaryController mercenary in HeroMercs)
         {
@@ -163,6 +180,7 @@ public class MonsterEncounter : MonoBehaviour
             }
         }
         Debug.Log("Monster Win");
+        LostEquipment.Insert(PlayerData.levelsCleared, deadEq.ToArray());
         SceneManager.LoadScene("EncounterLoss");
     }
 
