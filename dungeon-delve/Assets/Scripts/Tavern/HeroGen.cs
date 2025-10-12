@@ -9,7 +9,7 @@ public class HeroGen : MonoBehaviour
 
     private void Start()
     {
-        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint"); 
         int spawned = 0;
 
         //spawns all surving party members
@@ -17,7 +17,16 @@ public class HeroGen : MonoBehaviour
         {
             if (merc != null)
             {
-                GameObject hero = Instantiate(GenerateHeroByIndex(merc.index), spawnPoints[spawned % spawnPoints.Length].transform);
+                GameObject hero = Instantiate(GenerateHeroByIndex(merc.index), 
+                    spawnPoints[spawned % spawnPoints.Length].transform);
+                if (merc.armor != null)
+                {
+                    Equipment.AddEq(merc.armor);
+                }
+                if (merc.weapon != null)
+                {
+                    Equipment.AddEq(merc.weapon);
+                }
                 hero.GetComponent<HeroInteraction>().DiscountSurvivingHero();//this feels exceptionally dumb but i have deadlines
                 spawned++;
             }
