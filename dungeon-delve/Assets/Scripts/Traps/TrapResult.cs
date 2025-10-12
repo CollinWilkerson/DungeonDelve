@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections.Generic;
 
 public class TrapResult : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class TrapResult : MonoBehaviour
     [Header("Loss")]
     [SerializeField] private GameObject lossScreen;
     [SerializeField] private TextMeshProUGUI damageText;
+
+    private List<Equipment> deadEq = new List<Equipment>();
 
     private void Start()
     {
@@ -44,8 +47,16 @@ public class TrapResult : MonoBehaviour
             }
             Debug.Log("party member " + i + " with " + merc.GetHealth() + " is taking " + trap.damage + " damage");
             merc.UpdateHealth(merc.GetHealth() - trap.damage);
-            if(merc.GetHealth() < 0)
+            if(merc.GetHealth() <= 0)
             {
+                if (merc.armor != null)
+                {
+                    deadEq.Add(merc.armor);
+                }
+                if (merc.weapon != null)
+                {
+                    deadEq.Add(merc.weapon);
+                }
                 MercObject.DeletePartyMemeber(i);
             }
             i++;
@@ -72,11 +83,13 @@ public class TrapResult : MonoBehaviour
         //since we always guarentee that the first slot is filled, if it is not then everyone is dead
         if (MercObject.Party[0] != null)
         {
-            PlayerData.levelsCleared += 1;
+            Equipment.AddEq(deadEq.ToArray());
+            Equipment.AddEq(LostEquipment.GetLostEquipment(PlayerData.levelsCleared));
+            PlayerData.levelsCleared ++;
             SceneManager.LoadScene("EncounterWin");
             return;
         }
-
+        LostEquipment.Insert(PlayerData.levelsCleared ,deadEq.ToArray());
         SceneManager.LoadScene("EncounterLoss");    
     }
 }
