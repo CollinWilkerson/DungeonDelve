@@ -1229,11 +1229,11 @@ MonoBehaviour:
   CardGroup: {fileID: 1013327333}
   nullCardPrefab: {fileID: 4421779620548531510, guid: c68190186007c69439518d892a952ef5, type: 3}
   Lv1CardPrefab: {fileID: 4421779620548531510, guid: 2115577d09bdf4649a3561832374ed77, type: 3}
-  Lv1BossPrefab: {fileID: 0}
-  Lv2CardPrefab: {fileID: 0}
-  Lv2BossPrefab: {fileID: 0}
-  Lv3CardPrefab: {fileID: 0}
-  FinalBossPrefab: {fileID: 0}
+  Lv1BossPrefab: {fileID: 4421779620548531510, guid: 04e6e9f9e0ab33344a298d2030ea6d2d, type: 3}
+  Lv2CardPrefab: {fileID: 4421779620548531510, guid: 75900f286af3ee747b102216cc613740, type: 3}
+  Lv2BossPrefab: {fileID: 4421779620548531510, guid: d874231721343cf40ac53b9371be682b, type: 3}
+  Lv3CardPrefab: {fileID: 4421779620548531510, guid: 49505dcb0ffd8cd4293737e19d85dbaa, type: 3}
+  FinalBossPrefab: {fileID: 4421779620548531510, guid: 3efa2d8fc7305734f90fdd1fd03d866c, type: 3}
 --- !u!1 &1877392771
 GameObject:
   m_ObjectHideFlags: 0
