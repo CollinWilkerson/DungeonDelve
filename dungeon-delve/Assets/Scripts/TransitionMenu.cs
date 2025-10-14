@@ -113,7 +113,7 @@ public class TransitionMenu : MonoBehaviour
         while (CardGroup.localPosition.x > endPos.x + 3)
         {
             CardGroup.localPosition = Vector3.Lerp(CardGroup.localPosition, endPos, 10 * Time.deltaTime);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.02f);
         }
         Debug.Log("finish");
         clearedText.text = "Depth: " + (PlayerData.levelsCleared + 1);
