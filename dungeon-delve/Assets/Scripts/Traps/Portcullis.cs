@@ -26,9 +26,6 @@ public class Portcullis : TrapBase
 
     private void Start()
     {
-        goldValue = 2;
-        damage = 5;
-
         jumpAction = InputSystem.actions.FindAction("Jump");
 
         foreach (MercObject merc in MercObject.Party)
