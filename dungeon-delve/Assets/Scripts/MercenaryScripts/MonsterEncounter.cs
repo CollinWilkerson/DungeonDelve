@@ -80,18 +80,41 @@ public class MonsterEncounter : MonoBehaviour
         }
     }
 
+    private GameObject[] SelectMonsterLevel()
+     {
+        if (PlayerData.levelsCleared + 1 < PlayerData.level1Cutoff)
+        {
+            return Resources.LoadAll<GameObject>("MonstersLv1");
+        }
+        if (PlayerData.levelsCleared + 1 == PlayerData.level1Cutoff)
+        { //replace with lv1 boss
+            return Resources.LoadAll<GameObject>("MonstersLv1");
+        }
+        if (PlayerData.levelsCleared + 1 < PlayerData.level2Cutoff)
+        {
+            return Resources.LoadAll<GameObject>("MonstersLv2");
+        }
+        if (PlayerData.levelsCleared + 1 == PlayerData.level2Cutoff)
+        {   //replace with lv 2 boss
+            return Resources.LoadAll<GameObject>("MonstersLv1");
+        }
+        if (PlayerData.levelsCleared + 1 < PlayerData.level3Cutoff)
+        {
+            return Resources.LoadAll<GameObject>("MonstersLv3");
+        }
+        //replace with boss monster
+        return Resources.LoadAll<GameObject>("MonstersLv1");
+        
+    }
+
     //spawns one level 1 monster
     private void SpawnMonster()
     {
-        //this may be inneficient for large numbers of monsters
-        GameObject[] monsters = Resources.LoadAll<GameObject>("MonstersLv1");
+        GameObject[] monsters = SelectMonsterLevel();
         //Debug.Log(monsters.Length);
         GameObject monster = Instantiate(monsters[
             Random.Range(0, monsters.Length)], monsterFrontline);
-        if(EnemyMercs[0] = monster.GetComponentInChildren<MonsterController>())
-        {
-            //Debug.Log(monster.name + " spawned properly");
-        }
+        EnemyMercs[0] = monster.GetComponentInChildren<MonsterController>();
     }
 
     public static MercenaryController GetEnemyTarget()

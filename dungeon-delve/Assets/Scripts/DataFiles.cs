@@ -4,7 +4,7 @@ public class DataFiles : MonoBehaviour
 {
     [Header("CSV Data files")]
     [SerializeField] private TextAsset HeroData;
-    [SerializeField] private TextAsset MonsterData;
+    [SerializeField] private TextAsset MonsterData; //monster difficulties are selected via prefab path
     [SerializeField] private TextAsset ItemData;
     [SerializeField] private TextAsset EqData;
 
