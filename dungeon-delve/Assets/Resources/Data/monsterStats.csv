@@ -26,7 +26,8 @@ Minotaur,50,5,2,25,1
 Jorogumo,40,5,3,25,1
 Vucub Caquix,30,8,6,25,1
 Butcher hound,30,10,5,25,1
-Raum,50,8,40,,
-Bakunawa,200,20,8,,
-Orochi,160,5,4,,
-Behemoth,400,20,2,,
+Raum,50,8,40,0,0
+Bakunawa,200,20,8,0,0
+Orochi,160,5,4,0,0
+Behemoth,400,20,2,0,0
+Goblin King,16,2,2,10,1

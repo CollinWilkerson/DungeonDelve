@@ -46,7 +46,7 @@ public class HeroHireMenu : MonoBehaviour
     {
         if(PlayerData.GetGold() >= cost)
         {
-            Debug.Log("hired");
+            //Debug.Log("hired");
             PlayerData.SpendGold(cost);
             MercObject.AddHeroToParty(new MercObject(filePath, index));
             FindAnyObjectByType<GoldDisplay>().UpdateGoldText();
