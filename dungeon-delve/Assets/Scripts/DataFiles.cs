@@ -23,6 +23,7 @@ public class DataFiles : MonoBehaviour
     private static string monsterSceneName = "MonsterEncounter"; //monsters are randomly selected in the scene because they all have the same behavior
     private static string[] trapSceneNames = {"Portcullis"}; //traps are devided into different scenes because they have different GUIs and different behaviors
     private static string eventSceneName; //events should be able to have the same behavior, they are all trade off choices
+    public const string bossEncouterName = "BossEncounter";
 
     private void Awake()
     {
@@ -47,13 +48,55 @@ public class DataFiles : MonoBehaviour
     //could update this to take difficulty into account later
     public static string SelectEncounter()
     {
-        int encounterFlavor = Random.Range(0, monsterSelectionWeight + 
+        int encounterFlavor;
+
+
+        if (PlayerData.levelsCleared + 1 == PlayerData.level1Cutoff || PlayerData.levelsCleared + 1 == PlayerData.level2Cutoff || PlayerData.levelsCleared + 1 == PlayerData.level3Cutoff)
+        {
+            return bossEncouterName;
+        }
+
+        if (PlayerData.levelsCleared + 1 < PlayerData.level1Cutoff)
+        {
+
+            encounterFlavor = Random.Range(0, monsterSelectionWeight +
+                trapSelectionWeight + eventSelectionWeight);
+            if (encounterFlavor < monsterSelectionWeight)
+            {
+                return monsterSceneName;
+            }
+            if (encounterFlavor > monsterSelectionWeight + trapSelectionWeight)
+            {
+                return eventSceneName;
+            }
+
+            return trapSceneNames[Random.Range(0, trapSceneNames.Length)];
+        }
+        if (PlayerData.levelsCleared + 1 < PlayerData.level2Cutoff)
+        {
+            //adjust with lv 2 scene names and weights
+            encounterFlavor = Random.Range(0, monsterSelectionWeight +
+                trapSelectionWeight + eventSelectionWeight);
+            if (encounterFlavor < monsterSelectionWeight)
+            {
+                return monsterSceneName;
+            }
+            if (encounterFlavor > monsterSelectionWeight + trapSelectionWeight)
+            {
+                return eventSceneName;
+            }
+
+            return trapSceneNames[Random.Range(0, trapSceneNames.Length)];
+        }
+
+            //adjust with lv 3 scene names and weights
+            encounterFlavor = Random.Range(0, monsterSelectionWeight +
             trapSelectionWeight + eventSelectionWeight);
-        if(encounterFlavor < monsterSelectionWeight)
+        if (encounterFlavor < monsterSelectionWeight)
         {
             return monsterSceneName;
         }
-        if(encounterFlavor > monsterSelectionWeight + trapSelectionWeight)
+        if (encounterFlavor > monsterSelectionWeight + trapSelectionWeight)
         {
             return eventSceneName;
         }
