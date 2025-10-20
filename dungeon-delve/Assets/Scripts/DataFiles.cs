@@ -60,4 +60,32 @@ public class DataFiles : MonoBehaviour
 
         return trapSceneNames[Random.Range(0, trapSceneNames.Length)];
     }
+
+    public static GameObject SelectBoss()
+    {
+        if (PlayerData.levelsCleared + 1 == PlayerData.level1Cutoff)
+        { //replace with lv1 boss
+            return Resources.Load<GameObject>("Bosses/GoblinKing");
+        }
+        if (PlayerData.levelsCleared + 1 == PlayerData.level2Cutoff)
+        {   //replace with lv 2 boss
+            return Resources.Load<GameObject>("Bosses/Raum");
+        }
+        //replace with boss monster
+        return Resources.Load<GameObject>("Bosses/Behemoth");
+    }
+
+    public static GameObject SelectMinon()
+    {
+        if (PlayerData.levelsCleared + 1 == PlayerData.level1Cutoff)
+        { //replace with lv1 boss
+            return Resources.Load<GameObject>("MonstersLv1/Goblin");
+        }
+        if (PlayerData.levelsCleared + 1 == PlayerData.level2Cutoff)
+        {   //replace with lv 2 boss
+            return Resources.Load<GameObject>("MonstersLv2/Vetala");
+        }
+        //replace with boss monster
+        return Resources.Load<GameObject>("MonstersLv3/Saratan");
+    }
 }

@@ -5,12 +5,13 @@ using UnityEngine;
 
 
 [DefaultExecutionOrder(-9999)]
-public class MonsterEncounter : MonoBehaviour
+public class BossEncounter : MonoBehaviour
 {
     [SerializeField] private float TickSpeed;
     private float StartTickSpeed;
     private bool run = true;
     [SerializeField] private Transform monsterFrontline;
+    [SerializeField] private Transform monsterBackline;
     [SerializeField] private Transform heroFrontline;
     [SerializeField] private Transform heroBackline;
 
@@ -38,7 +39,8 @@ public class MonsterEncounter : MonoBehaviour
         }
 
         SpawnHero();
-        SpawnMonster();
+        SpawnBoss(DataFiles.SelectBoss());
+        SpawnMinions(DataFiles.SelectMinon(), 2);
     }
 
     private void Start()
@@ -80,28 +82,20 @@ public class MonsterEncounter : MonoBehaviour
         }
     }
 
-    private GameObject[] SelectMonsterLevel()
-     {
-        if (PlayerData.levelsCleared + 1 < PlayerData.level1Cutoff)
+    //spawns one level 1 monster
+    private void SpawnMinions(GameObject minion, int quantity)
+    {
+        for (int i = 0; i < quantity; i++)
         {
-            return Resources.LoadAll<GameObject>("MonstersLv1");
+            GameObject monster = Instantiate(minion, monsterBackline);
+            EnemyMercs[1 + i] = monster.GetComponent<MonsterController>();
         }
-        if (PlayerData.levelsCleared + 1 < PlayerData.level2Cutoff)
-        {
-            return Resources.LoadAll<GameObject>("MonstersLv2");
-        }
-        return Resources.LoadAll<GameObject>("MonstersLv3");
-        
     }
 
-    //spawns one level 1 monster
-    private void SpawnMonster()
+    private void SpawnBoss(GameObject boss)
     {
-        GameObject[] monsters = SelectMonsterLevel();
-        //Debug.Log(monsters.Length);
-        GameObject monster = Instantiate(monsters[
-            Random.Range(0, monsters.Length)], monsterFrontline);
-        EnemyMercs[0] = monster.GetComponentInChildren<MonsterController>();
+        GameObject monster = Instantiate(boss, monsterFrontline);
+        EnemyMercs[0] = monster.GetComponent<MonsterController>();
     }
 
     public static MercenaryController GetEnemyTarget()
