@@ -58,39 +58,23 @@ public class DataFiles : MonoBehaviour
 
         if (PlayerData.levelsCleared + 1 < PlayerData.level1Cutoff)
         {
-
-            encounterFlavor = Random.Range(0, monsterSelectionWeight +
-                trapSelectionWeight + eventSelectionWeight);
-            if (encounterFlavor < monsterSelectionWeight)
-            {
-                return monsterSceneName;
-            }
-            if (encounterFlavor > monsterSelectionWeight + trapSelectionWeight)
-            {
-                return eventSceneName;
-            }
-
-            return trapSceneNames[Random.Range(0, trapSceneNames.Length)];
+            return SelectLv1Encounter();
         }
         if (PlayerData.levelsCleared + 1 < PlayerData.level2Cutoff)
         {
             //adjust with lv 2 scene names and weights
-            encounterFlavor = Random.Range(0, monsterSelectionWeight +
-                trapSelectionWeight + eventSelectionWeight);
-            if (encounterFlavor < monsterSelectionWeight)
-            {
-                return monsterSceneName;
-            }
-            if (encounterFlavor > monsterSelectionWeight + trapSelectionWeight)
-            {
-                return eventSceneName;
-            }
-
-            return trapSceneNames[Random.Range(0, trapSceneNames.Length)];
+            return SelectLv1Encounter();
         }
 
-            //adjust with lv 3 scene names and weights
-            encounterFlavor = Random.Range(0, monsterSelectionWeight +
+        //adjust with lv 3 scene names and weights
+        return SelectLv1Encounter();
+    }
+
+    private static string SelectLv1Encounter()
+    {
+
+
+        int encounterFlavor = Random.Range(0, monsterSelectionWeight +
             trapSelectionWeight + eventSelectionWeight);
         if (encounterFlavor < monsterSelectionWeight)
         {
