@@ -5,7 +5,7 @@ public class PlayerData
     public static int levelsCleared = 0;
     public static int[] itemInventory { get; private set; } = { -1, -1, -1, -1, -1 };
 
-    public static int level1Cutoff = 2;
+    public static int level1Cutoff = 15;
     public static int level2Cutoff = 25;
     public static int level3Cutoff = 30;
 

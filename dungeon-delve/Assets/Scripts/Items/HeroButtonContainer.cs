@@ -12,10 +12,10 @@ public class HeroButtonContainer : MonoBehaviour
 
     public void RegisterHero(HeroController hero)
     {
-        Debug.Log("call");
+        //Debug.Log("call");
         if (tail >= buttons.Length)
             return;
-        Debug.Log("register");
+        //Debug.Log("register");
         buttons[tail].SetTarget(hero);
         buttons[tail].button.interactable = true;
         tail++;

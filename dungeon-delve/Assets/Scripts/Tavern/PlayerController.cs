@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, groundedCheckDistance) && jumpAction.IsPressed())
         {
-            Debug.Log("tryjump");
+            //Debug.Log("tryjump");
             tryJump = true;
         }
     }

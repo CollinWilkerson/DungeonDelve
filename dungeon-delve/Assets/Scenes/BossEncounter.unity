@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1889398608}
         m_TargetAssemblyTypeName: MonsterEncounter, Assembly-CSharp
         m_MethodName: skipFight
         m_Mode: 1
@@ -1258,7 +1258,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1889398608}
         m_TargetAssemblyTypeName: MonsterEncounter, Assembly-CSharp
         m_MethodName: fastForward
         m_Mode: 1
@@ -2308,7 +2308,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1889398608}
         m_TargetAssemblyTypeName: MonsterEncounter, Assembly-CSharp
         m_MethodName: stop
         m_Mode: 1
@@ -2670,6 +2670,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794291f470d919642872200d9f6da62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TickSpeed: 0.1
+  monsterFrontline: {fileID: 1637171161}
+  heroFrontline: {fileID: 44346177}
+  heroBackline: {fileID: 307377807}
   TickSpeed: 0.1
   monsterFrontline: {fileID: 1637171161}
   monsterBackline: {fileID: 1849110052}

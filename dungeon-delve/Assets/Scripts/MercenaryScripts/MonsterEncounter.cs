@@ -14,8 +14,8 @@ public class MonsterEncounter : MonoBehaviour
     [SerializeField] private Transform heroFrontline;
     [SerializeField] private Transform heroBackline;
 
-    private static HeroController[] HeroMercs;
-    private static MonsterController[] EnemyMercs;
+    protected static HeroController[] HeroMercs;
+    protected static MonsterController[] EnemyMercs;
 
     public delegate void mercTick();
     public static event mercTick OnMercTick;
@@ -25,6 +25,7 @@ public class MonsterEncounter : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("AwakeMonster");
         //THESE **MUST** BE AT THE TOP OF START
         HeroMercs = new HeroController[4];
         EnemyMercs = new MonsterController[4];
@@ -46,7 +47,7 @@ public class MonsterEncounter : MonoBehaviour
         StartCoroutine(Tick());
     }
 
-    private IEnumerator Tick()
+    protected IEnumerator Tick()
     {
         while (run)
         {
@@ -57,7 +58,7 @@ public class MonsterEncounter : MonoBehaviour
     }
 
 
-    private void SpawnHero()
+    protected void SpawnHero()
     {
         MercObject hero = MercObject.Party[0];
         //instantiates a ahero from a resorces location, has a set filepath
@@ -106,30 +107,36 @@ public class MonsterEncounter : MonoBehaviour
 
     public static MercenaryController GetEnemyTarget()
     {
-        foreach(MercenaryController controller in EnemyMercs)
+        //ebug.Log("GetTarget");
+        foreach (MercenaryController mercenary in EnemyMercs)
         {
-            if (controller)
-                return controller;
+            if (mercenary != null)
+            {
+                //Debug.Log("Found Target");
+                return mercenary;
+            }
         }
+        Debug.Log("no target");
         return null;
     }
 
     public static MercenaryController GetHeroTarget()
     {
-        foreach (MercenaryController controller in HeroMercs)
+        foreach (MercenaryController mercenary in HeroMercs)
         {
-            if (controller)
-                return controller;
+            if (mercenary)
+                return mercenary;
         }
         return null;
     }
 
+    //this works so far, more enemies end up in EnemyMercs and I'm not sure why
     public static void QuereyWin(MercenaryController deadMonster)
     {
         EnemyMercs[deadMonster.partyOrder] = null;
         foreach (MercenaryController mercenary in EnemyMercs)
         {
-            if (mercenary)
+            if (mercenary != null)
                 return;
         }
         //Debug.Log("Hero Win");
