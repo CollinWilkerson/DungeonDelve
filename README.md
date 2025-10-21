@@ -2,9 +2,14 @@
 
 **PLAY AT:** https://collinwilkerson.github.io/DungeonDelve/
 
-**New in version 0.4**
+Use WASD to move around the tavern
 
-Trap has been added!
+Interact with the door to start the delve (you must have one hero)
 
-mash space for the portcullis to pass the trap for now
+press E when not near an interactable to open the equipment menu
 
+**New in version 0.5**
+
+Difficulties!
+
+The game now has 30 levels (don't worry they're short) that increase in difficulty as you progress, with bosses at the end of each level.
