@@ -2,9 +2,9 @@
 
 **PLAY AT:** https://collinwilkerson.github.io/DungeonDelve/
 
-**New in version 0.4**
+**New in version 0.5**
 
-Trap has been added!
+Difficulties!
 
-mash space for the portcullis to pass the trap for now
+The game now has 30 levels (don't worry they're short) that increase in difficulty as you progress, with bosses at the end of each level.
 
