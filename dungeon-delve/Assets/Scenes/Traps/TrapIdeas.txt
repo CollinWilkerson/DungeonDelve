@@ -2,30 +2,39 @@ consequences apply to all heroes on minigame fail, minigames become easier the m
 
 Tripwire	Ranger	2	5	2	0	speed -1 next encounter, flooring at 1
 Player has to balance the character with left and right
+outlast
 
 Boulder	Warrior	4	5	2	0	
 player mashes left and right
+timed
 
 Hex	Mage	2	5	2	0	dmg -1 next encounter, flooring at 1
 player has an input sequence
+timed
 
 Uneven bars	Ranger	6	4	3	0	
 player has to do the sonic bar thing TM
+timed
 
 Portcullus	Warrior	4	5	2	0	
 player mashes jump
+outlast
 
 Sleep	Mage	0	5	2	0	dmg -2 next encounter
 kirby's adventure pull out the face and release
+timed
 
 Bannana Peel	Ranger	4	5	2	0
 player presses jump on land
+timed
 	
 Crushing walls	Warrior	6	4	3	0	
 player must advance with forward without getting hit (think skyrim swinging blades)
+timed
 
 terror	Mage	0	5	2	0	your party is forced to retreat
 player must select a thought bubble that has someting nice in it
+timed
 
 Medium						
 Infernal flame	Mage	10	10	15	0	
