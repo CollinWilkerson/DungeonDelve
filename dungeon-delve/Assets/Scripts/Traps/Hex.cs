@@ -48,10 +48,16 @@ public class Hex : TrapBase
             }
         }
 
+        if(mages > 5)
+        {
+            Pass();
+            return;
+        }
+        
         actionQueue = new Queue<actions>();
 
         //I need to generate a list of commands
-        for (int i = 0; i < CharsToSpawn; i++)
+        for (int i = 0; i < CharsToSpawn - (mages * 2); i++)
         {
             actionQueue.Enqueue(GetRandomAction());
         }
@@ -64,7 +70,17 @@ public class Hex : TrapBase
     {
         if (moveAction.triggered)
         {
-            InputToAction();
+            actions tempAction = InputToAction();
+            if(actionQueue.Dequeue() == tempAction)
+            {
+                if(actionQueue.Count == 0)
+                {
+                    Pass();
+                    return;
+                }
+                return;
+            }
+            Fail();
         }
     }
 
