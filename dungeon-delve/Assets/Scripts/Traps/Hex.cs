@@ -24,6 +24,11 @@ public class Hex : TrapBase
     [Header("UI")]
     [SerializeField] private Transform expectedInputParent;
     [SerializeField] private Transform actualInputParent;
+    //I have some idea of setting these in some master file and changing them based on control type
+    [SerializeField] private GameObject upIcon;
+    [SerializeField] private GameObject rightIcon;
+    [SerializeField] private GameObject downIcon;
+    [SerializeField] private GameObject leftIcon;
 
 
     private InputAction moveAction;
@@ -32,21 +37,23 @@ public class Hex : TrapBase
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
-
-        foreach (MercObject merc in MercObject.Party)
+        if (MercObject.Party != null)
         {
-            if (merc != null)
+            foreach (MercObject merc in MercObject.Party)
             {
-                mages += merc.GetMage();
+                if (merc != null)
+                {
+                    mages += merc.GetMage();
+                }
             }
         }
+
+        actionQueue = new Queue<actions>();
 
         //I need to generate a list of commands
         for (int i = 0; i < CharsToSpawn; i++)
         {
-            actions tempAction = GetRandomAction();
-
-            actionQueue.Enqueue(GetRandomAction()); //replace with random action
+            actionQueue.Enqueue(GetRandomAction());
         }
 
         StartCoroutine(Timer());
@@ -94,12 +101,16 @@ public class Hex : TrapBase
         switch(Random.Range(0, 4))
         {
             case 0:
+                Instantiate(upIcon, expectedInputParent);
                 return actions.up;
             case 1:
+                Instantiate(leftIcon, expectedInputParent);
                 return actions.left;
             case 2:
+                Instantiate(rightIcon, expectedInputParent);
                 return actions.right;
             default:
+                Instantiate(downIcon, expectedInputParent);
                 return actions.down;
         }
     }
@@ -114,18 +125,22 @@ public class Hex : TrapBase
         {
             if(yInput < 0)
             {
-                Debug.Log("Down");
+                //Debug.Log("Down");
+                Instantiate(downIcon, actualInputParent);
                 return actions.down;
             }
-            Debug.Log("Up");
+            //Debug.Log("Up");
+            Instantiate(upIcon, actualInputParent);
             return actions.up;
         }
         if (xInput < 0)
         {
-            Debug.Log("Left");
+            //Debug.Log("Left");
+            Instantiate(leftIcon, actualInputParent);
             return actions.left;
         }
-        Debug.Log("Right");
+        //Debug.Log("Right");
+        Instantiate(rightIcon, actualInputParent);
         return actions.right;
     }
 

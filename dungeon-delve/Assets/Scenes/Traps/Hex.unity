@@ -249,6 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 39128468}
+  - component: {fileID: 39128469}
   m_Layer: 5
   m_Name: Expected
   m_TagString: Untagged
@@ -273,8 +274,34 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1036, y: 150}
+  m_SizeDelta: {x: 0, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &39128469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39128467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &81340844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1291745599
 Transform:
   m_ObjectHideFlags: 0
@@ -1575,18 +1602,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1291745597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87a082314c67ab47b25031a3f3bd678, type: 3}
+  m_Script: {fileID: 11500000, guid: 791a5903d8c099d4e8cd313f4d0a01c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   goldValue: 2
-  damage: 2
-  fallRate: 5
-  minSpeed: 10
-  maxSpeed: 250
-  timeToWin: 5
-  balanceSens: 1
-  inputDecay: 2
-  pivot: {fileID: 0}
+  damage: 0
+  timeToLose: 5
+  CharsToSpawn: 10
+  expectedInputParent: {fileID: 39128468}
+  actualInputParent: {fileID: 1453146254}
+  upIcon: {fileID: 5329770082476985622, guid: 91de1e8ece1648645a64e44842717767, type: 3}
+  rightIcon: {fileID: 5803037948936633929, guid: 34a7dc34809ca5344b7d76dbcefc7523, type: 3}
+  downIcon: {fileID: 8602636198376075212, guid: 6913327947a4eb14f83955eefa2084b7, type: 3}
+  leftIcon: {fileID: 5069157950222626149, guid: 7801ed74be653b747810575a3a242a84, type: 3}
 --- !u!1 &1453146253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,6 +1624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1453146254}
+  - component: {fileID: 1453146255}
   m_Layer: 5
   m_Name: Input
   m_TagString: Untagged
@@ -1620,8 +1649,34 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1036, y: 150}
+  m_SizeDelta: {x: 0, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1453146255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453146253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1486427392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1945,7 +2000,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 300}
+  m_SizeDelta: {x: -157.2285, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1919457091
 MonoBehaviour:
@@ -1966,9 +2021,9 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 0
-  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
