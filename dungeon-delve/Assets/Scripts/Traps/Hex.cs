@@ -18,7 +18,12 @@ public class Hex : TrapBase
 
     private int mages = 1;
     private bool end = false;
-    private List<actions> actionList;
+    private Queue<actions> actionQueue;
+
+
+    [Header("UI")]
+    [SerializeField] private Transform expectedInputParent;
+    [SerializeField] private Transform actualInputParent;
 
 
     private InputAction moveAction;
@@ -39,7 +44,9 @@ public class Hex : TrapBase
         //I need to generate a list of commands
         for (int i = 0; i < CharsToSpawn; i++)
         {
-            actionList.Add(actions.up); //replace with random action
+            actions tempAction = GetRandomAction();
+
+            actionQueue.Enqueue(GetRandomAction()); //replace with random action
         }
 
         StartCoroutine(Timer());
@@ -48,18 +55,17 @@ public class Hex : TrapBase
     // Update is called once per frame
     void Update()
     {
-        //this will be where the player inputs and it matches the commands
+        if (moveAction.triggered)
+        {
+            InputToAction();
+        }
     }
 
     private IEnumerator Timer()
     {
         yield return new WaitForSeconds(timeToLose);
 
-        if (!end)
-        {
-            FindAnyObjectByType<TrapResult>().WinTrap(this);
-            end = true;
-        }
+        Fail();
     }
 
     public void Pass()
@@ -70,6 +76,57 @@ public class Hex : TrapBase
         }
         FindAnyObjectByType<TrapResult>().WinTrap(this);
         end = true;
+    }
+
+    private void Fail()
+    {
+        //add the health loss and stuff
+        if (end)
+        {
+            return;
+        }
+        FindAnyObjectByType<TrapResult>().LoseTrap(this);
+        end = true;
+    }
+
+    private actions GetRandomAction()
+    {
+        switch(Random.Range(0, 4))
+        {
+            case 0:
+                return actions.up;
+            case 1:
+                return actions.left;
+            case 2:
+                return actions.right;
+            default:
+                return actions.down;
+        }
+    }
+
+    private actions InputToAction()
+    {
+        float xInput = moveAction.ReadValue<Vector2>().x;
+        float yInput = moveAction.ReadValue<Vector2>().y;
+
+        //this should help resolve issues of gamepad stick having imperfect inupt
+        if (Mathf.Abs(xInput) < Mathf.Abs(yInput))
+        {
+            if(yInput < 0)
+            {
+                Debug.Log("Down");
+                return actions.down;
+            }
+            Debug.Log("Up");
+            return actions.up;
+        }
+        if (xInput < 0)
+        {
+            Debug.Log("Left");
+            return actions.left;
+        }
+        Debug.Log("Right");
+        return actions.right;
     }
 
     public override void TrapLossEffects()
