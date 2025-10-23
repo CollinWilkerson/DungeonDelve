@@ -17,11 +17,11 @@ public class DataFiles : MonoBehaviour
 
     //encounters
     private static int monsterSelectionWeight = 4;
-    private static int trapSelectionWeight = 2;
+    private static int trapSelectionWeight = 3;
     private static int eventSelectionWeight = 0;
     
     private static string monsterSceneName = "MonsterEncounter"; //monsters are randomly selected in the scene because they all have the same behavior
-    private static string[] trapSceneNames = {"Portcullis", "Tripwire"}; //traps are devided into different scenes because they have different GUIs and different behaviors
+    private static string[] trapSceneNames = {"Portcullis", "Tripwire", "Hex"}; //traps are devided into different scenes because they have different GUIs and different behaviors
     private static string eventSceneName; //events should be able to have the same behavior, they are all trade off choices
     public const string bossEncouterName = "BossEncounter";
 
