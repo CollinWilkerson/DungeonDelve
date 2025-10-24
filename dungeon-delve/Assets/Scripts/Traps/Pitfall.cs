@@ -30,16 +30,7 @@ public class Pitfall : TrapBase
 
     void Start()
     {
-        if (MercObject.Party != null)
-        {
-            foreach (MercObject merc in MercObject.Party)
-            {
-                if (merc != null)
-                {
-                    rangers += merc.GetRanger();
-                }
-            }
-        }
+        GetRangers();
 
         if (rangers > 5)
         {
@@ -71,10 +62,7 @@ public class Pitfall : TrapBase
             return;
         }
 
-        if (Physics.Raycast(playerObj.transform.position + 
-            Vector3.left * playerObj.transform.localScale.x/2, 
-            Vector3.down, groundedCheckDistance) 
-            && jumpAction.IsPressed())
+        if (CheckJump())
         {
             tryJump = true;
         }
@@ -87,13 +75,18 @@ public class Pitfall : TrapBase
             return;
         }
         playerRb.AddForce(Vector3.down * 100, ForceMode.Acceleration);
-        playerRb.AddForce(Vector3.right * moveAction.ReadValue<Vector2>().x * moveModifier, ForceMode.VelocityChange);
+        playerRb.AddForce(HorizontalForce(), ForceMode.VelocityChange);
         if (tryJump)
         {
             Debug.Log("Jump");
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             tryJump = false;
         }
+    }
+
+    private Vector3 HorizontalForce()
+    {
+        return Vector3.right * moveAction.ReadValue<Vector2>().x * moveModifier;
     }
 
     private void SpawnPlatforms()
@@ -158,6 +151,31 @@ public class Pitfall : TrapBase
         FindAnyObjectByType<TrapResult>().LoseTrap(this);
         end = true;
     }
+    private void GetRangers()
+    {
+        if (MercObject.Party == null)
+        {
+            return;
+        }
+        foreach (MercObject merc in MercObject.Party)
+        {
+            if (merc == null)
+            {
+                continue;
+            }
+            rangers += merc.GetRanger();
+        }
+        
+    }
+
+    private bool CheckJump()
+    {
+        return Physics.Raycast(playerObj.transform.position +
+            Vector3.left * playerObj.transform.localScale.x / 2,
+            Vector3.down, groundedCheckDistance)
+            && jumpAction.IsPressed();
+    }
+
     public override void TrapLossEffects()
     {
         return;
