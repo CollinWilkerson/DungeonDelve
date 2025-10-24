@@ -38,6 +38,9 @@ timed
 
 Medium						
 Infernal flame	Mage	10	10	15	0	
+
+move crosshair to character with WASD press space to extingush
+
 Pitfall	Ranger	5	10	15	0	Speed -2 next encounter, flooring at 1
 like a bad version of run would be fun for this one
 
