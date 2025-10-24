@@ -15,7 +15,7 @@ public class DataFiles : MonoBehaviour
     public static string[] Items;
     public static string[] Eq;
 
-    //encounters
+    //encounters lv 1
     private static int monsterSelectionWeight = 4;
     private static int trapSelectionWeight = 3;
     private static int eventSelectionWeight = 0;
@@ -24,6 +24,13 @@ public class DataFiles : MonoBehaviour
     private static string[] trapSceneNames = {"Portcullis", "Tripwire", "Hex"}; //traps are devided into different scenes because they have different GUIs and different behaviors
     private static string eventSceneName; //events should be able to have the same behavior, they are all trade off choices
     public const string bossEncouterName = "BossEncounter";
+
+    //encounters lv 2
+    private static int lv2_monsterSelectionWeight = 4;
+    private static int lv2_trapSelectionWeight = 1;
+    private static int lv2_eventSelectionWeight = 0;
+
+    private static string[] lv2_trapSceneNames = { "Pitfall" };
 
     private void Awake()
     {
@@ -60,7 +67,7 @@ public class DataFiles : MonoBehaviour
         if (PlayerData.levelsCleared + 1 < PlayerData.level2Cutoff)
         {
             //adjust with lv 2 scene names and weights
-            return SelectLv1Encounter();
+            return SelectLv2Encounter();
         }
 
         //adjust with lv 3 scene names and weights
@@ -83,6 +90,24 @@ public class DataFiles : MonoBehaviour
         }
 
         return trapSceneNames[Random.Range(0, trapSceneNames.Length)];
+    }
+
+    private static string SelectLv2Encounter()
+    {
+
+
+        int encounterFlavor = Random.Range(0, lv2_monsterSelectionWeight +
+            lv2_trapSelectionWeight + lv2_eventSelectionWeight);
+        if (encounterFlavor < lv2_monsterSelectionWeight)
+        {
+            return monsterSceneName;
+        }
+        if (encounterFlavor > lv2_monsterSelectionWeight + lv2_trapSelectionWeight)
+        {
+            return eventSceneName;
+        }
+
+        return lv2_trapSceneNames[Random.Range(0, lv2_trapSceneNames.Length)];
     }
 
     public static GameObject SelectBoss()
