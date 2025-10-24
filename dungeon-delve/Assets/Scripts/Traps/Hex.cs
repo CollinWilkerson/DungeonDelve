@@ -12,12 +12,8 @@ public class Hex : TrapBase
         left,
         right
     }
-
-    [SerializeField] private float timeToLose = 5f;
     [SerializeField] private int CharsToSpawn = 10;
 
-    private int mages = 1;
-    private bool end = false;
     private Queue<actions> actionQueue;
 
 
@@ -36,28 +32,19 @@ public class Hex : TrapBase
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        moveAction = InputSystem.actions.FindAction("Move");
-        if (MercObject.Party != null)
-        {
-            foreach (MercObject merc in MercObject.Party)
-            {
-                if (merc != null)
-                {
-                    mages += merc.GetMage();
-                }
-            }
-        }
+        GetHeroes(Job.mage);
 
-        if(mages > 5)
+        if(heroes > 5)
         {
             Pass();
             return;
         }
-        
+
+        moveAction = InputSystem.actions.FindAction("Move");
         actionQueue = new Queue<actions>();
 
         //I need to generate a list of commands
-        for (int i = 0; i < CharsToSpawn - (mages * 2); i++)
+        for (int i = 0; i < CharsToSpawn - (heroes * 2); i++)
         {
             actionQueue.Enqueue(GetRandomAction());
         }
@@ -86,30 +73,9 @@ public class Hex : TrapBase
 
     private IEnumerator Timer()
     {
-        yield return new WaitForSeconds(timeToLose);
+        yield return new WaitForSeconds(time);
 
         Fail();
-    }
-
-    public void Pass()
-    {
-        if (end)
-        {
-            return;
-        }
-        FindAnyObjectByType<TrapResult>().WinTrap(this);
-        end = true;
-    }
-
-    private void Fail()
-    {
-        //add the health loss and stuff
-        if (end)
-        {
-            return;
-        }
-        FindAnyObjectByType<TrapResult>().LoseTrap(this);
-        end = true;
     }
 
     private actions GetRandomAction()

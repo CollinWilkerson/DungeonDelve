@@ -16,22 +16,14 @@ public class Tripwire : TrapBase
     private float adjustForce = 0f;
     private float angle = -0.1f;
     //one is our default, it will be the hardest difficulty
-    private int rangers = 1;
-    private bool end = false;
 
     private InputAction moveAction;
     private void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
 
-        foreach (MercObject merc in MercObject.Party)
-        {
-            if (merc != null)
-            {
-                rangers += merc.GetRanger();
-            }
-        }
-        fallRate = fallRate / rangers;
+        GetHeroes(Job.ranger);
+        fallRate = fallRate / heroes;
         StartCoroutine(Timer());
     }
 
@@ -60,26 +52,11 @@ public class Tripwire : TrapBase
         pivot.transform.rotation = Quaternion.Euler(new Vector3(0,0, angle));
     }
 
-    private void Fail()
-    {
-        //add the health loss and stuff
-        if (end)
-        {
-            return;
-        }
-        FindAnyObjectByType<TrapResult>().LoseTrap(this);
-        end = true;
-    }
-
     private IEnumerator Timer()
     {
-        yield return new WaitForSeconds(timeToWin);
+        yield return new WaitForSeconds(time);
 
-        if (!end)
-        {
-            FindAnyObjectByType<TrapResult>().WinTrap(this);
-            end = true;
-        }
+        Pass();
     }
 
     public override void TrapLossEffects()

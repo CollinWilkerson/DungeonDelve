@@ -45,10 +45,12 @@ Pitfall	Ranger	5	10	15	0	Speed -2 next encounter, flooring at 1
 like a bad version of run would be fun for this one
 
 Swinging blades	Ranger	10	10	15	0	
+press forward move forward 1 space untill all blades are cleared
 Living chains	Mage	3	10	15	0	Speed -2 next encounter, attack -1 both floor at 1
 Snakes jaws	Warrior	5	10	15	0	each hero takes 1 damage at the end of each encounter after this one
 Grappling hook	Warrior	0	10	15	0	Go back 3 encounters, replace the cards
 Hard						
 Explosives	Ranger	20	15	15	1	
 Illusion	Mage	0	15	15	1	roll a d4 that hero takes damage equal to the attack values of your party members excepting that one.
+spot the difference
 Skyhold	Warrior	5	15	15	1	lose the hero with the highest health
