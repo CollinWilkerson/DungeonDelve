@@ -39,6 +39,8 @@ timed
 Medium						
 Infernal flame	Mage	10	10	15	0	
 Pitfall	Ranger	5	10	15	0	Speed -2 next encounter, flooring at 1
+like a bad version of run would be fun for this one
+
 Swinging blades	Ranger	10	10	15	0	
 Living chains	Mage	3	10	15	0	Speed -2 next encounter, attack -1 both floor at 1
 Snakes jaws	Warrior	5	10	15	0	each hero takes 1 damage at the end of each encounter after this one
