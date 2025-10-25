@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Traps/Pitfall.unity
     guid: 78e0c59c02a29824880660b91d5484a6
+  - enabled: 1
+    path: Assets/Scenes/Traps/InfernalFlame.unity
+    guid: ea3bed6f15fc95a468f548e5142e880f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0f4e43bbbb8ab404bafee5c47940fa41, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

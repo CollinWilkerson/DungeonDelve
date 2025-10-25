@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class Portcullis : TrapBase
@@ -8,7 +7,6 @@ public class Portcullis : TrapBase
 
     [Tooltip("how far out of 100 the portcullis will decend in 1 second")]
     [SerializeField] private float decendRate = 30f;
-    [SerializeField] private float timeToWin = 5f;
 
     [Header("UI")]
     [SerializeField] private RectTransform canvas;
@@ -17,8 +15,6 @@ public class Portcullis : TrapBase
 
     private float position = 100f;
     //one is our default, it will be the hardest difficulty
-    private int warriors = 1;
-    private bool end = false;
     private Vector3 p_initialPosition;
     private Vector3 w_initialScale;
 
@@ -28,13 +24,7 @@ public class Portcullis : TrapBase
     {
         jumpAction = InputSystem.actions.FindAction("Jump");
 
-        foreach (MercObject merc in MercObject.Party)
-        {
-            if (merc != null)
-            {
-                warriors += merc.GetWarrior();
-            }
-        }
+        GetHeroes(Job.warrior);
 
         p_initialPosition = portcullis.position;
         w_initialScale = warrior.localScale;
@@ -52,7 +42,7 @@ public class Portcullis : TrapBase
         position -= decendRate * Time.deltaTime;
         if (jumpAction.triggered)
         {
-            position += warriors;
+            position += heroes;
         }
         if (position < 0)
         {
@@ -68,27 +58,10 @@ public class Portcullis : TrapBase
         warrior.localScale = w_initialScale + new Vector3(1 - (position / 100f), -(1 - (position / 100f)), 0);
     }
 
-    private void Fail()
-    {
-        //add the health loss and stuff
-        FindAnyObjectByType<TrapResult>().LoseTrap(this);
-        end = true;
-    }
-
     private IEnumerator Timer()
     {
-        yield return new WaitForSeconds(timeToWin);
+        yield return new WaitForSeconds(time);
 
-        if (!end)
-        {
-            FindAnyObjectByType<TrapResult>().WinTrap(this);
-            end = true;
-        }
-    }
-
-    //portcullis does not have side effects
-    public override void TrapLossEffects()
-    {
-        return;
+        Pass();
     }
 }

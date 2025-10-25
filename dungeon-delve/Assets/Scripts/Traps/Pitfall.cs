@@ -4,7 +4,6 @@ using System.Collections;
 
 public class Pitfall : TrapBase
 {
-    [SerializeField] private float timeToLose = 5f;
     [SerializeField] private int platformsToSpawn = 10;
 
     [Header("Gameobjects")]
@@ -19,10 +18,8 @@ public class Pitfall : TrapBase
     [SerializeField] private float jumpForce;
     [SerializeField] private float moveModifier;
 
-    private bool end = false;
     private bool first = true;
     private bool tryJump = false;
-    private int rangers;
     private Vector3 spawnPos = new Vector3(0,0,0);
     private Rigidbody playerRb;
     private InputAction moveAction;
@@ -30,9 +27,9 @@ public class Pitfall : TrapBase
 
     void Start()
     {
-        GetRangers();
+        GetHeroes(Job.ranger);
 
-        if (rangers > 5)
+        if (heroes > 5)
         {
             Pass();
             return;
@@ -91,7 +88,7 @@ public class Pitfall : TrapBase
 
     private void SpawnPlatforms()
     {
-        for(int i = 0; i < platformsToSpawn - (rangers * 2); i++)
+        for(int i = 0; i < platformsToSpawn - (heroes * 2); i++)
         {
             int j = Random.Range(0, 3);
             switch (j)
@@ -126,46 +123,9 @@ public class Pitfall : TrapBase
 
     private IEnumerator Timer()
     {
-        yield return new WaitForSeconds(timeToLose);
+        yield return new WaitForSeconds(time);
 
         Fail();
-    }
-
-    public void Pass()
-    {
-        if (end)
-        {
-            return;
-        }
-        FindAnyObjectByType<TrapResult>().WinTrap(this);
-        end = true;
-    }
-
-    private void Fail()
-    {
-        //add the health loss and stuff
-        if (end)
-        {
-            return;
-        }
-        FindAnyObjectByType<TrapResult>().LoseTrap(this);
-        end = true;
-    }
-    private void GetRangers()
-    {
-        if (MercObject.Party == null)
-        {
-            return;
-        }
-        foreach (MercObject merc in MercObject.Party)
-        {
-            if (merc == null)
-            {
-                continue;
-            }
-            rangers += merc.GetRanger();
-        }
-        
     }
 
     private bool CheckJump()
