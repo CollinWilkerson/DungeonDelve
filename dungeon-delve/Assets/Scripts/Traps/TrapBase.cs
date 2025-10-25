@@ -45,32 +45,48 @@ public class TrapBase : MonoBehaviour
             switch (job)
             {
                 case Job.warrior:
-                    foreach (MercObject merc in MercObject.Party)
-                    {
-                        if (merc != null)
-                        {
-                            merc.GetWarrior();
-                        }
-                    }
+                    GetWarriors();
                     return;
                 case Job.ranger:
-                    foreach (MercObject merc in MercObject.Party)
-                    {
-                        if (merc != null)
-                        {
-                            merc.GetRanger();
-                        }
-                    }
+                    GetRangers();
                     return;
                 default:
-                    foreach (MercObject merc in MercObject.Party)
-                    {
-                        if (merc != null)
-                        {
-                            merc.GetMage();
-                        }
-                    }
+                    GetMages();
                     return;
+            }
+        }
+    }
+
+    private void GetWarriors()
+    {
+        foreach (MercObject merc in MercObject.Party)
+        {
+            if (merc != null)
+            {
+                merc.GetWarrior();
+            }
+        }
+    }
+
+    private void GetRangers()
+    {
+
+        foreach (MercObject merc in MercObject.Party)
+        {
+            if (merc != null)
+            {
+                merc.GetRanger();
+            }
+        }
+    }
+
+    private void GetMages()
+    {
+        foreach (MercObject merc in MercObject.Party)
+        {
+            if (merc != null)
+            {
+                merc.GetMage();
             }
         }
     }
