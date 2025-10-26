@@ -32,6 +32,13 @@ public class DataFiles : MonoBehaviour
 
     private static string[] lv2_trapSceneNames = { "Pitfall", "InfernalFlame", "SwingingBlades" };
 
+    //encounters lv 3
+    private static int lv3_monsterSelectionWeight = 4;
+    private static int lv3_trapSelectionWeight = 1;
+    private static int lv3_eventSelectionWeight = 0;
+
+    private static string[] lv3_trapSceneNames = { "Explosives" };
+
     private void Awake()
     {
         //its a singleton
@@ -71,7 +78,7 @@ public class DataFiles : MonoBehaviour
         }
 
         //adjust with lv 3 scene names and weights
-        return SelectLv1Encounter();
+        return SelectLv3Encounter();
     }
 
     private static string SelectLv1Encounter()
@@ -108,6 +115,24 @@ public class DataFiles : MonoBehaviour
         }
 
         return lv2_trapSceneNames[Random.Range(0, lv2_trapSceneNames.Length)];
+    }
+
+    private static string SelectLv3Encounter()
+    {
+
+
+        int encounterFlavor = Random.Range(0, lv3_monsterSelectionWeight +
+            lv3_trapSelectionWeight + lv3_eventSelectionWeight);
+        if (encounterFlavor < lv3_monsterSelectionWeight)
+        {
+            return monsterSceneName;
+        }
+        if (encounterFlavor > lv3_monsterSelectionWeight + lv3_trapSelectionWeight)
+        {
+            return eventSceneName;
+        }
+
+        return lv3_trapSceneNames[Random.Range(0, lv3_trapSceneNames.Length)];
     }
 
     public static GameObject SelectBoss()
