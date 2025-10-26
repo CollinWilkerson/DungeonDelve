@@ -17,7 +17,7 @@ public class TrapBase : MonoBehaviour
         return;
     }
 
-    protected void Pass()
+    public void Pass()
     {
         if (end)
         {
@@ -27,7 +27,7 @@ public class TrapBase : MonoBehaviour
         end = true;
     }
 
-    protected void Fail()
+    public void Fail()
     {
         //add the health loss and stuff
         if (end)
