@@ -8,7 +8,6 @@ public class Tripwire : TrapBase
     [SerializeField] private float fallRate = 1f;
     [SerializeField] private float minSpeed = 10f;
     [SerializeField] private float maxSpeed = 150f;
-    [SerializeField] private float timeToWin = 5f;
     [SerializeField] private float balanceSens = 20f;
     [SerializeField] private float inputDecay = 2f;
     [SerializeField] GameObject pivot;
