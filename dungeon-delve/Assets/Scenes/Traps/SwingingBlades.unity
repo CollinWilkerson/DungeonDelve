@@ -630,8 +630,8 @@ Transform:
   m_GameObject: {fileID: 274264921}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 959.9999, y: 540, z: 0}
-  m_LocalScale: {x: 5.3129, y: 1, z: 170.52988}
+  m_LocalPosition: {x: 0, y: -0, z: 294.1201}
+  m_LocalScale: {x: 5.3129, y: 1, z: 618.56305}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1347,7 +1347,7 @@ GameObject:
   - component: {fileID: 872748575}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Deathbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1682,6 +1682,8 @@ GameObject:
   - component: {fileID: 1114745792}
   - component: {fileID: 1114745791}
   - component: {fileID: 1114745790}
+  - component: {fileID: 1114745794}
+  - component: {fileID: 1114745795}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1772,13 +1774,52 @@ Transform:
   m_GameObject: {fileID: 1114745789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960.8329, y: 543.72, z: -15.8}
-  m_LocalScale: {x: 3.416, y: 5.950419, z: 1.4267265}
+  m_LocalPosition: {x: 0, y: 3.7, z: 0}
+  m_LocalScale: {x: 3, y: 6, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1099840032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1114745794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114745789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcf5270db92fee4bada88ac657bbac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1114745795
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114745789}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!1 &1291745597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,21 +1861,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1291745597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2e1346c8a52d094b97a3a098333da89, type: 3}
+  m_Script: {fileID: 11500000, guid: 88f7a8c4fad3c514eb028c8ad9e8ec0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 5
-  goldValue: 15
-  damage: 5
-  platformsToSpawn: 10
-  playerObj: {fileID: 0}
-  floor_s: {fileID: 1613503513217192920, guid: 42e25d73e65f36d4f92164f5b3af4b02, type: 3}
-  floor_m: {fileID: 8570820381190957371, guid: bb144ed5980cd344c9aa904ecfd6da14, type: 3}
-  floor_l: {fileID: 2191421079460182145, guid: 0ea5eab91a94a1e448cc6aae3a08e0ca, type: 3}
-  floor_goal: {fileID: 2191421079460182145, guid: d76b8f1413f34ba4980e98b3eb7f3182, type: 3}
-  groundedCheckDistance: 7
-  jumpForce: 10
-  moveModifier: 5
+  time: 10
+  goldValue: 10
+  damage: 10
+  blade: {fileID: 2021341053}
+  player: {fileID: 1114745789}
+  bladesToSpawn: 12
 --- !u!1 &1323109045
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,7 +2284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1939761992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2534,7 +2569,7 @@ Transform:
   m_GameObject: {fileID: 2021341053}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.36491084, w: 0.93104255}
-  m_LocalPosition: {x: 959.9999, y: 557.7, z: 0}
+  m_LocalPosition: {x: 0, y: 17, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

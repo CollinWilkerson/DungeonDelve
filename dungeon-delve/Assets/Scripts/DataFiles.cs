@@ -27,10 +27,10 @@ public class DataFiles : MonoBehaviour
 
     //encounters lv 2
     private static int lv2_monsterSelectionWeight = 4;
-    private static int lv2_trapSelectionWeight = 2;
+    private static int lv2_trapSelectionWeight = 3;
     private static int lv2_eventSelectionWeight = 0;
 
-    private static string[] lv2_trapSceneNames = { "Pitfall", "InfernalFlame" };
+    private static string[] lv2_trapSceneNames = { "Pitfall", "InfernalFlame", "SwingingBlades" };
 
     private void Awake()
     {
