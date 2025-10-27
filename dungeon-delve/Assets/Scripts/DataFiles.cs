@@ -24,6 +24,7 @@ public class DataFiles : MonoBehaviour
     private static string[] trapSceneNames = {"Portcullis", "Tripwire", "Hex", "UnevenBars"}; //traps are devided into different scenes because they have different GUIs and different behaviors
     private static string eventSceneName; //events should be able to have the same behavior, they are all trade off choices
     public const string bossEncouterName = "BossEncounter";
+    public const string winScreenName = "WinScreen";
 
     //encounters lv 2
     private static int lv2_monsterSelectionWeight = 4;
@@ -75,6 +76,10 @@ public class DataFiles : MonoBehaviour
         {
             //adjust with lv 2 scene names and weights
             return SelectLv2Encounter();
+        }
+        if(PlayerData.levelsCleared > PlayerData.level3Cutoff)
+        {
+            return winScreenName;
         }
 
         //adjust with lv 3 scene names and weights
