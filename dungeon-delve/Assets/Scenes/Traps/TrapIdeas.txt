@@ -1,6 +1,6 @@
 consequences apply to all heroes on minigame fail, minigames become easier the more of the proper class you have.
 
-Tripwire	Ranger	2	5	2	0	speed -1 next encounter, flooring at 1
+-Tripwire	Ranger	2	5	2	0	speed -1 next encounter, flooring at 1
 Player has to balance the character with left and right
 outlast
 
@@ -8,7 +8,7 @@ Boulder	Warrior	4	5	2	0
 player mashes left and right
 timed
 
-Hex	Mage	2	5	2	0	dmg -1 next encounter, flooring at 1
+-Hex	Mage	2	5	2	0	dmg -1 next encounter, flooring at 1
 player has an input sequence
 timed
 
@@ -16,7 +16,7 @@ Uneven bars	Ranger	6	4	3	0
 player has to do the sonic bar thing TM
 timed
 
-Portcullus	Warrior	4	5	2	0	
+-Portcullus	Warrior	4	5	2	0	
 player mashes jump
 outlast
 
@@ -33,24 +33,27 @@ player must advance with forward without getting hit (think skyrim swinging blad
 timed
 
 terror	Mage	0	5	2	0	your party is forced to retreat
-player must select a thought bubble that has someting nice in it
+player must select a thought bubble that has someting nice in it, these could be silohetts that the player matches
 timed
 
 Medium						
-Infernal flame	Mage	10	10	15	0	
-
+-Infernal flame	Mage	10	10	15	0	
 move crosshair to character with WASD press space to extingush
 
-Pitfall	Ranger	5	10	15	0	Speed -2 next encounter, flooring at 1
+-Pitfall	Ranger	5	10	15	0	Speed -2 next encounter, flooring at 1
 like a bad version of run would be fun for this one
 
-Swinging blades	Ranger	10	10	15	0	
+-Swinging blades	Ranger	10	10	15	0	
 press forward move forward 1 space untill all blades are cleared
+
 Living chains	Mage	3	10	15	0	Speed -2 next encounter, attack -1 both floor at 1
+
 Snakes jaws	Warrior	5	10	15	0	each hero takes 1 damage at the end of each encounter after this one
+like the nine sols parry mechanic
+
 Grappling hook	Warrior	0	10	15	0	Go back 3 encounters, replace the cards
 Hard						
-Explosives	Ranger	20	15	15	1	
-Illusion	Mage	0	15	15	1	roll a d4 that hero takes damage equal to the attack values of your party members excepting that one.
+-Explosives	Ranger	20	15	15	1	
+-Illusion	Mage	0	15	15	1	roll a d4 that hero takes damage equal to the attack values of your party members excepting that one.
 spot the difference
 Skyhold	Warrior	5	15	15	1	lose the hero with the highest health
