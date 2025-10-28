@@ -10,7 +10,7 @@ public class MonsterEncounter : MonoBehaviour
     [SerializeField] private float TickSpeed;
     private float StartTickSpeed;
     private bool run = true;
-    [SerializeField] private Transform monsterFrontline;
+    [SerializeField] protected Transform monsterFrontline;
     [SerializeField] private Transform heroFrontline;
     [SerializeField] private Transform heroBackline;
 
