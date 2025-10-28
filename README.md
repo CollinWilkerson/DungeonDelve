@@ -31,3 +31,8 @@ Hard:
 - Skyhold (W)
 
 All traps have an associated class that makes the trap easier to complete (this)
+
+Traps inspired by:
+
+- [Dreams of Aether](https://store.steampowered.com/app/3463050/Dreams_of_Aether/)
+- [Mindwave](https://holohammer.com/mindwave/)
