@@ -12,7 +12,7 @@ timed
 player has an input sequence
 timed
 
-Uneven bars	Ranger	6	4	3	0	
+-Uneven bars	Ranger	6	4	3	0	
 player has to do the sonic bar thing TM
 timed
 

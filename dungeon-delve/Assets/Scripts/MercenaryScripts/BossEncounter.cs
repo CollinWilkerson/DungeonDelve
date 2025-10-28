@@ -7,11 +7,7 @@ using UnityEngine;
 [DefaultExecutionOrder(-9999)]
 public class BossEncounter : MonsterEncounter
 {
-    [SerializeField] private float TickSpeed;
-    [SerializeField] private Transform monsterFrontline;
     [SerializeField] private Transform monsterBackline;
-    [SerializeField] private Transform heroFrontline;
-    [SerializeField] private Transform heroBackline;
 
 
     private void Awake()
