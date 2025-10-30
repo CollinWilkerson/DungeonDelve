@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class TitleControl : MonoBehaviour
 {
+    const string sourceCode = "https://github.com/CollinWilkerson/DungeonDelve";
+
     public void OnPlayButton() 
     {
         SceneManager.LoadScene("Tavern");
@@ -20,6 +22,6 @@ public class TitleControl : MonoBehaviour
 
     public void OnCodeButton()
     {
-        Application.OpenURL("https://github.com/CollinWilkerson/DungeonDelve");
+        Application.OpenURL(sourceCode);
     }
 }
