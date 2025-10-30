@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private bool tryJump = false;
 
     [Header("Camera Settings")]
-    [SerializeField] private float mouseSensitivity = 100f;
     [SerializeField] private float fieldOfView = 60f;
 
     private Camera playerCamera;
@@ -44,10 +43,6 @@ public class PlayerController : MonoBehaviour
         }
 
         Cursor.lockState = CursorLockMode.Locked;
-
-        #if UNITY_EDITOR
-            mouseSensitivity *= 50;
-        #endif
     }
 
     private void Update()
@@ -87,6 +82,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleLook()
     {
+        float mouseSensitivity = TavernData.MouseSensitivity;
         float mouseX = lookAction.ReadValue<Vector2>().x * mouseSensitivity * Time.deltaTime;
         float mouseY = lookAction.ReadValue<Vector2>().y * mouseSensitivity * Time.deltaTime;
 

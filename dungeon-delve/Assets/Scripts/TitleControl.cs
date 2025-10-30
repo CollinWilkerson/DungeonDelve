@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class TitleControl : MonoBehaviour
 {
-    const string sourceCode = "https://github.com/CollinWilkerson/DungeonDelve";
+    [SerializeField] private GameObject settingsMenu;
+    private const string sourceCode = "https://github.com/CollinWilkerson/DungeonDelve";
 
     public void OnPlayButton() 
     {
@@ -12,7 +13,7 @@ public class TitleControl : MonoBehaviour
 
     public void OnSettingsButton()
     {
-        //openSettingsMenu
+        settingsMenu.SetActive(!settingsMenu.activeSelf);
     }
 
     public void OnQuitButton()
