@@ -22,7 +22,7 @@ public class WeaponButton : MonoBehaviour
 
     public void OnClick()
     {
-        EqButtons.activeMerc.weapon = weapon;
+        EqButtons.activeButton.SetWeapon(weapon);
         Equipment.RemoveEq(weapon);
         menu.gameObject.SetActive(false);
     }

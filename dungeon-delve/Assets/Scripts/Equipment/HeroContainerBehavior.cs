@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using System.IO;
+using System;
 
 public class HeroContainerBehavior : MonoBehaviour
 {
@@ -9,15 +9,11 @@ public class HeroContainerBehavior : MonoBehaviour
     [SerializeField] private TextMeshProUGUI damageText;
     [SerializeField] private TextMeshProUGUI speedText;
 
-    private MercObject merc;
-
     public void Initialize(MercObject _merc)
     {
-        merc = _merc;
-        string[] values = DataFiles.Heroes[merc.index].Split(',');
-        healthText.text = values[1];
-        damageText.text = values[2];
-        speedText.text =  values[3];
+        healthText.text = _merc.GetMaxHealth().ToString();
+        damageText.text = _merc.GetDamage().ToString();
+        speedText.text = _merc.GetSpeed().ToString();
         gameObject.GetComponent<EqButtons>().Initialize(_merc);
     }
 

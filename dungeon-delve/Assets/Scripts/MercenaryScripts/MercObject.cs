@@ -88,6 +88,42 @@ public class MercObject
         return maxHealth;
     }
 
+    public int GetDamage()
+    {
+        int damage = Int32.Parse(DataFiles.Heroes[index].Split(',')[2]);
+        if(armor != null)
+        {
+            damage += armor.GetDamage();
+        }
+        if(weapon != null)
+        {
+            damage += weapon.GetDamage();
+        }
+        if(damage < 1)
+        {
+            return 1;
+        }
+        return damage;
+    }
+
+    public int GetSpeed()
+    {
+        int speed = Int32.Parse(DataFiles.Heroes[index].Split(',')[3]);
+        if (armor != null)
+        {
+            speed += armor.GetSpeed();
+        }
+        if (weapon != null)
+        {
+            speed += weapon.GetSpeed();
+        }
+        if (speed < 1)
+        {
+            return 1;
+        }
+        return speed;
+    }
+
     public int GetWarrior()
     {
         return Int32.Parse(DataFiles.Heroes[index].Split(",")[9]);

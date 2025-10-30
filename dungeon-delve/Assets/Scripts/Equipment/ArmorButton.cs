@@ -22,7 +22,7 @@ public class ArmorButton : MonoBehaviour
 
     public void OnClick()
     {
-        EqButtons.activeMerc.armor = armor;
+        EqButtons.activeButton.SetArmor(armor);
         Equipment.RemoveEq(armor);
         menu.gameObject.SetActive(false);
     }
