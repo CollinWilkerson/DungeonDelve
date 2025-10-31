@@ -20,8 +20,7 @@ public class EqMenu : MonoBehaviour
         {
             if (eq != null && eq.GetEqType() == Eq_Type.armor)
             {
-                GameObject go = Instantiate(Resources.Load<GameObject>("EqButton"), buttonVLG);
-                go.GetComponent<EqSelect>().Initialize(eq, gameObject);
+                JobCompare(eq);
             }
         }
     }
@@ -32,9 +31,40 @@ public class EqMenu : MonoBehaviour
         {
             if (eq != null && eq.GetEqType() == Eq_Type.weapon)
             {
-                GameObject go = Instantiate(Resources.Load<GameObject>("EqButton"), buttonVLG);
-                go.GetComponent<EqSelect>().Initialize(eq, gameObject);
+                JobCompare(eq);
             }
         }
+    }
+
+    private void JobCompare(Equipment eq)
+    {
+        MercObject merc = EqButtons.activeButton.merc;
+        switch (eq.GetJob())
+        {
+            case (Job.mage):
+                if(merc.GetMage() > 0)
+                {
+                    SpawnEQ(eq);
+                }
+                return;
+            case (Job.ranger):
+                if(merc.GetRanger() > 0)
+                {
+                    SpawnEQ(eq);
+                }
+                return;
+            default:
+                if(merc.GetWarrior() > 0)
+                {
+                    SpawnEQ(eq);
+                }
+                return;
+        }
+    }
+
+    private void SpawnEQ(Equipment eq)
+    {
+        GameObject go = Instantiate(Resources.Load<GameObject>("EqButton"), buttonVLG);
+        go.GetComponent<EqSelect>().Initialize(eq, gameObject);
     }
 }

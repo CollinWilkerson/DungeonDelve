@@ -8,7 +8,7 @@ public class EqButtons : MonoBehaviour
 
     public static EqButtons activeButton;
     private EqMenu eqMenu;
-    private MercObject merc;
+    public MercObject merc { get; private set; }
 
     public void Initialize(MercObject _merc)
     {
