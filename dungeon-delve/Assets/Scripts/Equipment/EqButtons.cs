@@ -1,7 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EqButtons : MonoBehaviour
 {
+    [SerializeField] private Image WeaponImage;
+    [SerializeField] private Image ArmorImage;
+
     public static EqButtons activeButton;
     private EqMenu eqMenu;
     private MercObject merc;
@@ -16,14 +20,18 @@ public class EqButtons : MonoBehaviour
     {
         merc.armor = armor;
         //Change images
+        ArmorImage.sprite = armor.GetSprite();
         //Update character stats
+        gameObject.GetComponent<HeroContainerBehavior>().SetText(merc);
     }
 
     public void SetWeapon(Equipment weapon)
     {
         merc.weapon = weapon;
         //Change images
+        WeaponImage.sprite = weapon.GetSprite();
         //Update character stats
+        gameObject.GetComponent<HeroContainerBehavior>().SetText(merc);
     }
 
     public void OnClickArmorSlot()
