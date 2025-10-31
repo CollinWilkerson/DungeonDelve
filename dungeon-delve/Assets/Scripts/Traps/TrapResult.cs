@@ -45,7 +45,7 @@ public class TrapResult : MonoBehaviour
             {
                 continue;
             }
-            Debug.Log("party member " + i + " with " + merc.GetHealth() + " is taking " + trap.damage + " damage");
+           // Debug.Log("party member " + i + " with " + merc.GetHealth() + " is taking " + trap.damage + " damage");
             merc.UpdateHealth(merc.GetHealth() - trap.damage);
             if(merc.GetHealth() <= 0)
             {

@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 5210545638453097040}
   - component: {fileID: 785464838551539982}
   m_Layer: 5
-  m_Name: Weapon Name
+  m_Name: Armor Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,8 +568,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -257.25, y: -29.5}
-  m_SizeDelta: {x: 230.5766, y: 38.0848}
+  m_AnchoredPosition: {x: -256.5326, y: -31.626}
+  m_SizeDelta: {x: 485.4333, y: 51.2671}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5210545638453097040
 CanvasRenderer:
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weapon Name
+  m_text: Eq Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9423d91ad82149b42bf22b25f0bf09c5, type: 2}
   m_sharedMaterial: {fileID: -2512653714974856988, guid: 9423d91ad82149b42bf22b25f0bf09c5, type: 2}
@@ -967,9 +967,9 @@ GameObject:
   - component: {fileID: 4978918267621494012}
   - component: {fileID: 4491155213663792864}
   - component: {fileID: 2689853428452741259}
-  - component: {fileID: 6314049395251076004}
+  - component: {fileID: 7922245466624847213}
   m_Layer: 5
-  m_Name: WeaponButton
+  m_Name: EqButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1081,8 +1081,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6314049395251076004}
-        m_TargetAssemblyTypeName: WeaponButton, Assembly-CSharp
+      - m_Target: {fileID: 7922245466624847213}
+        m_TargetAssemblyTypeName: ArmorButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1093,7 +1093,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6314049395251076004
+--- !u!114 &7922245466624847213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1102,10 +1102,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8447601673100786078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04b13c1da8fc34a48a928c9caf593528, type: 3}
+  m_Script: {fileID: 11500000, guid: c7b7d3ae5e23eba4ba9a641ea725d9e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EqName: {fileID: 785464838551539982}
   EqHealth: {fileID: 8234044530236426812}
   EqDamage: {fileID: 1666594485285064415}
   EqSpeed: {fileID: 1034498396500401617}
+  image: {fileID: 4254871416944440327}

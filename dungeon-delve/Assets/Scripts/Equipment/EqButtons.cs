@@ -1,30 +1,52 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EqButtons : MonoBehaviour
 {
-    public static MercObject activeMerc;
-    private MercObject merc;
-    private GameObject armorMenu;
-    private GameObject weaponMenu;
+    [SerializeField] private Image WeaponImage;
+    [SerializeField] private Image ArmorImage;
+
+    public static EqButtons activeButton;
+    private EqMenu eqMenu;
+    public MercObject merc { get; private set; }
 
     public void Initialize(MercObject _merc)
     {
-        //Debug.Log("Initialized");
         merc = _merc;
-        armorMenu = FindAnyObjectByType<ArmorMenu>(FindObjectsInactive.Include).gameObject;
-        weaponMenu = FindAnyObjectByType<WeaponMenu>(FindObjectsInactive.Include).gameObject;
+        eqMenu = FindAnyObjectByType<EqMenu>(FindObjectsInactive.Include);
     }
+
+    public void SetArmor(Equipment armor)
+    {
+        merc.armor = armor;
+        //Change images
+        ArmorImage.sprite = armor.GetSprite();
+        //Update character stats
+        gameObject.GetComponent<HeroContainerBehavior>().SetText(merc);
+    }
+
+    public void SetWeapon(Equipment weapon)
+    {
+        merc.weapon = weapon;
+        //Change images
+        WeaponImage.sprite = weapon.GetSprite();
+        //Update character stats
+        gameObject.GetComponent<HeroContainerBehavior>().SetText(merc);
+    }
+
     public void OnClickArmorSlot()
     {
-        activeMerc = merc;
-        armorMenu.SetActive(true);
-        weaponMenu.SetActive(false);
+        activeButton = this;
+        eqMenu.gameObject.SetActive(false); //this is nessasary i swear
+        eqMenu.gameObject.SetActive(true);
+        eqMenu.Initialize(false);
     }
 
     public void OnClickWeaponSlot()
     {
-        activeMerc = merc;
-        armorMenu.SetActive(false);
-        weaponMenu.SetActive(true);
+        activeButton = this;
+        eqMenu.gameObject.SetActive(false); //this is nessasary i swear
+        eqMenu.gameObject.SetActive(true);
+        eqMenu.Initialize(true);
     }
 }
