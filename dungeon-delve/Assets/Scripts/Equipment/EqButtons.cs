@@ -3,15 +3,13 @@ using UnityEngine;
 public class EqButtons : MonoBehaviour
 {
     public static EqButtons activeButton;
-    private GameObject armorMenu;
-    private GameObject weaponMenu;
+    private EqMenu eqMenu;
     private MercObject merc;
 
     public void Initialize(MercObject _merc)
     {
         merc = _merc;
-        armorMenu = FindAnyObjectByType<ArmorMenu>(FindObjectsInactive.Include).gameObject;
-        weaponMenu = FindAnyObjectByType<WeaponMenu>(FindObjectsInactive.Include).gameObject;
+        eqMenu = FindAnyObjectByType<EqMenu>(FindObjectsInactive.Include);
     }
 
     public void SetArmor(Equipment armor)
@@ -31,14 +29,16 @@ public class EqButtons : MonoBehaviour
     public void OnClickArmorSlot()
     {
         activeButton = this;
-        armorMenu.SetActive(true);
-        weaponMenu.SetActive(false);
+        eqMenu.gameObject.SetActive(false); //this is nessasary i swear
+        eqMenu.gameObject.SetActive(true);
+        eqMenu.Initialize(false);
     }
 
     public void OnClickWeaponSlot()
     {
         activeButton = this;
-        armorMenu.SetActive(false);
-        weaponMenu.SetActive(true);
+        eqMenu.gameObject.SetActive(false); //this is nessasary i swear
+        eqMenu.gameObject.SetActive(true);
+        eqMenu.Initialize(true);
     }
 }

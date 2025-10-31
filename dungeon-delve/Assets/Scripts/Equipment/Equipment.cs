@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public enum Eq_Type
 {
@@ -112,5 +113,15 @@ public class Equipment
     public int GetSpeed()
     {
         return Int32.Parse(DataFiles.Eq[index].Split(',')[5]);
+    }
+
+    public Sprite GetSprite()
+    {
+        Sprite eqSprite = Resources.Load<Sprite>(DataFiles.Eq[index].Split(',')[6]);
+        if (eqSprite == null)
+        {
+            return Resources.Load<Sprite>("EqSprites/eqSpriteNotFound");
+        }
+        return eqSprite;
     }
 }

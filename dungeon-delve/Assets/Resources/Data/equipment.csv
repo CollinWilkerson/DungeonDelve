@@ -1,45 +1,45 @@
-Name,Type,Class,HP,DMG,SPD
-Pool Noodle,Weapon,Warrior,0,1,1
-Cool Stick,Weapon,Warrior,0,2,0
-Shortbow,Weapon,Ranger,0,1,1
-Longbow,Weapon,Ranger,0,2,0
-fushigi,Weapon,Mage,0,1,1
-Staff,Weapon,Mage,0,2,0
-Macoroni Platemail,Armor,Warrior,8,0,-1
-Paper armor,Armor,Warrior,4,0,1
-Cowl of shadow,Armor,Ranger,2,0,2
-Cool bandages,Armor,Ranger,4,0,1
-Brand Tshirt,Armor,Mage,0,2,1
-Bath towel,Armor,Mage,2,1,1
-Bear hands,weapon,warrior,-2,2,2
-desk catapult,Weapon,Ranger,2,3,-1
-Princess wand,Weapon,Mage,-2,3,1
-Emo piercings,Armor,Warrior,2,0,2
-racing stripes,Armor,Ranger,0,-1,4
-Itchy sweater,Armor,Mage,-2,1,3
-Rave wand,Weapon,Mage,2,3,2
-Thesaurus,Weapon,Mage,0,3,3
-Kunai,Weapon,Ranger,0,2,4
-Throwing axe,Weapon,Ranger,0,5,1
-Foam Sword,Weapon,Warrior,2,4,1
-Paper clip mail,Armor,Warrior,10,0,1
-Loincloth,Armor,Warrior,-4,5,3
-Cardboard box,Armor,Ranger,6,0,3
-Casual Robe,Armor,Mage,6,2,1
-trash can lid,Weapon,Warrior,12,-2,2
-Barbed wire bow ,Weapon,Ranger,-4,3,5
-Box fan,Weapon,Mage,-2,-2,9
-Trash can,Armor,Warrior,6,1,2
-Mocap suit,Armor,Ranger,2,3,2
-Holy robe,Armor,Mage,6,-2,5
-Claymore,Weapon,Warrior,12,10,-1
-Blessed Platemail,Armor,Warrior,20,2,3
-Hand Balista,Weapon,Ranger,0,10,5
-Simmer Cloak,Armor,Ranger,10,0,10
-Tomes of 9,Weapon,Mage,-10,15,5
-Spirit Robes,Armor,Mage,10,10,0
-cursed blade,Weapon,Warrior,-6,10,8
- Chieftain's attire,Armor,Warrior,10,5,5
-Repeater,Weapon,Ranger,0,5,10
-Sniper glasses,Armor,Ranger,6,10,2
- North wind,Weapon,Mage,0,5,10
+Name,Type,Class,HP,DMG,SPD,SpritePath
+Pool Noodle,Weapon,Warrior,0,1,1,EqSprites/eqSpriteNotFound
+Cool Stick,Weapon,Warrior,0,2,0,EqSprites/eqSpriteNotFound
+Shortbow,Weapon,Ranger,0,1,1,EqSprites/eqSpriteNotFound
+Longbow,Weapon,Ranger,0,2,0,EqSprites/eqSpriteNotFound
+fushigi,Weapon,Mage,0,1,1,EqSprites/eqSpriteNotFound
+Staff,Weapon,Mage,0,2,0,EqSprites/eqSpriteNotFound
+Macoroni Platemail,Armor,Warrior,8,0,-1,EqSprites/eqSpriteNotFound
+Paper armor,Armor,Warrior,4,0,1,EqSprites/eqSpriteNotFound
+Cowl of shadow,Armor,Ranger,2,0,2,EqSprites/eqSpriteNotFound
+"""Cool"" bandages",Armor,Ranger,4,0,1,EqSprites/eqSpriteNotFound
+Brand Tshirt,Armor,Mage,0,2,1,EqSprites/eqSpriteNotFound
+Bath towel,Armor,Mage,2,1,1,EqSprites/eqSpriteNotFound
+Bear hands,weapon,warrior,-2,2,2,EqSprites/eqSpriteNotFound
+desk catapult,Weapon,Ranger,2,3,-1,EqSprites/eqSpriteNotFound
+Princess wand,Weapon,Mage,-2,3,1,EqSprites/eqSpriteNotFound
+Emo piercings,Armor,Warrior,2,0,2,EqSprites/eqSpriteNotFound
+racing stripes,Armor,Ranger,0,-1,4,EqSprites/eqSpriteNotFound
+Itchy sweater,Armor,Mage,-2,1,3,EqSprites/eqSpriteNotFound
+Rave wand,Weapon,Mage,2,3,2,EqSprites/eqSpriteNotFound
+Thesaurus,Weapon,Mage,0,3,3,EqSprites/eqSpriteNotFound
+Kunai,Weapon,Ranger,0,2,4,EqSprites/eqSpriteNotFound
+Throwing axe,Weapon,Ranger,0,5,1,EqSprites/eqSpriteNotFound
+Foam Sword,Weapon,Warrior,2,4,1,EqSprites/eqSpriteNotFound
+Paper clip mail,Armor,Warrior,10,0,1,EqSprites/eqSpriteNotFound
+Loincloth,Armor,Warrior,-4,5,3,EqSprites/eqSpriteNotFound
+Cardboard box,Armor,Ranger,6,0,3,EqSprites/eqSpriteNotFound
+Casual Robe,Armor,Mage,6,2,1,EqSprites/eqSpriteNotFound
+trash can lid,Weapon,Warrior,12,-2,2,EqSprites/eqSpriteNotFound
+Barbed wire bow ,Weapon,Ranger,-4,3,5,EqSprites/eqSpriteNotFound
+Box fan,Weapon,Mage,-2,-2,9,EqSprites/eqSpriteNotFound
+Trash can,Armor,Warrior,6,1,2,EqSprites/eqSpriteNotFound
+Mocap suit,Armor,Ranger,2,3,2,EqSprites/eqSpriteNotFound
+Holy robe,Armor,Mage,6,-2,5,EqSprites/eqSpriteNotFound
+Claymore,Weapon,Warrior,12,10,-1,EqSprites/eqSpriteNotFound
+Blessed Platemail,Armor,Warrior,20,2,3,EqSprites/eqSpriteNotFound
+Hand Balista,Weapon,Ranger,0,10,5,EqSprites/eqSpriteNotFound
+Simmer Cloak,Armor,Ranger,10,0,10,EqSprites/eqSpriteNotFound
+Tomes of 9,Weapon,Mage,-10,15,5,EqSprites/eqSpriteNotFound
+Spirit Robes,Armor,Mage,10,10,0,EqSprites/eqSpriteNotFound
+cursed blade,Weapon,Warrior,-6,10,8,EqSprites/eqSpriteNotFound
+ Chieftain's attire,Armor,Warrior,10,5,5,EqSprites/eqSpriteNotFound
+Repeater,Weapon,Ranger,0,5,10,EqSprites/eqSpriteNotFound
+Sniper glasses,Armor,Ranger,6,10,2,EqSprites/eqSpriteNotFound
+ North wind,Weapon,Mage,0,5,10,EqSprites/eqSpriteNotFound

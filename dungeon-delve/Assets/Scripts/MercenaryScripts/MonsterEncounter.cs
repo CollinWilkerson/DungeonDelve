@@ -25,7 +25,7 @@ public class MonsterEncounter : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("AwakeMonster");
+        //Debug.Log("AwakeMonster");
         //THESE **MUST** BE AT THE TOP OF START
         HeroMercs = new HeroController[4];
         EnemyMercs = new MonsterController[4];
@@ -116,7 +116,7 @@ public class MonsterEncounter : MonoBehaviour
                 return mercenary;
             }
         }
-        Debug.Log("no target");
+        //Debug.Log("no target");
         return null;
     }
 

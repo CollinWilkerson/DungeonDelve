@@ -38,7 +38,7 @@ public class UnevenBars : TrapBase
         }
 
         curCircle = (curCircle + spinSpeed * Time.deltaTime) % circleMax;
-        Debug.Log(curCircle);
+        //Debug.Log(curCircle);
         spinner.transform.localRotation = Quaternion.Euler(Vector3.forward * curCircle);
 
         if (jumpAction.triggered)
