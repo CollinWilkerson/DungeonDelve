@@ -60,6 +60,7 @@ public class MonsterEncounter : MonoBehaviour
 
     protected void SpawnHero()
     {
+        FillFirstPosition();
         MercObject hero = MercObject.Party[0];
         //instantiates a ahero from a resorces location, has a set filepath
         HeroController tempHero = Instantiate(Resources.Load<GameObject>(
@@ -150,19 +151,7 @@ public class MonsterEncounter : MonoBehaviour
             }
         }
 
-        //guarentees a hero in the first slot to prevent nullreference (this is gross and I hate it)
-        if (!HeroMercs[0])
-        {
-            for (int i = 1; i < HeroMercs.Length; i++)
-            {
-                if (HeroMercs[i])
-                {
-                    HeroMercs[0] = HeroMercs[i];
-                    HeroMercs[i] = null;
-                    MercObject.SwapPartyMembers(0, i);
-                }
-            }
-        }
+        FillFirstPosition();
         Equipment.AddEq(deadEq.ToArray());
         Equipment[] e = LostEquipment.GetLostEquipment(PlayerData.levelsCleared);
         if (e != null)
@@ -246,5 +235,19 @@ public class MonsterEncounter : MonoBehaviour
     public HeroController[] GetHeroes()
     {
         return HeroMercs;
+    }
+
+    private static void FillFirstPosition()
+    {
+        if (MercObject.Party[0] == null)
+        {
+            for (int i = 1; i < MercObject.Party.Length; i++)
+            {
+                if (MercObject.Party[i] != null)
+                {
+                    MercObject.SwapPartyMembers(0, i);
+                }
+            }
+        }
     }
 }
