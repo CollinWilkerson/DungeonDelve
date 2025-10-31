@@ -18,7 +18,7 @@ public class EqMenu : MonoBehaviour
     {
         foreach (Equipment eq in Equipment.eq_inventory)
         {
-            if (eq != null && eq.GetEqType() == Eq_Type.armor)
+            if (eq?.GetEqType() == Eq_Type.armor)
             {
                 JobCompare(eq);
             }
@@ -29,7 +29,7 @@ public class EqMenu : MonoBehaviour
     {
         foreach (Equipment eq in Equipment.eq_inventory)
         {
-            if (eq != null && eq.GetEqType() == Eq_Type.weapon)
+            if (eq?.GetEqType() == Eq_Type.weapon)
             {
                 JobCompare(eq);
             }
