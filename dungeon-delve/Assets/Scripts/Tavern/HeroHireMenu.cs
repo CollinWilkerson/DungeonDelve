@@ -22,9 +22,9 @@ public class HeroHireMenu : MonoBehaviour
 
         heroNameText.text = heroName;
         heroClassText.text = heroClass;
-        damageText.text = damage + "";
-        healthText.text = health + "";
-        speedText.text = speed + "";
+        healthText.text = "Health - " + health;
+        damageText.text = "Damage - " + damage;
+        speedText.text = "Speed - " + speed;
         if (ability.Equals(""))
         {
             abilityText.gameObject.SetActive(false);
@@ -35,7 +35,7 @@ public class HeroHireMenu : MonoBehaviour
             abilityText.text = ability;
         }
         flavorText.text = flavor;
-        costText.text = _cost + "G";
+        costText.text = "Hire - " + _cost + "G";
         cost = _cost;
         filePath = _filePath;
         sceneObject = _sceneObject;

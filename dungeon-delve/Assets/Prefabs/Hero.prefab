@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8610026343078952344}
   - component: {fileID: 898445976641041988}
   - component: {fileID: 1718103106079217651}
+  - component: {fileID: 553421506647124950}
   m_Layer: 5
   m_Name: SpeedBarContainer
   m_TagString: Untagged
@@ -66,8 +67,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 8db066d6f8dc17e4192b6fbdb8af4b8d, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -75,7 +76,20 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 8
+--- !u!114 &553421506647124950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065932231687692784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &1856883395247620803
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 5982925304156105089}
-  healthBar: {fileID: 5682795527375643069}
+  healthBar: {fileID: 5674868633893639997}
   speedBar: {fileID: 4646596019562243728}
 --- !u!1 &2294657335981057206
 GameObject:
@@ -468,7 +482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8560046056942985274}
   - component: {fileID: 441277354117928890}
-  - component: {fileID: 5682795527375643069}
+  - component: {fileID: 5674868633893639997}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -504,7 +518,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5493813204912900426}
   m_CullTransparentMesh: 1
---- !u!114 &5682795527375643069
+--- !u!114 &5674868633893639997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -533,7 +547,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 2
 --- !u!1 &7313571777232343805
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +559,7 @@ GameObject:
   - component: {fileID: 6427744174615781711}
   - component: {fileID: 8564548658296312316}
   - component: {fileID: 8197476661274762233}
+  - component: {fileID: 5893826030572675566}
   m_Layer: 5
   m_Name: HealthBarContainer
   m_TagString: Untagged
@@ -600,8 +615,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 8db066d6f8dc17e4192b6fbdb8af4b8d, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -609,4 +624,17 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 4
+--- !u!114 &5893826030572675566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7313571777232343805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
