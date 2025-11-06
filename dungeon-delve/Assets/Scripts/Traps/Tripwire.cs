@@ -34,12 +34,7 @@ public class Tripwire : TrapBase
         }
         //game effect
         float naturalForce = Mathf.Sign(angle) * Mathf.Clamp(Mathf.Abs(angle) * fallRate, minSpeed, maxSpeed) ;
-        //player effect
-        adjustForce += (-moveAction.ReadValue<Vector2>().x * balanceSens * Time.deltaTime);
-        if(moveAction.ReadValue<Vector2>().x == 0)
-        {
-            adjustForce = Mathf.Lerp(adjustForce, 0, Time.deltaTime * inputDecay);
-        }
+        HandlePlayerInput();
         angle += (adjustForce + naturalForce) * Time.deltaTime;
         //handle loss
         if (angle > 90 || angle < -90)
@@ -62,5 +57,14 @@ public class Tripwire : TrapBase
     {
         return;
         //should reduce heroes speed by 1
+    }
+
+    private void HandlePlayerInput()
+    {
+        adjustForce += (-moveAction.ReadValue<Vector2>().x * balanceSens * Time.deltaTime);
+        if (moveAction.ReadValue<Vector2>().x == 0)
+        {
+            adjustForce = Mathf.Lerp(adjustForce, 0, Time.deltaTime * inputDecay);
+        }
     }
 }
