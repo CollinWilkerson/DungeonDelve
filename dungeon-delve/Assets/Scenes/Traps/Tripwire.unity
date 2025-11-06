@@ -1588,10 +1588,10 @@ MonoBehaviour:
   time: 5
   goldValue: 2
   damage: 2
-  fallRate: 5
+  fallRate: 4
   minSpeed: 10
   maxSpeed: 250
-  balanceSens: 1
+  balanceSens: 200
   inputDecay: 2
   pivot: {fileID: 185296554}
 --- !u!1 &1486427392
