@@ -11,6 +11,7 @@ public class MercObject
 {
     public static MercObject[] Party = new MercObject[4];
 
+    private string name;
     private int health;
     public string filePath { get; private set;}
     public int index;
@@ -26,6 +27,7 @@ public class MercObject
         filePath = path;
         health = -99; //-99 indicates that the hero doesn't have their health set yet
         index = _index;
+        name = MakeRandomName();
     }
 
     public static void AddHeroToParty(MercObject merc)
@@ -135,5 +137,17 @@ public class MercObject
     public int GetMage()
     {
         return Int32.Parse(DataFiles.Heroes[index].Split(",")[11]);
+    }
+
+    public string GetName()
+    {
+        return name;
+    }
+
+    private string MakeRandomName()
+    {
+        string RandomName = "Joe Battle";
+        //temporary return
+        return RandomName;
     }
 }
