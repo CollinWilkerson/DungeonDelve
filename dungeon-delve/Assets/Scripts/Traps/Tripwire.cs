@@ -61,10 +61,25 @@ public class Tripwire : TrapBase
 
     private void HandlePlayerInput()
     {
-        adjustForce += (-moveAction.ReadValue<Vector2>().x * balanceSens * Time.deltaTime);
-        if (moveAction.ReadValue<Vector2>().x == 0)
+        adjustForce += (InputSensitivity());
+        if (NoInput())
         {
-            adjustForce = Mathf.Lerp(adjustForce, 0, Time.deltaTime * inputDecay);
+            adjustForce = GetDecayedForce();
         }
+    }
+
+    private float InputSensitivity()
+    {
+        return -moveAction.ReadValue<Vector2>().x * balanceSens * Time.deltaTime;
+    }
+
+    private bool NoInput()
+    {
+        return moveAction.ReadValue<Vector2>().x == 0;
+    }
+
+    private float GetDecayedForce()
+    {
+        return Mathf.Lerp(adjustForce, 0, Time.deltaTime * inputDecay);
     }
 }
