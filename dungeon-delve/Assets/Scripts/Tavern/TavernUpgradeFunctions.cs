@@ -16,7 +16,7 @@ public class TavernUpgradeFunctions
         }
         return false;
     }
-    private static int TableCost()
+    public static int TableCost()
     {
         return Mathf.CeilToInt(Mathf.Pow(baseTableCost, TavernData.tables));
     }
@@ -32,7 +32,7 @@ public class TavernUpgradeFunctions
         return false;
     }
 
-    private static int CostReductionCost() 
+    public static int CostReductionCost() 
     {
         return Mathf.CeilToInt(baseCostReductionCost / TavernData.discountRate);
     }
