@@ -27,7 +27,7 @@ public class HeroGen : MonoBehaviour
                 {
                     Equipment.AddEq(merc.weapon);
                 }
-                hero.GetComponent<HeroInteraction>().DiscountSurvivingHero();//this feels exceptionally dumb but i have deadlines
+                hero.GetComponent<HeroInteraction>().DiscountSurvivingHero(0.5f);//this feels exceptionally dumb but i have deadlines
                 hero.GetComponent<HeroInteraction>().SetName(merc.GetName());
                 spawned++;
             }
