@@ -12,6 +12,7 @@ public class HeroContainerBehavior : MonoBehaviour
     public void Initialize(MercObject _merc)
     {
         SetText(_merc);
+        nameText.text = _merc.GetName();
         gameObject.GetComponent<EqButtons>().Initialize(_merc);
     }
 

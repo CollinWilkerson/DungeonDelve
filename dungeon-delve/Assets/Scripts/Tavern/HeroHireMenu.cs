@@ -13,6 +13,7 @@ public class HeroHireMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI costText;
     private int cost;
     private int index;
+    private string heroName;
     private string filePath;
     private GameObject sceneObject;
 
@@ -21,6 +22,7 @@ public class HeroHireMenu : MonoBehaviour
     {
 
         heroNameText.text = heroName;
+        this.heroName = heroName;
         heroClassText.text = heroClass;
         healthText.text = "Health - " + health;
         damageText.text = "Damage - " + damage;
@@ -48,7 +50,7 @@ public class HeroHireMenu : MonoBehaviour
         {
             //Debug.Log("hired");
             PlayerData.SpendGold(cost);
-            MercObject.AddHeroToParty(new MercObject(filePath, index));
+            MercObject.AddHeroToParty(new MercObject(filePath, index,heroName));
             FindAnyObjectByType<GoldDisplay>().UpdateGoldText();
             Cursor.lockState = CursorLockMode.Locked;
             Destroy(sceneObject);
