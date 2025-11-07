@@ -22,12 +22,12 @@ public class MercObject
     /// creates an object for storing mercenaries
     /// </summary>
     /// <param name="path">the location of the Merc, what comes after 'Resources/'</param>
-    public MercObject(string path, int _index) //i eventually want to change this so it just takes the index
+    public MercObject(string path, int _index, string _name) //i eventually want to change this so it just takes the index
     {
         filePath = path;
         health = -99; //-99 indicates that the hero doesn't have their health set yet
         index = _index;
-        name = MakeRandomName();
+        name = _name;
     }
 
     public static void AddHeroToParty(MercObject merc)
@@ -144,10 +144,4 @@ public class MercObject
         return name;
     }
 
-    private string MakeRandomName()
-    {
-        string RandomName = "Joe Battle";
-        //temporary return
-        return RandomName;
-    }
 }

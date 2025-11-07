@@ -13,12 +13,6 @@ public class BossEncounter : MonsterEncounter
     private void Awake()
     {
         Debug.Log("AwakeBoss");
-        //for debuging, spawns a hero in an empty party
-        if (MercObject.Party[0] == null)
-        {
-            Debug.Log("no hero in party, Drafting human");
-            MercObject.AddHeroToParty(new MercObject("HumanHeroes/HumanWarrior", 0));
-        }
 
         SpawnHero();
         SpawnBoss(DataFiles.SelectBoss());

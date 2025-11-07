@@ -14,6 +14,8 @@ public class DataFiles : MonoBehaviour
     public static string[] Monsters;
     public static string[] Items;
     public static string[] Eq;
+    public static string[] FirstNames = {"Harek", "Celine", "Grischa", "Iknajxl", "Yogned", "Rusty", "Geode", "Blast", "Sev", "Axon", "Memphis", "Evan", "Sygin", "Erichthonius", "Grayson", "Sir Galvin"};
+    public static string[] LastNames = { "Thoraldsson", "The Liberated", "Moonfall", "Mudwalker", "Flintshield", "Jinglefingers", "Guy", "Tennesee", "Hansen", "Gall", "Herondale", "The Absolute", "The Haunted"};
 
     //encounters lv 1
     private static int monsterSelectionWeight = 4;
@@ -166,5 +168,12 @@ public class DataFiles : MonoBehaviour
         }
         //replace with boss monster
         return Resources.Load<GameObject>("MonstersLv3/Saratan");
+    }
+
+    public static string GetRandomName()
+    {
+        string firstName = FirstNames[Random.Range(0, FirstNames.Length)];
+        string lastName = LastNames[Random.Range(0, LastNames.Length)];
+        return firstName + " " + lastName;
     }
 }
