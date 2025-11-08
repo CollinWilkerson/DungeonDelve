@@ -30,6 +30,7 @@ public class UpgradeControl : MonoBehaviour, IInteractable
         {
             UpdateTableText();
             //relevant scene updates
+            FindAnyObjectByType<HeroGen>().SetTableActive(TavernData.tables);
         }
     }
 

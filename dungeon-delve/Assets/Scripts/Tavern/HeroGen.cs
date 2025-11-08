@@ -3,21 +3,38 @@ using System.IO;
 
 public class HeroGen : MonoBehaviour
 {
-    [SerializeField] private int humansToGenerate = 1;
+    [SerializeField] GameObject[] TableObjects;
+    private int humansToGenerate = 4;
 
     private GameObject[] spawnPoints;
 
     private void Start()
     {
-        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint"); 
-        int spawned = 0;
+        humansToGenerate *= TavernData.tables;
+        MakeTablesActive();
+        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
 
         //spawns all surving party members
+        int spawned = SpawnSurvivingHeroes();
+
+        //spawns new party members to fill the gap
+        GameObject[] hiringPool = GenerateHero("HumanHeroes/Tavern", humansToGenerate - spawned);
+
+        foreach (GameObject go in hiringPool)
+        {
+            Instantiate(go, spawnPoints[spawned % spawnPoints.Length].transform);
+            spawned++;
+        }
+    }
+
+    private int SpawnSurvivingHeroes()
+    {
+        int spawned = 0;
         foreach (MercObject merc in MercObject.Party)
         {
             if (merc != null)
             {
-                GameObject hero = Instantiate(GenerateHeroByIndex(merc.index), 
+                GameObject hero = Instantiate(GenerateHeroByIndex(merc.index),
                     spawnPoints[spawned % spawnPoints.Length].transform);
                 if (merc.armor != null)
                 {
@@ -34,14 +51,18 @@ public class HeroGen : MonoBehaviour
         }
 
         MercObject.ClearParty();
+        return spawned;
+    }
 
-        //spawns new party members to fill the gap
-        GameObject[] hiringPool = GenerateHero("HumanHeroes/Tavern", humansToGenerate - spawned);
-                        
-        foreach (GameObject go in hiringPool)
+    private void MakeTablesActive()
+    {
+        for (int i = 0; i < TavernData.tables; i++)
         {
-            Instantiate(go, spawnPoints[spawned%spawnPoints.Length].transform);
-            spawned++;
+            if (i > TableObjects.Length)
+            {
+                break;
+            }
+            TableObjects[i].SetActive(true);
         }
     }
 
@@ -77,5 +98,10 @@ public class HeroGen : MonoBehaviour
             returnHeroes[i] = heroPool[Random.Range(0, heroPool.Length)];
         }
         return returnHeroes;
+    }
+
+    public void SetTableActive(int TableToActivate)
+    {
+        TableObjects[TableToActivate].SetActive(true);
     }
 }
