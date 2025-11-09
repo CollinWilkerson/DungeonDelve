@@ -9,7 +9,7 @@ public enum Eq_Type
 
 public class Equipment
 {
-    private const int inventorySize = 30;
+    public const int inventorySize = 30;
 
     public static Equipment[] eq_inventory = new Equipment[inventorySize];
 
@@ -123,5 +123,10 @@ public class Equipment
             return Resources.Load<Sprite>("EqSprites/eqSpriteNotFound");
         }
         return eqSprite;
+    }
+
+    public int GetGoldValue()
+    {
+        return GetHealth() / 2 + GetDamage() + GetSpeed();
     }
 }

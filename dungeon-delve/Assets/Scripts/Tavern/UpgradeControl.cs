@@ -29,6 +29,7 @@ public class UpgradeControl : MonoBehaviour, IInteractable
         if (TavernUpgradeFunctions.TryAddTable())
         {
             UpdateTableText();
+            FindAnyObjectByType<GoldDisplay>().UpdateGoldText();
             //relevant scene updates
             FindAnyObjectByType<HeroGen>().SetTableActive(TavernData.tables);
         }
@@ -39,6 +40,7 @@ public class UpgradeControl : MonoBehaviour, IInteractable
         if (TavernUpgradeFunctions.TryAddCostReduction())
         {
             UpdateCostReductionText();
+            FindAnyObjectByType<GoldDisplay>().UpdateGoldText();
             //relevant scene updates
             //Figure out how to trigger cost reduction at runtime
         }
@@ -49,6 +51,7 @@ public class UpgradeControl : MonoBehaviour, IInteractable
         if (TavernUpgradeFunctions.TryAddShop())
         {
             ShopButton.interactable = false;
+            FindAnyObjectByType<GoldDisplay>().UpdateGoldText();
         }
     }
 
