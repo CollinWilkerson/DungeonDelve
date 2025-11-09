@@ -21,4 +21,9 @@ public class MeadHorn : MonoBehaviour, IItem
             }
         }
     }
+
+    public string GetDescription()
+    {
+        return DataFiles.Items[3].Split(",")[2];
+    }
 }

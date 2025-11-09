@@ -15,4 +15,8 @@ public class SmokeBomb : MonoBehaviour,IItem
     {
         SceneManager.LoadScene("Tavern");
     }
+    public string GetDescription()
+    {
+        return DataFiles.Items[1].Split(",")[2];
+    }
 }

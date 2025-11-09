@@ -9,15 +9,16 @@ public class ItemButtonActions : MonoBehaviour
     private static ItemButtonActions activeItem;
     private IItem item;
     [SerializeField] TextMeshProUGUI nameText;
+    [SerializeField] TextMeshProUGUI descriptionText;
 
     public void Initialize(int index)
     {
         itemIndex = index;
         //this creates the item from the set index
         string scriptName = DataFiles.Items[index].Split(',')[1];
-        //Debug.Log("Trying to add: " + scriptName);
         item = gameObject.AddComponent(Type.GetType(scriptName)) as IItem;
         nameText.text = item.ReturnName();
+        descriptionText.text = item.GetDescription();
     }
     public void ItemClick()
     {
