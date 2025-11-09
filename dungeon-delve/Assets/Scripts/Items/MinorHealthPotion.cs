@@ -15,4 +15,8 @@ public class MinorHealthPotion : MonoBehaviour, IItem
     {
         merc.Heal(potionStrength);
     }
+    public string GetDescription()
+    {
+        return DataFiles.Items[2].Split(",")[2];
+    }
 }
