@@ -13,6 +13,7 @@ public class HeroInteraction : MonoBehaviour, IInteractable
 
     private void Awake()
     {
+        DiscountSurvivingHero(TavernData.discountRate);
         SetLayerMask();
         heroName = DataFiles.GetRandomName();
     }
@@ -45,9 +46,9 @@ public class HeroInteraction : MonoBehaviour, IInteractable
         }
     }
 
-    public void DiscountSurvivingHero()
+    public void DiscountSurvivingHero(float discountRate)
     {
-        discountMultiplier = 0.5f;
+        discountMultiplier *= discountRate;
     }
 
     private void SetLayerMask() 
