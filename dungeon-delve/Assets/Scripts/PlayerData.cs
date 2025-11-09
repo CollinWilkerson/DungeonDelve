@@ -28,6 +28,11 @@ public class PlayerData
         return gold;
     }
 
+    public static void AddGoldDirect(int amount)
+    {
+        gold += amount;
+    }
+
     public static int GetGold()
     {
         return gold;
