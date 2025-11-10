@@ -1,4 +1,10 @@
 Class 0,Health 1,Damage 2,Speed 3,AbilityText 4,FlavorText 5,Cost 6,Filepath 7,TavernFilepath 8,Warrior 9,Ranger 10,Mage 11
-Human Warrior,8,1,2,,Anyone With a sword can do something,5,HumanHeroes/HumanWarrior,HumanHeroes/Tavern/HumanWarrior,1,0,0
+Human Warrior,8,1,2,,Anyone with a sword can do something,5,HumanHeroes/HumanWarrior,HumanHeroes/Tavern/HumanWarrior,1,0,0
 Human Ranger,4,2,3,,Just be glad he can hit things,5,HumanHeroes/HumanRanger,HumanHeroes/Tavern/HumanRanger,0,1,0
 Human Mage,4,8,1,,Incredible that your guild attracts people who can read,5,HumanHeroes/HumanMage,HumanHeroes/Tavern/HumanMage,0,0,1
+Weapon Master,8,4,4,,"Years of training make the masters of blade, bow and tome alike",20,Legends/WeaponMaster,Legends/Tavern/WeaponMaster,1,1,1
+Arcane Ranger,4,8,6,,They move swiftly through unnatural shadows,20,Legends/ArcaneRanger,Legends/Tavern/ArcaneRanger,0,1,1
+Paladin,24,2,2,-1 Damage from all sources,The bastion of a good team,30,Legends/Paladin,Legends/Tavern/Paladin,1,0,1
+Black Knight,24,8,2,,Sacrifice has turned him into a killing machine,40,Legends/BlackKnight,Legends/Tavern/BlackKnight,2,0,0
+Assassin,8,4,10,Assassin has a 50% chance to receive no damage,If you hear an abnormal amount of nothing - watch yourself,40,Legends/Assassin,Legends/Tavern/Assassin,1,1,0
+Final Magus,10,20,10,,The laws of the universe are simply suggestions to him,80,Legends/FinalMagus,Legends/Tavern/FinalMagus,0,0,2

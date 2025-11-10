@@ -3,39 +3,72 @@ using System.IO;
 
 public class HeroGen : MonoBehaviour
 {
+    private const string HumanHeroFilepath = "HumanHeroes/Tavern";
+    private const string LegendaryHeroFilepath = "Legends/Tavern";
+
     [SerializeField] GameObject[] TableObjects;
-    private int humansToGenerate = 4;
 
     private GameObject[] spawnPoints;
+    private int heroesToSpawn;
 
     private void Start()
     {
-        humansToGenerate *= TavernData.tables;
         MakeTablesActive();
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        heroesToSpawn = spawnPoints.Length;
 
+        SpawnHeroes();
+
+    }
+
+    private void SpawnHeroes()
+    {
         //spawns all surving party members
-        int spawned = SpawnSurvivingHeroes();
+        SpawnSurvivingHeroes();
+        // Idea is to spawn remaining heroes, spawn 3 normal heroes 1 legend, then random the rest.
 
-        //spawns new party members to fill the gap
-        GameObject[] hiringPool = GenerateHero("HumanHeroes/Tavern", humansToGenerate - spawned);
-
-        foreach (GameObject go in hiringPool)
+        GameObject[] humanHeroPool = Resources.LoadAll<GameObject>(HumanHeroFilepath);
+        for (int i = 0; i < 3; i++)
         {
-            Instantiate(go, spawnPoints[spawned % spawnPoints.Length].transform);
-            spawned++;
+            if (heroesToSpawn == 0)
+            {
+                return;
+            }
+            Instantiate(humanHeroPool[Random.Range(0, humanHeroPool.Length)],
+                spawnPoints[heroesToSpawn - 1].transform);
+            heroesToSpawn--;
+        }
+        if (heroesToSpawn == 0)
+        {
+            return;
+        }
+        GameObject[] LegendHeroPool = Resources.LoadAll<GameObject>(LegendaryHeroFilepath);
+        Instantiate(LegendHeroPool[Random.Range(0, LegendHeroPool.Length)],
+            spawnPoints[heroesToSpawn - 1].transform);
+        heroesToSpawn--;
+        while (heroesToSpawn > 0)
+        {
+            if (Random.Range(0, 2) == 0)
+            {
+                Instantiate(LegendHeroPool[Random.Range(0, LegendHeroPool.Length)],
+                    spawnPoints[heroesToSpawn - 1].transform);
+                heroesToSpawn--;
+                continue;
+            }
+            Instantiate(humanHeroPool[Random.Range(0, humanHeroPool.Length)],
+                spawnPoints[heroesToSpawn - 1].transform);
+            heroesToSpawn--;
         }
     }
 
     private int SpawnSurvivingHeroes()
     {
-        int spawned = 0;
         foreach (MercObject merc in MercObject.Party)
         {
             if (merc != null)
             {
                 GameObject hero = Instantiate(GenerateHeroByIndex(merc.index),
-                    spawnPoints[spawned % spawnPoints.Length].transform);
+                    spawnPoints[heroesToSpawn - 1].transform);
                 if (merc.armor != null)
                 {
                     Equipment.AddEq(merc.armor);
@@ -46,12 +79,12 @@ public class HeroGen : MonoBehaviour
                 }
                 hero.GetComponent<HeroInteraction>().DiscountSurvivingHero(0.5f);//this feels exceptionally dumb but i have deadlines
                 hero.GetComponent<HeroInteraction>().SetName(merc.GetName());
-                spawned++;
+                heroesToSpawn--;
             }
         }
 
         MercObject.ClearParty();
-        return spawned;
+        return heroesToSpawn;
     }
 
     private void MakeTablesActive()
@@ -71,33 +104,6 @@ public class HeroGen : MonoBehaviour
         string filepath = DataFiles.Heroes[index].Split(',')[8];
 
         return Resources.Load<GameObject>(filepath);
-    }
-
-    /// <summary>
-    /// Generates 1 hero from a selected filepath
-    /// </summary>
-    /// <param name="filepath">the filepath to generate the hero from "Resources/(filepath)"</param>
-    private GameObject GenerateHero(string filepath)
-    {
-        GameObject[] heroPool = Resources.LoadAll<GameObject>(filepath);
-        return heroPool[Random.Range(0 , heroPool.Length)];
-    }
-
-    /// <summary>
-    /// Generates a selected amount of heroes from a selected filepath
-    /// </summary>
-    /// <param name="filepath">the filepath to generate the hero from "Resources/(filepath)"</param>
-    /// <param name="amount">amount of heroes to generate</param>
-    /// <returns></returns>
-    private GameObject[] GenerateHero(string filepath, int amount)
-    {
-        GameObject[] heroPool = Resources.LoadAll<GameObject>(filepath);
-        GameObject[] returnHeroes = new GameObject[amount];
-        for (int i = 0; i < amount; i++)
-        {
-            returnHeroes[i] = heroPool[Random.Range(0, heroPool.Length)];
-        }
-        return returnHeroes;
     }
 
     public void SetTableActive(int TableToActivate)
