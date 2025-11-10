@@ -31,7 +31,7 @@ public class UpgradeControl : MonoBehaviour, IInteractable
             UpdateTableText();
             FindAnyObjectByType<GoldDisplay>().UpdateGoldText();
             //relevant scene updates
-            FindAnyObjectByType<HeroGen>().SetTableActive(TavernData.tables);
+            FindAnyObjectByType<HeroGen>().SetTableActive(TavernData.tables - 1);
         }
     }
 
