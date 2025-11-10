@@ -9,4 +9,5 @@ public class TavernData
     public static int tables = 1;
     public static float discountRate = 1f;
     public static bool shopPurchased = false;
+    public static bool TutorialSeen = false;
 }

@@ -41,8 +41,6 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("NO CAMERA ON PLAYER!");
         }
-
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
