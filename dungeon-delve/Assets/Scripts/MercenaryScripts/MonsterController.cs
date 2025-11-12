@@ -49,13 +49,8 @@ public class MonsterController : MercenaryController
         statDisplay.UpdateHealthbar(health);
         if (health <= 0)
         {
-            // i need to refactor this so it gives the player a random treasure from the length of the two lists put together
-            //for now you get both
-            for (int i = 0; i < itemsToGive; i++)
-            {
-                PlayerData.AddItem(UnityEngine.Random.Range(1, 4));
-                Equipment.AddEq(new Equipment(UnityEngine.Random.Range(1, 44)));
-            }
+            // This would probably do better in a result screen but for now this will work
+            EncounterRewards.GetTreasure();
 
             PlayerData.AddTempGold(goldValue);
             MonsterEncounter.QuereyWin(this);
