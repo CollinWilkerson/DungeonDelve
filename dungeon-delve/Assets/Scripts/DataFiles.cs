@@ -14,6 +14,8 @@ public class DataFiles : MonoBehaviour
     public static string[] Monsters;
     public static string[] Items;
     public static string[] Eq;
+    public const int EqEasyCutoff = 20;
+    public const int EqMediumCutoff = 35;
     public static string[] FirstNames = {"Harek", "Celine", "Grischa", "Iknajxl", "Yogned", "Rusty", "Geode", "Blast", "Sev", "Axon", "Memphis", "Evan", "Sygin", "Erichthonius", "Grayson", "Sir Galvin"};
     public static string[] LastNames = { "Thoraldsson", "The Liberated", "Moonfall", "Mudwalker", "Flintshield", "Jinglefingers", "Guy", "Tennesee", "Hansen", "Gall", "Herondale", "The Absolute", "The Haunted"};
 

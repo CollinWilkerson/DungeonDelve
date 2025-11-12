@@ -24,15 +24,7 @@ public class TrapResult : MonoBehaviour
         winScreen.SetActive(true);
         PlayerData.AddTempGold(trap.goldValue);
         //give treasure
-        int treasure = Random.Range(1, DataFiles.Items.Length + DataFiles.Eq.Length - 1);
-        if(treasure < DataFiles.Items.Length)
-        {
-            PlayerData.AddItem(treasure);
-            return;
-        }
-        //if I did my math worng this could select the first element of Equipment which is headers
-        Equipment.AddEq(new Equipment(treasure - DataFiles.Items.Length));
-
+        EncounterRewards.GetTreasure();
     }
 
     public void LoseTrap(TrapBase trap)
