@@ -63,7 +63,7 @@ public class TrapBase : MonoBehaviour
         {
             if (merc != null)
             {
-                merc.GetWarrior();
+                heroes += merc.GetWarrior();
             }
         }
     }
@@ -75,7 +75,7 @@ public class TrapBase : MonoBehaviour
         {
             if (merc != null)
             {
-                merc.GetRanger();
+                heroes += merc.GetRanger();
             }
         }
     }
@@ -86,7 +86,7 @@ public class TrapBase : MonoBehaviour
         {
             if (merc != null)
             {
-                merc.GetMage();
+                heroes += merc.GetMage();
             }
         }
     }
