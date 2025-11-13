@@ -14,10 +14,15 @@ public class EqButtons : MonoBehaviour
     {
         merc = _merc;
         eqMenu = FindAnyObjectByType<EqMenu>(FindObjectsInactive.Include);
+        RefreshImages();
     }
 
     public void SetArmor(Equipment armor)
     {
+        if(merc.armor != null)
+        {
+            Equipment.AddEq(merc.armor);
+        }
         merc.armor = armor;
         //Change images
         ArmorImage.sprite = armor.GetSprite();
@@ -27,6 +32,10 @@ public class EqButtons : MonoBehaviour
 
     public void SetWeapon(Equipment weapon)
     {
+        if (merc.weapon != null)
+        {
+            Equipment.AddEq(merc.weapon);
+        }
         merc.weapon = weapon;
         //Change images
         WeaponImage.sprite = weapon.GetSprite();
@@ -48,5 +57,11 @@ public class EqButtons : MonoBehaviour
         eqMenu.gameObject.SetActive(false); //this is nessasary i swear
         eqMenu.gameObject.SetActive(true);
         eqMenu.Initialize(true);
+    }
+
+    private void RefreshImages()
+    {
+        WeaponImage.sprite = merc.weapon?.GetSprite();
+        ArmorImage.sprite = merc.armor?.GetSprite();
     }
 }
