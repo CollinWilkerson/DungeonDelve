@@ -17,7 +17,7 @@ public class MeadHorn : MonoBehaviour, IItem
         {
             foreach(HeroController hero in encounter.GetHeroes())
             {
-                hero.DamageBoost(1);
+                hero?.DamageBoost(1);
             }
         }
     }
