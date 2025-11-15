@@ -13,6 +13,7 @@ public class InteractionCheck : MonoBehaviour
     [SerializeField] private float angle;
     [SerializeField] private float radius;
     [SerializeField] private LayerMask targetMask;
+    [SerializeField] private float selectionThreshould = 0.9f;
 
     private Transform activeInteractible;
     private InputAction interactAction;
@@ -63,42 +64,40 @@ public class InteractionCheck : MonoBehaviour
     {
         //this is what actually looks for interactables
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
+        
+        ClearSelection();
 
         //If anything is in our array it has picked up an interactable
         if (rangeChecks.Length != 0)
         {
-            //the only thing in the targetmask is the player, so we use the first index
-
-            Transform target = null;
-            float newDistance;
-            float targetDistance = radius * 2; //make targetDistance large so it chooses someone
-
-            //finds the closest target
-            foreach (Collider collider in rangeChecks)
+            float bestMatch = 0;
+            foreach (Collider interactable in rangeChecks)
             {
-                newDistance = Vector3.Distance(transform.position, collider.transform.position);
-                if (newDistance < targetDistance)
+                Ray veiwportCenterRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+                Vector3 lookVector = veiwportCenterRay.direction;
+                Vector3 interactableVector = interactable.transform.position - veiwportCenterRay.origin;
+
+                float lookMatchPercentage = Vector3.Dot(lookVector.normalized, interactableVector.normalized);
+
+                if (IsBestMatch(bestMatch, lookMatchPercentage))
                 {
-                    target = collider.transform;
+                    bestMatch = lookMatchPercentage;
+                    activeInteractible = interactable.transform;
+                    toolTip.gameObject.SetActive(true);
                 }
             }
-            //establishes direction to enemy rotation to player location
-            Vector3 directionToTarget = (target.position - transform.position).normalized;
-
-            //gets the angle between the forward direction and the normalized vector to the target and compares it to half the angle we established in the beginning.
-            //the angle is halved because half of the angle is to the left and half is to the right
-            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
-            {
-                toolTip.gameObject.SetActive(true);
-                //some thing that allows the player to interact with this closest object
-                activeInteractible = target;
-            }
-            else
-            {
-                toolTip.gameObject.SetActive(false);
-                activeInteractible = null;
-            }
         }
+    }
+
+    private void ClearSelection()
+    {
+        activeInteractible = null;
+        toolTip.gameObject.SetActive(false);
+    }
+
+    private bool IsBestMatch(float bestMatch, float lookMatchPercentage)
+    {
+        return lookMatchPercentage > selectionThreshould && lookMatchPercentage > bestMatch;
     }
 
     private void OnDrawGizmosSelected()
