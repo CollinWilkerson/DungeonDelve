@@ -7,6 +7,9 @@ public interface IEvent
     public Sprite GetEventImage();
 
     public void Option1();
+    public string GetButtonText_Option1();
     public void Option2();
+    public string GetButtonText_Option2();
     public void Option3();
+    public string GetButtonText_Option3();
 }

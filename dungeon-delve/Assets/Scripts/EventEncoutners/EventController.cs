@@ -19,15 +19,23 @@ public class EventController : MonoBehaviour
     {
         SetValidButtonsActive();
         AddButtonEvents();
+        SetButtonLables();
         eventText.text = selectedEvent.GetDescriptionText();
+    }
+
+    private void SetButtonLables()
+    {
+        optionButtons[0].GetComponentInChildren<TextMeshProUGUI>().text = selectedEvent.GetButtonText_Option1();
+        optionButtons[1].GetComponentInChildren<TextMeshProUGUI>().text = selectedEvent.GetButtonText_Option2();
+        optionButtons[2].GetComponentInChildren<TextMeshProUGUI>().text = selectedEvent.GetButtonText_Option3();
     }
 
     private void AddButtonEvents()
     {
         //this isnt very open to extension but I dont have a better idea rn
-        optionButtons[0].onClick.AddListener(selectedEvent.Option1);
-        optionButtons[1].onClick.AddListener(selectedEvent.Option2);
-        optionButtons[2].onClick.AddListener(selectedEvent.Option3);
+        optionButtons[0].onClick.AddListener(() => selectedEvent.Option1());
+        optionButtons[1].onClick.AddListener(() => selectedEvent.Option2());
+        optionButtons[2].onClick.AddListener(() => selectedEvent.Option3());
     }
 
     private void SetValidButtonsActive()

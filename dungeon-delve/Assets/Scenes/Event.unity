@@ -276,6 +276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5275858439238514663, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6201726139154806567, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
       propertyPath: m_text
       value: Heal Party - 20G
@@ -586,6 +590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5275858439238514663, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6201726139154806567, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
       propertyPath: m_text
       value: Heal Party - 20G
@@ -608,6 +616,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3084859580745992648, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
   m_PrefabInstance: {fileID: 672219536}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &672219540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5275858439238514663, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
+  m_PrefabInstance: {fileID: 672219536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &928310684
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,8 +902,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5b7ebb1f384e0428bb29acabd5482c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionButtons: []
-  eventText: {fileID: 0}
+  optionButtons:
+  - {fileID: 1615251826}
+  - {fileID: 672219540}
+  - {fileID: 2084019744}
+  eventText: {fileID: 1694506699}
 --- !u!4 &1337331980
 Transform:
   m_ObjectHideFlags: 0
@@ -897,7 +919,8 @@ Transform:
   m_LocalPosition: {x: 869.1258, y: 469.62674, z: 1.5486305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1644678527}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1615251822
@@ -992,6 +1015,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
+    - target: {fileID: 5275858439238514663, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6201726139154806567, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
       propertyPath: m_text
       value: Heal Party - 20G
@@ -1014,6 +1041,61 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3084859580745992648, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
   m_PrefabInstance: {fileID: 1615251822}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1615251826 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5275858439238514663, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
+  m_PrefabInstance: {fileID: 1615251822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1644678526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1644678527}
+  - component: {fileID: 1644678528}
+  m_Layer: 0
+  m_Name: Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1644678527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644678526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1337331980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1644678528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644678526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ee7ec27b40b8f4c969eeada642049c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1694506697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1312,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2084019744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5275858439238514663, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
+  m_PrefabInstance: {fileID: 542129235}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &832342957049019436
 PrefabInstance:
   m_ObjectHideFlags: 0
