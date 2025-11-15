@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PartyScreenLoader : MonoBehaviour
 {
@@ -8,12 +9,14 @@ public class PartyScreenLoader : MonoBehaviour
     [SerializeField] private GameObject[] DependantMenues;
     private void OnEnable()
     {
+        int partyIndex = 0;
         foreach(MercObject merc in MercObject.Party)
         {
             if(merc != null)
             {
                 GameObject go = Instantiate(HeroContainerPrefab, PartyVLG);
-                go.GetComponent<HeroContainerBehavior>().Initialize(merc);
+                go.GetComponent<HeroContainerBehavior>().Initialize(merc, partyIndex);
+                partyIndex++;
             }
         }
     }
