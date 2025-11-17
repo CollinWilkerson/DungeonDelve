@@ -22,25 +22,25 @@ public class DataFiles : MonoBehaviour
     //encounters lv 1
     private static int monsterSelectionWeight = 4;
     private static int trapSelectionWeight = 3;
-    private static int eventSelectionWeight = 0;
+    private static int eventSelectionWeight = 5;
     
     private static string monsterSceneName = "MonsterEncounter"; //monsters are randomly selected in the scene because they all have the same behavior
     private static string[] trapSceneNames = {"Portcullis", "Tripwire", "Hex", "UnevenBars"}; //traps are devided into different scenes because they have different GUIs and different behaviors
-    private static string eventSceneName; //events should be able to have the same behavior, they are all trade off choices
+    private static string eventSceneName = "Event"; //events should be able to have the same behavior, they are all trade off choices
     public const string bossEncouterName = "BossEncounter";
     public const string winScreenName = "WinScreen";
 
     //encounters lv 2
     private static int lv2_monsterSelectionWeight = 4;
     private static int lv2_trapSelectionWeight = 3;
-    private static int lv2_eventSelectionWeight = 0;
+    private static int lv2_eventSelectionWeight = 3;
 
     private static string[] lv2_trapSceneNames = { "Pitfall", "InfernalFlame", "SwingingBlades" };
 
     //encounters lv 3
     private static int lv3_monsterSelectionWeight = 4;
     private static int lv3_trapSelectionWeight = 3;
-    private static int lv3_eventSelectionWeight = 0;
+    private static int lv3_eventSelectionWeight = 1;
 
     private static string[] lv3_trapSceneNames = { "Explosives", "Illusion", "Skyhold" };
 
