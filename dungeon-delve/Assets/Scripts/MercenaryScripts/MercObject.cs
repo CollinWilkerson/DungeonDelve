@@ -9,7 +9,8 @@ public enum Job
 
 public class MercObject
 {
-    public static MercObject[] Party = new MercObject[4];
+    public const int PartySize = 4;
+    public static MercObject[] Party = new MercObject[PartySize];
 
     private string name;
     private int health;
@@ -28,6 +29,14 @@ public class MercObject
         health = -99; //-99 indicates that the hero doesn't have their health set yet
         index = _index;
         name = _name;
+    }
+
+    public MercObject(int _index)
+    {
+        filePath = DataFiles.Heroes[_index].Split(",")[7];
+        health = -99;
+        index = _index;
+        name = DataFiles.GetRandomName();
     }
 
     public static void AddHeroToParty(MercObject merc)
@@ -144,4 +153,17 @@ public class MercObject
         return name;
     }
 
+    public static int GetTotalDamage()
+    {
+        int total = 0;
+        foreach(MercObject merc in Party)
+        {
+            if(merc == null)
+            {
+                continue;
+            }
+            total += merc.GetDamage();
+        }
+        return total;
+    }
 }
