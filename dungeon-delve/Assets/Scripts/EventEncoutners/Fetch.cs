@@ -49,6 +49,7 @@ public class Fetch : MonoBehaviour, IEvent
         {
             LostEquipment.GetLostEquipment(i);
         }
+        PlayerData.SpendGold(price);
         PlayerData.levelsCleared++;
         SceneManager.LoadScene("EncounterWin");
     }

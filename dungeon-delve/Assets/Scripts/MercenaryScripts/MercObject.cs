@@ -144,4 +144,17 @@ public class MercObject
         return name;
     }
 
+    public static int GetTotalDamage()
+    {
+        int total = 0;
+        foreach(MercObject merc in Party)
+        {
+            if(merc == null)
+            {
+                continue;
+            }
+            total += merc.GetDamage();
+        }
+        return total;
+    }
 }
