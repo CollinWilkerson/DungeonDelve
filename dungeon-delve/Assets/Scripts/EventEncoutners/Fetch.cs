@@ -6,6 +6,10 @@ public class Fetch : MonoBehaviour, IEvent
     public const int price = 20;
     public string GetButtonText_Option1()
     {
+        if (PlayerData.GetGold() < price)
+        {
+            return "Not enough gold";
+        }
         return "Retrive Equipment - " + price + "G";
     }
 
