@@ -5,6 +5,7 @@ public class ShopControl : MonoBehaviour, IInteractable
 {
     [SerializeField] private float markup = 1.5f;
     [SerializeField] private GameObject shopMenu;
+    [SerializeField] private GameObject headButton;
     [SerializeField] private GameObject equipmentMenu;
     [SerializeField] private GameObject eqButtonPrefab;
     [SerializeField] private Transform buttonParent;
@@ -36,6 +37,7 @@ public class ShopControl : MonoBehaviour, IInteractable
     {
         equipmentMenu.SetActive(false);
         ClearButtons();
+        HighlightedUIManager.SelectUIGameObject(headButton);
     }
 
 
@@ -52,6 +54,10 @@ public class ShopControl : MonoBehaviour, IInteractable
             sellButtons[count] = eqButton.GetComponent<Button>();
             sellButtons[count].onClick.AddListener(() => SellItem(eq, eqButton));
             sellButtons[count].GetComponent<ShopButtonControl>().Initialize(eq, eq.GetGoldValue());
+            if(count == 0)
+            {
+                HighlightedUIManager.SelectUIGameObject(eqButton);
+            }
             count++;
         }
     }
@@ -73,6 +79,10 @@ public class ShopControl : MonoBehaviour, IInteractable
             buyButtons[count] = eqButton.GetComponent<Button>();
             buyButtons[count].onClick.AddListener(() => TryBuyItem(eq, count));
             buyButtons[count].GetComponent<ShopButtonControl>().Initialize(eq, GetBuyPrice(eq));
+            if (count == 1)
+            {
+                HighlightedUIManager.SelectUIGameObject(eqButton);
+            }
         }
     }
 
@@ -121,6 +131,7 @@ public class ShopControl : MonoBehaviour, IInteractable
         {
             Cursor.lockState = CursorLockMode.None;
             shopMenu.gameObject.SetActive(true);
+            HighlightedUIManager.SelectUIGameObject(headButton);
             return;
         }
         Cursor.lockState = CursorLockMode.Locked;
