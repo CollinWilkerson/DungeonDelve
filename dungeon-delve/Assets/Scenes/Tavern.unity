@@ -2017,6 +2017,7 @@ MonoBehaviour:
   - {fileID: 1103936537}
   - {fileID: 279297491}
   - {fileID: 1018013029}
+  Shopkeep: {fileID: 1999187151}
 --- !u!4 &361775938
 Transform:
   m_ObjectHideFlags: 0
@@ -4120,6 +4121,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1804099169}
   m_SourcePrefab: {fileID: 100100000, guid: 4a326d78059341e4d85c250ae494e275, type: 3}
+--- !u!1 &902922706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3889638536271368507, guid: 7e637045e17670740a681ddbf1414d4b, type: 3}
+  m_PrefabInstance: {fileID: 281835672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &935452030
 GameObject:
   m_ObjectHideFlags: 0
@@ -5089,7 +5095,6 @@ Transform:
   - {fileID: 2039809372}
   - {fileID: 2135094884}
   - {fileID: 1198893532}
-  - {fileID: 1741601709}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1178723551
@@ -8155,10 +8160,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.0063820533, y: -0, z: -0, w: 0.9999797}
   m_LocalPosition: {x: 10.94, y: 1.09, z: -11.16}
-  m_LocalScale: {x: 2.96375, y: 1.7381, z: 1.4847}
+  m_LocalScale: {x: 2.96375, y: 1.7380999, z: 1.4846998}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1178018201}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0.731, y: 0, z: 0}
 --- !u!23 &1741601711
 MeshRenderer:
@@ -9737,6 +9742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markup: 5.5
   shopMenu: {fileID: 1506842206}
+  headButton: {fileID: 902922706}
   equipmentMenu: {fileID: 1670561750}
   eqButtonPrefab: {fileID: 8447601673100786078, guid: 8340927d67b08ac40b7f06b63d077987, type: 3}
   buttonParent: {fileID: 332001046}
@@ -11186,6 +11192,7 @@ SceneRoots:
   - {fileID: 1619872320}
   - {fileID: 324440218}
   - {fileID: 4636114583456862999}
+  - {fileID: 1741601709}
   - {fileID: 74703615}
   - {fileID: 1999187155}
   - {fileID: 962452581}
