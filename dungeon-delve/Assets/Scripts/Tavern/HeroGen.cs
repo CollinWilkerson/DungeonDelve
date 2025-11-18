@@ -7,6 +7,7 @@ public class HeroGen : MonoBehaviour
     private const string LegendaryHeroFilepath = "Legends/Tavern";
 
     [SerializeField] GameObject[] TableObjects;
+    [SerializeField] GameObject Shopkeep;
 
     private GameObject[] spawnPoints;
     private int heroesToSpawn;
@@ -14,11 +15,17 @@ public class HeroGen : MonoBehaviour
     private void Start()
     {
         MakeTablesActive();
+        TrySpawnShopkeep();
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         heroesToSpawn = spawnPoints.Length;
 
         SpawnHeroes();
 
+    }
+
+    public void TrySpawnShopkeep()
+    {
+            Shopkeep.SetActive(TavernData.shopPurchased);
     }
 
     private void SpawnHeroes()

@@ -11,6 +11,7 @@ public class HeroHireMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI abilityText;
     [SerializeField] private TextMeshProUGUI flavorText;
     [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private GameObject HireButton;
     private int cost;
     private int index;
     private string heroName;
@@ -42,6 +43,8 @@ public class HeroHireMenu : MonoBehaviour
         filePath = _filePath;
         sceneObject = _sceneObject;
         index = _index;
+
+        HighlightedUIManager.SelectUIGameObject(HireButton);
     }
 
     public void TryHire()

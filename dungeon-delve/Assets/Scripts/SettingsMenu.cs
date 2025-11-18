@@ -21,6 +21,11 @@ public class SettingsMenu : MonoBehaviour
             TavernData.MouseSensitivity *= 50;
         #endif
     }
+    
+    public void SetActiveUI(GameObject uiElement)
+    {
+        HighlightedUIManager.SelectUIGameObject(uiElement);
+    }
 
     public void QuitGame()
     {

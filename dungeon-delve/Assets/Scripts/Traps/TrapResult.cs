@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ public class TrapResult : MonoBehaviour
     public void WinTrap(TrapBase trap)
     {
         winScreen.SetActive(true);
+        HighlightedUIManager.SelectUIGameObject(winScreen.GetComponentInChildren<Button>().gameObject);
         PlayerData.AddTempGold(trap.goldValue);
         //give treasure
         EncounterRewards.GetTreasure();
@@ -30,6 +32,7 @@ public class TrapResult : MonoBehaviour
     public void LoseTrap(TrapBase trap)
     {
         lossScreen.SetActive(true);
+        HighlightedUIManager.SelectUIGameObject(lossScreen.GetComponentInChildren<Button>().gameObject);
         int i = 0;
         foreach (MercObject merc in MercObject.Party)
         {

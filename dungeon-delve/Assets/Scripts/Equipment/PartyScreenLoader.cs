@@ -16,6 +16,10 @@ public class PartyScreenLoader : MonoBehaviour
             {
                 GameObject go = Instantiate(HeroContainerPrefab, PartyVLG);
                 go.GetComponent<HeroContainerBehavior>().Initialize(merc, partyIndex);
+                if(partyIndex == 0)
+                {
+                    HighlightedUIManager.SelectUIGameObject(go);
+                }
                 partyIndex++;
             }
         }

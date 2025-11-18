@@ -71,6 +71,7 @@ public class UpgradeControl : MonoBehaviour, IInteractable
         {
             upgradeMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
+            HighlightedUIManager.SelectUIGameObject(ShopButton.gameObject);
             return;
         }
         Cursor.lockState = CursorLockMode.Locked;

@@ -43,7 +43,7 @@ public class TavernUpgradeFunctions
         {
             PlayerData.SpendGold(shopCost);
             TavernData.shopPurchased = true;
-            //call some method that sets the shop active
+            GameObject.FindAnyObjectByType<HeroGen>().TrySpawnShopkeep();
             return true;
         }
         return false;

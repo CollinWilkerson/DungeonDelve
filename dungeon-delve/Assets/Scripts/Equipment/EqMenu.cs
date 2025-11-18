@@ -4,8 +4,11 @@ public class EqMenu : MonoBehaviour
 {
     [SerializeField] private Transform buttonVLG;
 
+    private bool firstEq;
+
     public void Initialize(bool isWeapon)
     {
+        firstEq = false;
         if (isWeapon)
         {
             GetWeapon();
@@ -66,5 +69,10 @@ public class EqMenu : MonoBehaviour
     {
         GameObject go = Instantiate(Resources.Load<GameObject>("EqButton"), buttonVLG);
         go.GetComponent<EqSelect>().Initialize(eq, gameObject);
+        if (!firstEq)
+        {
+            HighlightedUIManager.SelectUIGameObject(go);
+            firstEq = true;
+        }
     }
 }

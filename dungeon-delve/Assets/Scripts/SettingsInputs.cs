@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class SettingsInputs : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject SelectedButton;
     private InputAction pauseAction;
 
     private void Start()
@@ -25,6 +26,7 @@ public class SettingsInputs : MonoBehaviour
         if (pauseMenu.activeSelf)
         {
             Cursor.lockState = CursorLockMode.None;
+            HighlightedUIManager.SelectUIGameObject(SelectedButton);
             return;
         }
         Cursor.lockState = CursorLockMode.Locked;
