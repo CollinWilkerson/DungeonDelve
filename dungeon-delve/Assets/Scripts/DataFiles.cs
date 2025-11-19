@@ -1,14 +1,7 @@
 using UnityEngine;
 
-public class DataFiles : MonoBehaviour
+public class DataFiles
 {
-    [Header("CSV Data files")]
-    [SerializeField] private TextAsset HeroData;
-    [SerializeField] private TextAsset MonsterData; //monster difficulties are selected via prefab path
-    [SerializeField] private TextAsset ItemData;
-    [SerializeField] private TextAsset EqData;
-
-    private static DataFiles instance;
 
     public static string[] Heroes;
     public static string[] Monsters;
@@ -43,26 +36,6 @@ public class DataFiles : MonoBehaviour
     private static int lv3_eventSelectionWeight = 1;
 
     private static string[] lv3_trapSceneNames = { "Explosives", "Illusion", "Skyhold" };
-
-    private void Awake()
-    {
-        //its a singleton
-        if (instance)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
-
-        DontDestroyOnLoad(gameObject);
-
-        Heroes = HeroData.text.Split(new string[] { "\r\n", "\r", "\n" }, System.StringSplitOptions.None);
-        Monsters = MonsterData.text.Split(new string[] { "\r\n", "\r", "\n" }, System.StringSplitOptions.None);
-        Items = ItemData.text.Split(new string[] { "\r\n", "\r", "\n" }, System.StringSplitOptions.None);
-        Eq = EqData.text.Split(new string[] { "\r\n", "\r", "\n" }, System.StringSplitOptions.None);
-    }
 
     //could update this to take difficulty into account later
     public static string SelectEncounter()
@@ -156,20 +129,6 @@ public class DataFiles : MonoBehaviour
         }
         //replace with boss monster
         return Resources.Load<GameObject>("Bosses/Behemoth");
-    }
-
-    public static GameObject SelectMinon()
-    {
-        if (PlayerData.levelsCleared + 1 == PlayerData.level1Cutoff)
-        { //replace with lv1 boss
-            return Resources.Load<GameObject>("MonstersLv1/Goblin");
-        }
-        if (PlayerData.levelsCleared + 1 == PlayerData.level2Cutoff)
-        {   //replace with lv 2 boss
-            return Resources.Load<GameObject>("MonstersLv2/Vetala");
-        }
-        //replace with boss monster
-        return Resources.Load<GameObject>("MonstersLv3/Saratan");
     }
 
     public static string GetRandomName()

@@ -76,7 +76,7 @@ public class MercObject
         health = Health;
     }
 
-    public int GetHealth()
+    public int GexMaxHealth()
     {
         return health;
     }

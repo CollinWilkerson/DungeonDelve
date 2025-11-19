@@ -79,7 +79,7 @@ public class HeroController : MercenaryController
         statDisplay.SetHealthbar(maxHealth);
 
         //i could probably just do the stat adjustments here
-        health = MercObject.Party[_partyOrder].GetHealth();
+        health = MercObject.Party[_partyOrder].GexMaxHealth();
         if (health == -99)
         {
             Heal(int.MaxValue);
