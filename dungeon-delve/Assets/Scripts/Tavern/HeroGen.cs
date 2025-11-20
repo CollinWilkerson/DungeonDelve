@@ -117,4 +117,10 @@ public class HeroGen : MonoBehaviour
     {
         TableObjects[TableToActivate].SetActive(true);
     }
+
+    public void TestSetup(GameObject[] tables, GameObject shopkeep)
+    {
+        TableObjects = tables;
+        Shopkeep = shopkeep;
+    }
 }
