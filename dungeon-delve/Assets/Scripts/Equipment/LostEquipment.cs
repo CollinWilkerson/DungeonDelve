@@ -91,6 +91,15 @@ public class LostEquipment
         return GetLostEquipment(head, encounterNumber);
     }
 
+    public static bool IsAnyEquipment()
+    {
+        if(head == null)
+        {
+            return false;
+        }
+        return true;
+    }
+
     private static Equipment[] GetLostEquipment(LostEquipment node, int encounterNumber)
     {
         if(node.next == null)
