@@ -49,6 +49,10 @@ public class HeroHireMenu : MonoBehaviour
 
     public void TryHire()
     {
+        if(MercObject.Party[3] != null)
+        {
+            return;
+        }
         if(PlayerData.GetGold() >= cost)
         {
             //Debug.Log("hired");
