@@ -10,6 +10,10 @@ public class Fetch : MonoBehaviour, IEvent
         {
             return "Not enough gold";
         }
+        if (!LostEquipment.IsAnyEquipment())
+        {
+            return "No equipment to retrive";
+        }
         return "Retrive Equipment - " + price + "G";
     }
 
@@ -44,6 +48,10 @@ public class Fetch : MonoBehaviour, IEvent
         if(PlayerData.GetGold() < price)
         {
             return;
+        }
+        if (!LostEquipment.IsAnyEquipment())
+        {
+            return ;
         }
         for(int i = 0; i < PlayerData.level3Cutoff; i++)
         {
