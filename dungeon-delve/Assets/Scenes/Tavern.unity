@@ -10594,8 +10594,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: If you fail, Don't worry, Dungeon Delve is meant to take several delves
-    to beat the boss.
+  m_text: After your first delve, you will get equipment to give to your heroes.
+    Press E to open the party menu.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1ddbb32e1246fc4a9ac822d7e67c6dd, type: 2}
   m_sharedMaterial: {fileID: 3010730387614246538, guid: a1ddbb32e1246fc4a9ac822d7e67c6dd, type: 2}

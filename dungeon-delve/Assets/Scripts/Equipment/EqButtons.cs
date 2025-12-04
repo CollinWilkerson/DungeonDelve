@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class EqButtons : MonoBehaviour
 {
+
+    [SerializeField] private Sprite EmptyWeaponSprite;
+    [SerializeField] private Sprite EmptyArmorSprite;
     [SerializeField] private Image WeaponImage;
     [SerializeField] private Image ArmorImage;
 
@@ -63,5 +66,14 @@ public class EqButtons : MonoBehaviour
     {
         WeaponImage.sprite = merc.weapon?.GetSprite();
         ArmorImage.sprite = merc.armor?.GetSprite();
+
+        if(WeaponImage.sprite == null)
+        {
+            WeaponImage.sprite = EmptyWeaponSprite;
+        }
+        if(ArmorImage.sprite == null)
+        {
+            ArmorImage.sprite = EmptyArmorSprite;
+        }
     }
 }
