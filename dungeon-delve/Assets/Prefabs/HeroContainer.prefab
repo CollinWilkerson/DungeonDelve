@@ -88,6 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063110c6473cbe84489892158631c6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EmptyWeaponSprite: {fileID: 21300000, guid: f1ee0fa986b05a3479765f24eb1812ec, type: 3}
+  EmptyArmorSprite: {fileID: 21300000, guid: f0ba7a77e7cd387488cda155eb2c4d8a, type: 3}
   WeaponImage: {fileID: 7044341777889917543}
   ArmorImage: {fileID: 5975214198334861923}
 --- !u!114 &4519264702725139636
@@ -223,7 +225,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f0ba7a77e7cd387488cda155eb2c4d8a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1559,7 +1561,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f1ee0fa986b05a3479765f24eb1812ec, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

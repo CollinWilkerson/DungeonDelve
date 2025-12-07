@@ -51,7 +51,7 @@ public class LostHero : MonoBehaviour, IEvent
 
     public void Option2()
     {
-        MercObject.AddHeroToParty(new MercObject(Random.Range(0, DataFiles.Heroes.Length)));
+        MercObject.AddHeroToParty(new MercObject(Random.Range(1, DataFiles.Heroes.Length)));
         PlayerData.levelsCleared++;
         SceneManager.LoadScene("EncounterWin");
     }

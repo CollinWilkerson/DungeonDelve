@@ -10015,14 +10015,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030550113}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.7071066, z: -0, w: 0.707107}
   m_LocalPosition: {x: 0, y: 2.17, z: 0}
   m_LocalScale: {x: 3.62491, y: 3.62491, z: 3.62491}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1676792299}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &2030550119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10594,8 +10594,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: If you fail, Don't worry, Dungeon Delve is meant to take several delves
-    to beat the boss.
+  m_text: After your first delve, you will get equipment to give to your heroes.
+    Press E to open the party menu.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1ddbb32e1246fc4a9ac822d7e67c6dd, type: 2}
   m_sharedMaterial: {fileID: 3010730387614246538, guid: a1ddbb32e1246fc4a9ac822d7e67c6dd, type: 2}
