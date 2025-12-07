@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using System.IO;
 using TMPro;
 
 public class ItemButtonActions : MonoBehaviour
@@ -17,7 +16,7 @@ public class ItemButtonActions : MonoBehaviour
         //this creates the item from the set index
         string scriptName = DataFiles.Items[index].Split(',')[1];
         item = gameObject.AddComponent(Type.GetType(scriptName)) as IItem;
-        nameText.text = item.ReturnName();
+        nameText.text = item.GetName();
         descriptionText.text = item.GetDescription();
     }
     public void ItemClick()

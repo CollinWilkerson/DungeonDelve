@@ -27,6 +27,18 @@ public class TrapResult : MonoBehaviour
         PlayerData.AddTempGold(trap.goldValue);
         //give treasure
         EncounterRewards.GetTreasure();
+        DisplayReward();
+
+    }
+
+    private static void DisplayReward()
+    {
+        if (EncounterRewards.lastIsItem)
+        {
+            FindAnyObjectByType<RewardDisplay>()?.DisplayReward(EncounterRewards.lastItem);
+            return;
+        }
+        FindAnyObjectByType<RewardDisplay>()?.DisplayReward(EncounterRewards.lastEquipment);
     }
 
     public void LoseTrap(TrapBase trap)

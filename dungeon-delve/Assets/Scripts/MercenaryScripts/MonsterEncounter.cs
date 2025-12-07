@@ -13,6 +13,7 @@ public class MonsterEncounter : MonoBehaviour
     [SerializeField] protected Transform monsterFrontline;
     [SerializeField] private Transform heroFrontline;
     [SerializeField] private Transform heroBackline;
+    [SerializeField] private GameObject winScreenInitializer;
 
     protected static HeroController[] HeroMercs;
     protected static MonsterController[] EnemyMercs;
@@ -21,6 +22,9 @@ public class MonsterEncounter : MonoBehaviour
     public static event mercTick OnMercTick;
 
     private static List<Equipment> deadEq = new List<Equipment>();
+    private static GameObject winScreen;
+
+    private static bool EncounterEnded;
 
 
     private void Awake()
@@ -30,6 +34,9 @@ public class MonsterEncounter : MonoBehaviour
         HeroMercs = new HeroController[4];
         EnemyMercs = new MonsterController[4];
         StartTickSpeed = TickSpeed;
+        winScreen = winScreenInitializer;
+
+        EncounterEnded = false;
 
         //for debuging, spawns a hero in an empty party
         /*if (MercObject.Party[0] == null)
@@ -134,6 +141,10 @@ public class MonsterEncounter : MonoBehaviour
     //this works so far, more enemies end up in EnemyMercs and I'm not sure why
     public static void QuereyWin(MercenaryController deadMonster)
     {
+        if (EncounterEnded)
+        {
+            return;
+        }
         EnemyMercs[deadMonster.partyOrder] = null;
         foreach (MercenaryController mercenary in EnemyMercs)
         {
@@ -141,7 +152,7 @@ public class MonsterEncounter : MonoBehaviour
                 return;
         }
         //Debug.Log("Hero Win");
-        
+        EncounterEnded = true;
         //updates the health for every existing merc
         for (int i = 0; i < MercObject.Party.Length; i++)
         {
@@ -154,18 +165,19 @@ public class MonsterEncounter : MonoBehaviour
         FillFirstPosition();
         Equipment.AddEq(deadEq.ToArray());
         Equipment[] e = LostEquipment.GetLostEquipment(PlayerData.levelsCleared);
-        if (e != null)
-        {
-            Debug.Log("regained eq");
-        }
         Equipment.AddEq(e);
         //Equipment.AddEq(LostEquipment.GetLostEquipment(PlayerData.levelsCleared));
         PlayerData.levelsCleared += 1;
-        SceneManager.LoadScene("EncounterWin");
+        winScreen.SetActive(true);
+        DisplayReward();
     }
 
     public static void QuereyLoss(MercenaryController deadHero)
     {
+        if (EncounterEnded)
+        {
+            return;
+        }
         MercObject merc = MercObject.Party[deadHero.partyOrder];
         if (merc.armor != null)
         {
@@ -185,6 +197,7 @@ public class MonsterEncounter : MonoBehaviour
                 return;
             }
         }
+        EncounterEnded = true;
         Debug.Log("Monster Win");
         LostEquipment.Insert(PlayerData.levelsCleared, deadEq.ToArray());
         SceneManager.LoadScene("EncounterLoss");
@@ -249,5 +262,20 @@ public class MonsterEncounter : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void OnNextButton()
+    {
+        SceneManager.LoadScene("EncounterWin");
+    }
+
+    private static void DisplayReward()
+    {
+        if (EncounterRewards.lastIsItem)
+        {
+            FindAnyObjectByType<RewardDisplay>()?.DisplayReward(EncounterRewards.lastItem);
+            return;
+        }
+        FindAnyObjectByType<RewardDisplay>()?.DisplayReward(EncounterRewards.lastEquipment);
     }
 }

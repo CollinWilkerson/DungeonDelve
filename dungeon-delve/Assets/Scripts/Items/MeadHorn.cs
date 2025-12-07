@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MeadHorn : MonoBehaviour, IItem
 {
-    public string ReturnName()
+    public string GetName()
     {
         return "Mead Horn";
     }

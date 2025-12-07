@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SmokeBomb : MonoBehaviour,IItem
 {
-    public string ReturnName()
+    public string GetName()
     {
         return "Smoke Bomb";
     }
