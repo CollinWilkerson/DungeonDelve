@@ -7275,6 +7275,7 @@ GameObject:
   - component: {fileID: 1624161769}
   - component: {fileID: 1624161771}
   - component: {fileID: 1624161770}
+  - component: {fileID: 1624161772}
   m_Layer: 5
   m_Name: PartyData
   m_TagString: Untagged
@@ -7341,6 +7342,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624161768}
   m_CullTransparentMesh: 1
+--- !u!114 &1624161772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624161768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d4000d7bd1064bb68e2a561600fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeroContainerPrefab: {fileID: 698972850296083472, guid: 9b6586d754fc8da40bcc871107faa2bd, type: 3}
+  PartyVLG: {fileID: 1670752097}
+  DependantMenues:
+  - {fileID: 199168799}
 --- !u!1 &1649170754
 GameObject:
   m_ObjectHideFlags: 0
