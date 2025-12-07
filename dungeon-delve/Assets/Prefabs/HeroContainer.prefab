@@ -88,8 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063110c6473cbe84489892158631c6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmptyWeaponSprite: {fileID: 21300000, guid: 9173f9dea1aee2544a6f3c6b927189d3, type: 3}
-  EmptyArmorSprite: {fileID: 21300000, guid: dcd3919979c7987448d671f6f6f370c9, type: 3}
+  EmptyWeaponSprite: {fileID: 21300000, guid: f1ee0fa986b05a3479765f24eb1812ec, type: 3}
+  EmptyArmorSprite: {fileID: 21300000, guid: f0ba7a77e7cd387488cda155eb2c4d8a, type: 3}
   WeaponImage: {fileID: 7044341777889917543}
   ArmorImage: {fileID: 5975214198334861923}
 --- !u!114 &4519264702725139636
